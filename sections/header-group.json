@@ -1,1 +1,84 @@
-{"type":"header","name":"t:sections.header-group.name","sections":{"176672896960b13338":{"type":"_blocks","settings":{}},"announcement":{"type":"announcement","blocks":{"announcement-0":{"type":"announcement","settings":{"text":"Free shipping","link_text":"On all orders over $100","link":"shopify:\/\/collections\/no-appologies-club"}},"announcement-1":{"type":"announcement","disabled":true,"settings":{"text":"Hassle-free returns","link_text":"30-day postage paid returns","link":""}}},"block_order":["announcement-0","announcement-1"],"settings":{"announcement_compact":true}},"1766728163044ca7ab":{"type":"apps","disabled":true,"settings":{"full_width":true,"space_around":false}},"header":{"type":"header","blocks":{"logo":{"type":"logo","settings":{"logo":"shopify:\/\/shop_images\/logo_e95315c8-5f4e-49c6-a5a3-0d160a5d0bf7.png","logo-inverted":"shopify:\/\/shop_images\/logo_e95315c8-5f4e-49c6-a5a3-0d160a5d0bf7.png","desktop_logo_width":140,"mobile_logo_width":140}}},"block_order":["logo"],"settings":{"main_menu_link_list":"main-menu","hover_menu":true,"mega_menu_images":true,"main_menu_alignment":"left-center","header_style":"sticky","sticky_index":true,"sticky_collection":true,"toolbar_menu":"","toolbar_social":true,"show_locale_selector":true,"show_currency_selector":true,"show_currency_flags":false}},"countdown_timer_GPp9E7":{"type":"countdown-timer","name":"Countdown Timer","settings":{"title":"🔥 Offer Ends In","end_date":"2025-12-31 23:59:59","expired_text":"❌ Offer Expired","bg_color":"#111111","box_color":"#1c1c1c","text_color":"#ffffff","number_color":"#ff4444"}}},"order":["176672896960b13338","announcement","1766728163044ca7ab","header","countdown_timer_GPp9E7"]}
+{
+  "type": "header",
+  "name": "t:sections.header-group.name",
+  "sections": {
+    "176672896960b13338": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "announcement": {
+      "type": "announcement",
+      "blocks": {
+        "announcement-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free shipping",
+            "link_text": "On all orders over $100",
+            "link": "shopify://collections/no-apologies-club"
+          }
+        },
+        "announcement-1": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Hassle-free returns",
+            "link_text": "30-day postage paid returns",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-0",
+        "announcement-1"
+      ],
+      "settings": {
+        "announcement_compact": true
+      }
+    },
+    "1766728163044ca7ab": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "space_around": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "logo": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_e95315c8-5f4e-49c6-a5a3-0d160a5d0bf7.png",
+            "logo-inverted": "shopify://shop_images/logo_e95315c8-5f4e-49c6-a5a3-0d160a5d0bf7.png",
+            "desktop_logo_width": 140,
+            "mobile_logo_width": 140
+          }
+        }
+      },
+      "block_order": [
+        "logo"
+      ],
+      "settings": {
+        "main_menu_link_list": "main-menu",
+        "hover_menu": true,
+        "mega_menu_images": true,
+        "main_menu_alignment": "left-center",
+        "header_style": "sticky",
+        "sticky_index": true,
+        "sticky_collection": true,
+        "toolbar_menu": "",
+        "toolbar_social": true,
+        "show_locale_selector": true,
+        "show_currency_selector": true,
+        "show_currency_flags": false
+      }
+    }
+  },
+  "order": [
+    "176672896960b13338",
+    "announcement",
+    "1766728163044ca7ab",
+    "header"
+  ]
+}
