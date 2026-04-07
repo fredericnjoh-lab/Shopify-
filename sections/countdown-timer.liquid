@@ -1,0 +1,140 @@
+{% comment %}
+  Countdown Timer Section
+{% endcomment %}
+
+<div class="countdown-section" data-end="{{ section.settings.end_date }}">
+  {% if section.settings.title != blank %}
+    <h3 class="countdown-title">{{ section.settings.title }}</h3>
+  {% endif %}
+
+  <div class="countdown-timer" id="countdown-{{ section.id }}">
+    <span><strong class="days">00</strong><small>Days</small></span>
+    <span><strong class="hours">00</strong><small>Hours</small></span>
+    <span><strong class="minutes">00</strong><small>Minutes</small></span>
+    <span><strong class="seconds">00</strong><small>Seconds</small></span>
+  </div>
+</div>
+
+<style>
+  .countdown-section {
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 100%;
+  }
+
+  .countdown-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .countdown-timer span {
+    background: {{ section.settings.box_color }};
+    padding: 10px 14px;
+    border-radius: 8px;
+    min-width: 70px;
+  }
+
+  .countdown-timer strong {
+    display: block;
+    font-size: 22px;
+    color: {{ section.settings.number_color }};
+  }
+
+  .countdown-timer small {
+    font-size: 12px;
+  }
+</style>
+
+<script>
+  (function () {
+    var container = document.getElementById("countdown-{{ section.id }}");
+    if (!container) return;
+
+    var endDate = new Date("{{ section.settings.end_date }}").getTime();
+
+    var interval = setInterval(function () {
+      var now = new Date().getTime();
+      var distance = endDate - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        container.innerHTML = "{{ section.settings.expired_text }}";
+        return;
+      }
+
+      container.querySelector(".days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+      container.querySelector(".hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      container.querySelector(".minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      container.querySelector(".seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Countdown Timer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "🔥 Offer Ends In"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End Date & Time (YYYY-MM-DD HH:MM:SS)",
+      "default": "2025-12-31 23:59:59"
+    },
+    {
+      "type": "text",
+      "id": "expired_text",
+      "label": "Expired Text",
+      "default": "❌ Offer Expired"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "box_color",
+      "label": "Timer Box Color",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "number_color",
+      "label": "Number Color",
+      "default": "#ff4444"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown Timer",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}
+
+
