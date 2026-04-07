@@ -83,25 +83,59 @@
         "show_currency_flags": false
       }
     },
-    "countdown_timer_GPp9E7": {
-      "type": "countdown-timer",
-      "name": "Countdown Timer",
+    "brand_statement_bar": {
+      "type": "brand-statement-bar",
+      "blocks": {
+        "msg-1": {
+          "type": "message",
+          "settings": {
+            "text": "United by Attitude. Divided by Nothing.",
+            "link": "shopify://collections/no-apologies-club"
+          }
+        },
+        "msg-2": {
+          "type": "message",
+          "settings": {
+            "text": "Free worldwide shipping over $100",
+            "link": ""
+          }
+        },
+        "msg-3": {
+          "type": "message",
+          "settings": {
+            "text": "Refined in Paris. Worn everywhere.",
+            "link": "shopify://pages/about"
+          }
+        },
+        "msg-4": {
+          "type": "message",
+          "settings": {
+            "text": "The Culture Doesn't Wait.",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "msg-1",
+        "msg-2",
+        "msg-3",
+        "msg-4"
+      ],
       "settings": {
-        "title": "🔥 Offer Ends In",
-        "end_date": "2025-12-31 23:59:59",
-        "expired_text": "❌ Offer Expired",
-        "bg_color": "#111111",
-        "box_color": "#1c1c1c",
-        "text_color": "#ffffff",
-        "number_color": "#ff4444"
+        "bg_color": "#0A0A0A",
+        "text_color": "#F5F4F0",
+        "accent_color": "#B8975A",
+        "bar_height": 44,
+        "font_size": 13,
+        "rotation_speed": 4
       }
     }
   },
   "order": [
     "176672896960b13338",
     "announcement",
+    "brand_statement_bar",
     "1766728163044ca7ab",
-    "header",
-    "countdown_timer_GPp9E7"
+    "header"
   ]
 }
