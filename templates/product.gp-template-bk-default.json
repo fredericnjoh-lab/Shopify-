@@ -1,1 +1,326 @@
-{"order":["main","sub","background-image-text","text-and-image","testimonials","text-and-image-2","product-recommendations","recently-viewed","countdown","collection-return","apps"],"sections":{"apps":{"disabled":true,"settings":{},"type":"apps"},"background-image-text":{"settings":{"button_label":"","layout":"right","subtitle":"locally crafted","text":"\u003cp\u003eWe've always believed in the power of locally made goods. The quality of the craftsmanship and the local artisans we employ are what make Luxette our mission in life.\u003c/p\u003e","title":"Made in California"},"type":"background-image-text"},"collection-return":{"settings":{},"type":"collection-return"},"countdown":{"block_order":["content","timer","button"],"blocks":{"button":{"settings":{"button":"Shop Now"},"type":"button"},"content":{"settings":{"content_alignment":"center","heading":"mega summer sale","heading_size":"h1","text":"\u003cp\u003e30% off of all summer dresses\u003c/p\u003e"},"type":"content"},"timer":{"settings":{"text":"","year":"2023"},"type":"timer"}},"settings":{"background_color":"#f9e8e0","layout":"hero","overlay_color":"#000000","overlay_opacity":30,"text_color":"#ffffff"},"type":"countdown"},"main":{"block_order":["price","separator","size_chart","variant_picker","sales_point","inventory_status","buy_buttons","description","tab","share"],"blocks":{"buy_buttons":{"settings":{"show_dynamic_checkout":true,"show_gift_card_recipient":false,"surface_pickup_enable":true},"type":"buy_buttons"},"description":{"settings":{"is_tab":false},"type":"description"},"inventory_status":{"settings":{"inventory_threshold":10,"inventory_transfers_enable":true},"type":"inventory_status"},"price":{"settings":{},"type":"price"},"sales_point":{"settings":{"icon":"globe","text":"Free worldwide shipping"},"type":"sales_point"},"separator":{"settings":{},"type":"separator"},"share":{"settings":{},"type":"share"},"size_chart":{"settings":{"size_chart":"size-chart"},"type":"size_chart"},"tab":{"settings":{"content":"\u003cp\u003eUse collapsible tabs for more detailed information that will help customers make a purchasing decision.\u003c/p\u003e\u003cp\u003eEx: Shipping and return policies, size guides, and other common questions.\u003c/p\u003e","page":"","title":"Shipping information"},"type":"tab"},"variant_picker":{"settings":{"color_swatches":false,"picker_type":"button","product_dynamic_variants_enable":true,"variant_labels":true},"type":"variant_picker"}},"settings":{"enable_video_looping":true,"image_position":"left","image_size":"large","mobile_layout":"partial","product_video_style":"muted","product_zoom_enable":true,"sku_enable":false,"thumbnail_arrows":false,"thumbnail_height":"flexible","thumbnail_position":"beside"},"type":"main-product"},"product-recommendations":{"settings":{"products_per_row":5,"related_count":5},"type":"product-recommendations"},"recently-viewed":{"settings":{},"type":"recently-viewed"},"sub":{"disabled":true,"settings":{},"type":"product-full-width"},"testimonials":{"block_order":["testimonial-1","testimonial-2","testimonial-3","testimonial-4","testimonial-5"],"blocks":{"testimonial-1":{"settings":{"author":"Leslie M.","author_info":"Toronto, ON","testimonial":"\u003cp\u003eCouldn't be happier with the service I received from this company.\u003c/p\u003e"},"type":"testimonial"},"testimonial-2":{"settings":{"author":"Rachel F.","testimonial":"\u003cp\u003eReally went out of their way to make me feel special as a customer, highly recommend!\u003c/p\u003e"},"type":"testimonial"},"testimonial-3":{"settings":{"author":"Sam R.","author_info":"Brooklyn, NY","testimonial":"\u003cp\u003eFantastic fabrics, great fit and no issues going through the laundry either!\u003c/p\u003e"},"type":"testimonial"},"testimonial-4":{"settings":{"author":"Sharon S.","author_info":"New Orleans, LA","testimonial":"\u003cp\u003eArrived fast and beautifully boxed. They even let me model on their site :)\u003c/p\u003e"},"type":"testimonial"},"testimonial-5":{"settings":{"author":"Matt C.","author_info":"Montreal, QC","testimonial":"\u003cp\u003eCouldn't be happier with the service I received from this company.\u003c/p\u003e"},"type":"testimonial"}},"settings":{"color_background":"#e4eaee","title":"Hear it from them"},"type":"testimonials"},"text-and-image":{"settings":{"button_label":"","image_width":"66","subtitle":"Every time","text":"\u003cp\u003eTailored to fit right every time. Use our handy size guide to choose the right size and if it ever doesn't fit, just return it and we'll pay the postage.\u003c/p\u003e","title":"Perfectly tailored"},"type":"text-and-image"},"text-and-image-2":{"settings":{"button_label":"","image_width":"66","layout":"left","subtitle":"Soft, breezy","text":"\u003cp\u003eKeep cool this summer with our lightweight Egyptian cotton-polyester blend, the softest shirts on the beach.\u003c/p\u003e","title":"Lightweight fabric"},"type":"text-and-image"}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "main",
+    "sub",
+    "background-image-text",
+    "text-and-image",
+    "testimonials",
+    "text-and-image-2",
+    "product-recommendations",
+    "recently-viewed",
+    "countdown",
+    "collection-return",
+    "apps"
+  ],
+  "sections": {
+    "apps": {
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      },
+      "type": "apps"
+    },
+    "background-image-text": {
+      "disabled": true,
+      "settings": {
+        "button_label": "",
+        "button_link": "",
+        "framed": false,
+        "height": 550,
+        "layout": "right",
+        "lazyload_images": true,
+        "parallax": true,
+        "parallax_direction": "top",
+        "subtitle": "locally crafted",
+        "text": "<p>We've always believed in the power of locally made goods. The quality of the craftsmanship and the local artisans we employ are what make Luxette our mission in life.</p>",
+        "title": "Made in California"
+      },
+      "type": "background-image-text"
+    },
+    "collection-return": {
+      "disabled": true,
+      "settings": {},
+      "type": "collection-return"
+    },
+    "countdown": {
+      "block_order": [
+        "content",
+        "timer",
+        "button"
+      ],
+      "blocks": {
+        "button": {
+          "settings": {
+            "button": "Shop Now",
+            "button_link": "",
+            "button_style": "solid"
+          },
+          "type": "button"
+        },
+        "content": {
+          "settings": {
+            "content_alignment": "center",
+            "heading": "mega summer sale",
+            "heading_size": "h1",
+            "text": "<p>30% off of all summer dresses</p>"
+          },
+          "type": "content"
+        },
+        "timer": {
+          "settings": {
+            "day": "1",
+            "hide_timer": false,
+            "hour": "03",
+            "minute": "00",
+            "month": "01",
+            "text": "",
+            "year": "2023"
+          },
+          "type": "timer"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "background_color": "#f9e8e0",
+        "full_width": false,
+        "layout": "hero",
+        "lazyload_images": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "text_color": "#ffffff"
+      },
+      "type": "countdown"
+    },
+    "main": {
+      "block_order": [
+        "price",
+        "separator",
+        "size_chart",
+        "variant_picker",
+        "sales_point",
+        "inventory_status",
+        "buy_buttons",
+        "description",
+        "tab",
+        "share"
+      ],
+      "blocks": {
+        "buy_buttons": {
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false,
+            "surface_pickup_enable": true
+          },
+          "type": "buy_buttons"
+        },
+        "description": {
+          "settings": {
+            "is_tab": false
+          },
+          "type": "description"
+        },
+        "inventory_status": {
+          "settings": {
+            "inventory_threshold": 10,
+            "inventory_transfers_enable": true
+          },
+          "type": "inventory_status"
+        },
+        "price": {
+          "settings": {},
+          "type": "price"
+        },
+        "sales_point": {
+          "settings": {
+            "icon": "globe",
+            "text": "Free worldwide shipping"
+          },
+          "type": "sales_point"
+        },
+        "separator": {
+          "settings": {},
+          "type": "separator"
+        },
+        "share": {
+          "settings": {},
+          "type": "share"
+        },
+        "size_chart": {
+          "settings": {
+            "size_chart": "size-chart"
+          },
+          "type": "size_chart"
+        },
+        "tab": {
+          "settings": {
+            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "page": "",
+            "title": "Shipping information"
+          },
+          "type": "tab"
+        },
+        "variant_picker": {
+          "settings": {
+            "color_swatches": false,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "variant_labels": true
+          },
+          "type": "variant_picker"
+        }
+      },
+      "settings": {
+        "enable_video_looping": true,
+        "image_position": "left",
+        "image_size": "medium",
+        "mobile_layout": "partial",
+        "product_video_style": "muted",
+        "product_zoom_enable": true,
+        "sku_enable": false,
+        "thumbnail_arrows": false,
+        "thumbnail_height": "flexible",
+        "thumbnail_position": "beside"
+      },
+      "type": "main-product"
+    },
+    "product-recommendations": {
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "products_per_row": 5,
+        "related_count": 5
+      },
+      "type": "product-recommendations"
+    },
+    "recently-viewed": {
+      "settings": {
+        "recent_count": 5
+      },
+      "type": "recently-viewed"
+    },
+    "sub": {
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      },
+      "type": "product-full-width"
+    },
+    "testimonials": {
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2",
+        "testimonial-3",
+        "testimonial-4",
+        "testimonial-5"
+      ],
+      "blocks": {
+        "testimonial-1": {
+          "settings": {
+            "author": "Leslie M.",
+            "author_info": "Toronto, ON",
+            "icon": "5-stars",
+            "testimonial": "<p>Couldn't be happier with the service I received from this company.</p>"
+          },
+          "type": "testimonial"
+        },
+        "testimonial-2": {
+          "settings": {
+            "author": "Rachel F.",
+            "author_info": "Los Angeles, CA",
+            "icon": "5-stars",
+            "testimonial": "<p>Really went out of their way to make me feel special as a customer, highly recommend!</p>"
+          },
+          "type": "testimonial"
+        },
+        "testimonial-3": {
+          "settings": {
+            "author": "Sam R.",
+            "author_info": "Brooklyn, NY",
+            "icon": "5-stars",
+            "testimonial": "<p>Fantastic fabrics, great fit and no issues going through the laundry either!</p>"
+          },
+          "type": "testimonial"
+        },
+        "testimonial-4": {
+          "settings": {
+            "author": "Sharon S.",
+            "author_info": "New Orleans, LA",
+            "icon": "5-stars",
+            "testimonial": "<p>Arrived fast and beautifully boxed. They even let me model on their site :)</p>"
+          },
+          "type": "testimonial"
+        },
+        "testimonial-5": {
+          "settings": {
+            "author": "Matt C.",
+            "author_info": "Montreal, QC",
+            "icon": "5-stars",
+            "testimonial": "<p>Couldn't be happier with the service I received from this company.</p>"
+          },
+          "type": "testimonial"
+        }
+      },
+      "settings": {
+        "align_text": "center",
+        "color_background": "#e4eaee",
+        "color_text": "#1c1d1d",
+        "round_images": true,
+        "title": "Our satisfied clients"
+      },
+      "type": "testimonials"
+    },
+    "text-and-image": {
+      "settings": {
+        "align_text": "left",
+        "bottom_padding": true,
+        "button_label": "",
+        "button_link": "shopify://collections/hoodies",
+        "button_style": "primary",
+        "divider": false,
+        "image": "shopify://shop_images/gempages_587236893280699242-6b5b70a0-13d7-40b1-8aaa-482c2c5654c4.jpg",
+        "image2": "shopify://shop_images/gempages_587236893280699242-30d64143-e4c7-4aea-adc0-0d853f48c750.jpg",
+        "image2_mask": "none",
+        "image_mask": "none",
+        "image_width": "66",
+        "layout": "right",
+        "lazyload_images": true,
+        "subtitle": "Every time",
+        "text": "<p>Tailored to fit right every time. Use our handy size guide to choose the right size and if it ever doesn't fit, just return it and we'll pay the postage.</p>",
+        "title": "Perfectly tailored",
+        "top_padding": true
+      },
+      "type": "text-and-image"
+    },
+    "text-and-image-2": {
+      "settings": {
+        "align_text": "left",
+        "bottom_padding": true,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "divider": false,
+        "image": "shopify://shop_images/gempages_587236893280699242-8879674c-2ffe-4e08-ab3d-5a4f43de926d.jpg",
+        "image2": "shopify://shop_images/gempages_587236893280699242-eb5580b8-7314-4c0f-8077-9c4004c52c8c.jpg",
+        "image2_mask": "none",
+        "image_mask": "none",
+        "image_width": "66",
+        "layout": "left",
+        "lazyload_images": true,
+        "subtitle": "Jacket,Hoody",
+        "text": "<p>Discover our collection of hoodies and jackets—designed to keep you cozy without compromising on style. Whether you’re layering up for chilly mornings or making a statement on the go, our pieces combine quality fabrics with modern designs.</p><p></p>",
+        "title": "100% cotton face",
+        "top_padding": true
+      },
+      "type": "text-and-image"
+    }
+  }
+}
