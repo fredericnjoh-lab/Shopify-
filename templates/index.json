@@ -150,8 +150,8 @@
         "image2": "shopify://shop_images/WhatsApp_Image_2025-10-26_at_5.00.30_AM_1.jpg",
         "image2_mask": "none",
         "subtitle": "",
-        "title": "No Apologies Club – The FredJo® Paris Capsule",
-        "text": "<p>Designed in Paris, this <a href=\"/collections/no-appologies-club\" target=\"_blank\" title=\"No Appologies club\">FredJo®</a> capsule fuses luxury streetwear aesthetics with the energy of urban confidence.<br/>Each piece embodies a quiet strength — refined, structured, and effortlessly bold.</p>",
+        "title": "No Apologies Club \u2013 The FredJo\u00ae Paris Capsule",
+        "text": "<p>Designed in Paris, this <a href=\"/collections/no-appologies-club\" target=\"_blank\" title=\"No Appologies club\">FredJo\u00ae</a> capsule fuses luxury streetwear aesthetics with the energy of urban confidence.<br/>Each piece embodies a quiet strength \u2014 refined, structured, and effortlessly bold.</p>",
         "button_label": "Shop now",
         "button_link": "shopify://collections/no-apologies-club",
         "button_style": "primary",
@@ -204,7 +204,8 @@
         "overlay_opacity": 0,
         "mobile_image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.37_PM_2.jpg",
         "lazyload_images": true
-      }
+      },
+      "disabled": true
     },
     "promo-grid-1": {
       "type": "promo-grid",
@@ -236,7 +237,7 @@
             "subheading": "",
             "heading": "Stylish Versatility",
             "textarea": "",
-            "cta_text1": "Discover What’s New",
+            "cta_text1": "Discover What\u2019s New",
             "cta_link1": "shopify://collections/sneakers-1",
             "cta_text2": "",
             "cta_link2": "",
@@ -278,7 +279,7 @@
           "type": "text",
           "settings": {
             "enlarge_text": true,
-            "text": "<p>Fashion inspired by where we're from — the sunny shores of California.<br/><a href=\"/collections/all\" title=\"All products\">Products</a></p>"
+            "text": "<p>Fashion\u00a0inspired by where we're from \u2014 the sunny shores of California.<br/><a href=\"/collections/all\" title=\"All products\">Products</a></p>"
           }
         }
       },
@@ -382,18 +383,6 @@
         "image_position": "left",
         "hotspot_style": "tag",
         "hotspot_color": "#321004",
-        "lazyload_images": true
-      }
-    },
-    "map": {
-      "type": "map",
-      "settings": {
-        "map_title": "",
-        "address": "",
-        "map_address": "301 Front St W, Toronto, ON M5V 2T6",
-        "api_key": "",
-        "show_button": true,
-        "background_image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.36_PM.jpg",
         "lazyload_images": true
       }
     },
@@ -575,7 +564,7 @@
             "image_mask": "none",
             "image_width": 650,
             "title": "",
-            "text": "<p>The <a href=\"/collections/no-appologies-club\" title=\"No Appologies club\"><strong>No Apologies Club Hoodie</strong></a> is made for those who move with confidence and don’t follow rules — they set them.</p><p>Crafted from a soft, heavyweight fabric with a relaxed fit, this hoodie delivers all-day comfort while making a bold statement. The striking red embroidery stands out against deep black fabric, creating a powerful streetwear essential you can wear anywhere.</p>",
+            "text": "<p>The <a href=\"/collections/no-appologies-club\" title=\"No Appologies club\"><strong>No Apologies Club Hoodie</strong></a> is made for those who move with confidence and don\u2019t follow rules \u2014 they set them.</p><p>Crafted from a soft, heavyweight fabric with a relaxed fit, this hoodie delivers all-day comfort while making a bold statement. The striking red embroidery stands out against deep black fabric, creating a powerful streetwear essential you can wear anywhere.</p>",
             "button_label": "Learn More",
             "button_link": "shopify://collections/no-apologies-club"
           }
@@ -588,7 +577,7 @@
             "image_mask": "none",
             "image_width": 650,
             "title": "",
-            "text": "<p>This hoodie is built around clean lines, heavy fabric, and a statement that doesn’t ask for approval. Minimal design up front. Maximum attitude in red.</p><p></p><p>Part of the <strong>FredJo capsule</strong>, it’s designed to move easily from street to off-duty without trying too hard. Wear it once and it becomes the default.</p>",
+            "text": "<p>This hoodie is built around clean lines, heavy fabric, and a statement that doesn\u2019t ask for approval. Minimal design up front. Maximum attitude in red.</p><p></p><p>Part of the <strong>FredJo capsule</strong>, it\u2019s designed to move easily from street to off-duty without trying too hard. Wear it once and it becomes the default.</p>",
             "button_label": "Learn More",
             "button_link": "shopify://collections/oversized-hoodies"
           }
@@ -601,7 +590,7 @@
             "image_mask": "none",
             "image_width": 300,
             "title": "",
-            "text": "<p>Streetwear is more than clothing — it’s culture in motion. We created this brand for those who see style as self-expression, not just fashion. Inspired by global street culture and the evolution of modern streetwear, our mission is simple: <strong>create timeless pieces that represent confidence, individuality, and community</strong>.</p><p></p>",
+            "text": "<p>Streetwear is more than clothing \u2014 it\u2019s culture in motion. We created this brand for those who see style as self-expression, not just fashion. Inspired by global street culture and the evolution of modern streetwear, our mission is simple: <strong>create timeless pieces that represent confidence, individuality, and community</strong>.</p><p></p>",
             "button_label": "Learn More",
             "button_link": "shopify://collections/sweatshirts"
           }
@@ -631,7 +620,6 @@
     "rich-text",
     "promo-grid-2",
     "hotspots",
-    "map",
     "featured-collections",
     "blog-posts",
     "featured_video_Rqpjkt",
