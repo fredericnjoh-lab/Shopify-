@@ -91,6 +91,7 @@ Arguments
             {%- if preview_image != blank -%}
               {%- render 'image-element',
                 img: preview_image,
+                alt: preview_image.alt | default: product.title,
                 classes: image_classes,
                 sizes: sizes,
                 sizeVariable: sizeVariable,
@@ -114,6 +115,7 @@ Arguments
               {%- endcapture -%}
               {%- render 'image-element',
                 img: preview_image,
+                alt: preview_image.alt | default: product.title,
                 classes: image_classes,
                 sizes: sizes,
                 sizeVariable: sizeVariable,
@@ -137,6 +139,7 @@ Arguments
             {%- endcapture -%}
             {%- render 'image-element',
               img: second_image,
+              alt: second_image.alt | default: product.title,
               classes: image_classes,
               sizes: sizes,
               sizeVariable: sizeVariable,
