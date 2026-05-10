@@ -335,7 +335,7 @@
           "settings": {
             "sale_collection": "hats",
             "top_text": "Up to",
-            "middle_text": "10% off",
+            "middle_text": "20% off",
             "bottom_text": "summer tops",
             "width": "50",
             "color_tint": "#ffffff",
@@ -360,19 +360,6 @@
     },
     "hotspots": {
       "type": "hotspots",
-      "blocks": {
-        "product": {
-          "type": "product",
-          "settings": {
-            "featured_product": "fred-jo-baby-sleeve-jersey-tee",
-            "vertical": 25,
-            "horizontal": 25
-          }
-        }
-      },
-      "block_order": [
-        "product"
-      ],
       "settings": {
         "title": "New collection for kids",
         "heading_size": "h2",
@@ -382,18 +369,6 @@
         "image_position": "left",
         "hotspot_style": "tag",
         "hotspot_color": "#321004",
-        "lazyload_images": true
-      }
-    },
-    "map": {
-      "type": "map",
-      "settings": {
-        "map_title": "",
-        "address": "",
-        "map_address": "301 Front St W, Toronto, ON M5V 2T6",
-        "api_key": "",
-        "show_button": true,
-        "background_image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.36_PM.jpg",
         "lazyload_images": true
       }
     },
@@ -631,7 +606,6 @@
     "rich-text",
     "promo-grid-2",
     "hotspots",
-    "map",
     "featured-collections",
     "blog-posts",
     "featured_video_Rqpjkt",
