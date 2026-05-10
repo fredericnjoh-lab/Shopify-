@@ -313,12 +313,12 @@ After completing each task, append a one-line entry below with the date and comm
 [x] T4  fix(seo): single h1, sequential headings — 2026-05-10 — 64385e1
 [x] T5  fix(a11y,seo): alt text — 2026-05-10 — d873415
 [x] T6  feat(seo): Product JSON-LD — 2026-05-10 — e6a5b51
-[ ] T7  feat(seo): Organization JSON-LD
-[ ] T8  feat(seo): breadcrumbs + BreadcrumbList JSON-LD
-[ ] T9  chore(seo): robots.txt
-[ ] T10 admin — nav capitalization
-[ ] T11 admin — 301 redirects audit
-[ ] T12 admin — GSC verification + sitemap
+[x] T7  feat(seo): Organization JSON-LD — 2026-05-10 — e8d5aaa
+[x] T8  feat(seo): breadcrumbs + BreadcrumbList JSON-LD — 2026-05-10 — 0312b97
+[x] T9  chore(seo): robots.txt — 2026-05-10 — 270c84d
+[ ] T10 admin — nav capitalization — Fred to do in Shopify Admin
+[ ] T11 admin — 301 redirects audit — Fred to do in Shopify Admin + GSC
+[ ] T12 admin — GSC verification + sitemap — Fred to do in GSC
 ```
 
 ---
