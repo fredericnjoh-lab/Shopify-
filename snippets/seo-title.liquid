@@ -1,5 +1,9 @@
 {%- capture seo_title -%}
-  {{ page_title }}
+  {%- if template == 'index' -%}
+    {{ shop.name }} — {{ 'general.meta.homepage_title' | t }}
+  {%- else -%}
+    {{ page_title }}
+  {%- endif -%}
   {%- if current_tags -%}
     {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
   {%- endif -%}

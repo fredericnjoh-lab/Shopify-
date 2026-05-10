@@ -7,6 +7,7 @@
       "learn_more": "Apprendre plus"
     },
     "meta": {
+      "homepage_title": "No Apologies",
       "tags": "Mots clés \"{{ tags }}\"",
       "page": "Page {{ page }}"
     },
