@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "t:sections.footer-group.name",
@@ -11,10 +20,10 @@
             "enable_image": true,
             "image": "shopify://shop_images/Screenshot_16.png",
             "image_mask": "none",
-            "title": "No Apologies Club",
-            "text": "<p>The FredJo\u00ae Paris capsule. Heavyweight construction, minimal design, maximum attitude.</p>",
-            "button_label": "Explore the capsule",
-            "button_link": "shopify://collections/no-apologies-club"
+            "title": "Summer 2025 release",
+            "text": "<p>Our latest breezy looks just in time for summer. Just in time </p>",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/jackets"
           }
         },
         "promotion-2": {
@@ -23,10 +32,10 @@
             "enable_image": true,
             "image": "shopify://shop_images/Screenshot_17.png",
             "image_mask": "portrait",
-            "title": "Refined in Paris",
-            "text": "<p>Born everywhere. Designed for those who already know.</p>",
-            "button_label": "Our story",
-            "button_link": "shopify://pages/about"
+            "title": "Fred jo Clothing",
+            "text": "<p>Try out all your favorite looks at our new <a href=\"https://hothightech.myshopify.com/\">Fred jo Clothing</a>, California.</p>",
+            "button_label": "View map",
+            "button_link": "#"
           }
         },
         "promotion-3": {
@@ -35,10 +44,10 @@
             "enable_image": true,
             "image": "shopify://shop_images/gempages_587236893280699242-b3c36508-5f8c-47d5-9b91-f1c3795f90f5.jpg",
             "image_mask": "portrait",
-            "title": "New arrivals",
-            "text": "<p>The latest drops from FredJo. Made for those who move first.</p>",
-            "button_label": "View collection",
-            "button_link": "shopify://collections/all"
+            "title": "Save 20% on dresses",
+            "text": "<p>Sun protection doesn't have to be a hassle — add a whole new layer to your style. </p>",
+            "button_label": "Shop dresses",
+            "button_link": "shopify://collections/dresses"
           }
         }
       },
