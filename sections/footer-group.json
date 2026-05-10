@@ -16,6 +16,7 @@
       "blocks": {
         "promotion-1": {
           "type": "promotion",
+          "disabled": true,
           "settings": {
             "enable_image": true,
             "image": "shopify://shop_images/Screenshot_16.png",
@@ -24,18 +25,6 @@
             "text": "<p>Our latest breezy looks just in time for summer. Just in time </p>",
             "button_label": "Shop now",
             "button_link": "shopify://collections/jackets"
-          }
-        },
-        "promotion-2": {
-          "type": "promotion",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/Screenshot_17.png",
-            "image_mask": "portrait",
-            "title": "Fred jo Clothing",
-            "text": "<p>Try out all your favorite looks at our new <a href=\"https://hothightech.myshopify.com/\">Fred jo Clothing</a>, California.</p>",
-            "button_label": "View map",
-            "button_link": "#"
           }
         },
         "promotion-3": {
@@ -53,7 +42,6 @@
       },
       "block_order": [
         "promotion-1",
-        "promotion-2",
         "promotion-3"
       ],
       "settings": {
