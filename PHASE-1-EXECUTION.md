@@ -307,12 +307,12 @@ chore(seo): customize robots.txt to disallow /search and /apps
 After completing each task, append a one-line entry below with the date and commit SHA (or "admin — done" for admin tasks). Fred uses this as the audit trail.
 
 ```
-[ ] T1  fix(seo): brand-voiced title tags
-[ ] T2  fix(seo): meta description fallback
-[ ] T3  fix(seo): canonical URLs
-[ ] T4  fix(seo): single h1, sequential headings
-[ ] T5  fix(a11y,seo): alt text
-[ ] T6  feat(seo): Product JSON-LD
+[x] T1  fix(seo): brand-voiced title tags — 2026-05-10 — 81f8273
+[x] T2  fix(seo): meta description fallback — 2026-05-10 — 9e37f21
+[x] T3  verified, no change needed — 2026-05-10 — canonical_url present in all 7 layouts, Shopify default correct
+[x] T4  fix(seo): single h1, sequential headings — 2026-05-10 — 64385e1
+[x] T5  fix(a11y,seo): alt text — 2026-05-10 — d873415
+[x] T6  feat(seo): Product JSON-LD — 2026-05-10 — e6a5b51
 [ ] T7  feat(seo): Organization JSON-LD
 [ ] T8  feat(seo): breadcrumbs + BreadcrumbList JSON-LD
 [ ] T9  chore(seo): robots.txt
