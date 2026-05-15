@@ -12,7 +12,7 @@
   {%- endif -%}
   {%- if template == 'password' -%}
     {{ shop.name }}
-  {%- else -%}
+  {%- elsif template != 'index' -%}
     {%- unless page_title contains shop.name -%}
       &ndash; {{ shop.name }}
     {%- endunless -%}
