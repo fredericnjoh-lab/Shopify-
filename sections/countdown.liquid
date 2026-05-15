@@ -137,7 +137,7 @@
               <div class="countdown__richtext">
                 {{ block.settings.text }}
               </div>
-              {% if section.blocks.size > 2 and section.blocks[0].type == 'content' and section.blocks[1].type == 'button' %}
+              {% if section.blocks.size > 2 and section.blocks[0].type == 'content' and section.blocks[1].type == 'button' and section.blocks[1].settings.button_link != blank %}
                 <div class="countdown__block countdown__block--button">
                   <a
                     class="countdown__button btn btn--{{ section.blocks[1].settings.button_style }}"
@@ -150,7 +150,7 @@
             </div>
           </div>
         {% endif %}
-        {% if block.type == 'button' and button_block_hidden == blank %}
+        {% if block.type == 'button' and button_block_hidden == blank and block.settings.button_link != blank %}
           <div class="countdown__block countdown__block--{{ block.type }} button-block-active" {{ block.shopify_attributes }}>
             <a
               class="countdown__button btn btn--{{ block.settings.button_style }}"
