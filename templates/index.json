@@ -151,7 +151,7 @@
         "image2_mask": "none",
         "subtitle": "",
         "title": "No Apologies Club – The FredJo® Paris Capsule",
-        "text": "<p>Designed in Paris, this <a href=\"/collections/no-appologies-club\" target=\"_blank\" title=\"No Appologies club\">FredJo®</a> capsule fuses luxury streetwear aesthetics with the energy of urban confidence.<br/>Each piece embodies a quiet strength — refined, structured, and effortlessly bold.</p>",
+        "text": "<p>Designed in Paris, this <a href=\"/collections/no-apologies-club\" target=\"_blank\" title=\"No Apologies Club\">FredJo®</a> capsule fuses luxury streetwear aesthetics with the energy of urban confidence.<br/>Each piece embodies a quiet strength — refined, structured, and effortlessly bold.</p>",
         "button_label": "Shop now",
         "button_link": "shopify://collections/no-apologies-club",
         "button_style": "primary",
@@ -169,7 +169,7 @@
       "disabled": true,
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
-        "title": "No Appologies club",
+        "title": "No Apologies Club",
         "home_featured_products": "no-apologies-club",
         "per_row": 4,
         "rows": 1,
@@ -237,7 +237,7 @@
             "heading": "Stylish Versatility",
             "textarea": "",
             "cta_text1": "Discover What’s New",
-            "cta_link1": "shopify://collections/sneakers-1",
+            "cta_link1": "shopify://collections/no-apologies-club",
             "cta_text2": "",
             "cta_link2": "",
             "image": "shopify://shop_images/gempages_587236893280699242-ce7f345a-77ce-49e1-ae4a-73d97cc54446.jpg",
@@ -319,7 +319,7 @@
         "sale_collection-1": {
           "type": "sale_collection",
           "settings": {
-            "sale_collection": "sneakers-1",
+            "sale_collection": "no-apologies-club",
             "top_text": "Up to",
             "middle_text": "20% off",
             "bottom_text": "Select products",
@@ -467,7 +467,7 @@
             "image_width": 650,
             "title": "Example title",
             "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
+            "button_label": "",
             "button_link": ""
           }
         },
@@ -480,7 +480,7 @@
             "image_width": 650,
             "title": "Example title",
             "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
+            "button_label": "",
             "button_link": ""
           }
         },
@@ -493,7 +493,7 @@
             "image_width": 650,
             "title": "Hoodie to a global movement",
             "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
+            "button_label": "",
             "button_link": ""
           }
         },
@@ -506,7 +506,7 @@
             "image_width": 650,
             "title": "Example title",
             "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
+            "button_label": "",
             "button_link": ""
           }
         }
@@ -550,7 +550,7 @@
             "image_mask": "none",
             "image_width": 650,
             "title": "",
-            "text": "<p>The <a href=\"/collections/no-appologies-club\" title=\"No Appologies club\"><strong>No Apologies Club Hoodie</strong></a> is made for those who move with confidence and don’t follow rules — they set them.</p><p>Crafted from a soft, heavyweight fabric with a relaxed fit, this hoodie delivers all-day comfort while making a bold statement. The striking red embroidery stands out against deep black fabric, creating a powerful streetwear essential you can wear anywhere.</p>",
+            "text": "<p>The <a href=\"/collections/no-apologies-club\" title=\"No Apologies Club\"><strong>No Apologies Club Hoodie</strong></a> is made for those who move with confidence and don’t follow rules — they set them.</p><p>Crafted from a soft, heavyweight fabric with a relaxed fit, this hoodie delivers all-day comfort while making a bold statement. The striking red embroidery stands out against deep black fabric, creating a powerful streetwear essential you can wear anywhere.</p>",
             "button_label": "Learn More",
             "button_link": "shopify://collections/no-apologies-club"
           }
