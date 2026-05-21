@@ -155,6 +155,14 @@
                 if block.settings.image_mobile != blank
                   assign has_mobile_image = true
                 endif
+
+                # Force eager loading + preload on the first slide to prevent LCP delay.
+                # The section lazyload_images setting applies only to slides 2+.
+                if forloop.index == 1
+                  assign slide_loading = false
+                else
+                  assign slide_loading = true
+                endif
               -%}
 
               <div class="hero__image-wrapper{% unless hero_text %} hero__image-wrapper--no-overlay{% endunless %}">
@@ -167,14 +175,6 @@
                   {%- if block.settings.image != blank -%}
 
                     {% comment %} Full width images so don't need to adjust sizes attribute, fallback is 100vw {% endcomment %}
-                    {%- liquid
-                      if forloop.index == 1
-                        assign loading = section.settings.lazyload_images
-                      else
-                        assign loading = true
-                      endif
-                    -%}
-
                     {% if has_mobile_image %}
                       {% assign desktop_classes = 'small--hide hero__image hero__image--' | append: block.id %}
                     {% else %}
@@ -184,7 +184,7 @@
                     {%- render 'image-element',
                       img: block.settings.image,
                       img_width: 2400,
-                      loading: loading,
+                      loading: slide_loading,
                       classes: desktop_classes,
                     -%}
 
@@ -194,7 +194,7 @@
                       {%- render 'image-element',
                         img: block.settings.image_mobile,
                         img_height: 1200,
-                        loading: loading,
+                        loading: slide_loading,
                         classes: mobile_classes,
                       -%}
                     {%- endif -%}
