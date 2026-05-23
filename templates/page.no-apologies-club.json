@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "club-hero": {
       "type": "club-hero",
       "settings": {
+        "image": "shopify://shop_images/product-ad-5f7fe5ee-03ad-477c-be5b-f36194f0dfee.jpg",
         "tone": "dark",
         "scrim_opacity": 60,
         "eyebrow": "A FredJo Capsule · Membership",
@@ -17,15 +27,55 @@
     "club-marquee": {
       "type": "club-marquee",
       "blocks": {
-        "p1": { "type": "phrase", "settings": { "phrase": "Refined in Paris" } },
-        "p2": { "type": "phrase", "settings": { "phrase": "Worn everywhere" } },
-        "p3": { "type": "phrase", "settings": { "phrase": "United by Attitude" } },
-        "p4": { "type": "phrase", "settings": { "phrase": "Divided by Nothing" } },
-        "p5": { "type": "phrase", "settings": { "phrase": "Paris doesn't follow anyone" } },
-        "p6": { "type": "phrase", "settings": { "phrase": "The Culture Doesn't Wait" } }
+        "p1": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "Refined in Paris"
+          }
+        },
+        "p2": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "Worn everywhere"
+          }
+        },
+        "p3": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "United by Attitude"
+          }
+        },
+        "p4": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "Divided by Nothing"
+          }
+        },
+        "p5": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "Paris doesn't follow anyone"
+          }
+        },
+        "p6": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "The Culture Doesn't Wait"
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
-      "settings": { "speed": 32, "separator": "·" }
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
+      "settings": {
+        "speed": 32,
+        "separator": "·"
+      }
     },
     "club-manifesto": {
       "type": "club-manifesto",
@@ -39,12 +89,49 @@
     "club-benefits": {
       "type": "club-benefits",
       "blocks": {
-        "b1": { "type": "benefit", "settings": { "num": "01", "title": "Early Access", "body": "Drops land in your inbox 48 hours before the public release. First pick. No restocks announced.", "tag": "Members First" } },
-        "b2": { "type": "benefit", "settings": { "num": "02", "title": "Exclusive Drops", "body": "Capsule pieces, members-only colorways, archival re-releases. Limited runs that never hit the main shop.", "tag": "Club Only" } },
-        "b3": { "type": "benefit", "settings": { "num": "03", "title": "Members Discount", "body": "A standing 15% on full-price pieces. Not stackable with sale. Not seasonal. Yours.", "tag": "Always On" } },
-        "b4": { "type": "benefit", "settings": { "num": "04", "title": "Affiliate Program", "body": "Refer friends, earn credit on every order. Top members unlock invitations to private events and lookbook previews.", "tag": "Earn With Us" } }
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "num": "01",
+            "title": "Early Access",
+            "body": "Drops land in your inbox 48 hours before the public release. First pick. No restocks announced.",
+            "tag": "Members First"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "num": "02",
+            "title": "Exclusive Drops",
+            "body": "Capsule pieces, members-only colorways, archival re-releases. Limited runs that never hit the main shop.",
+            "tag": "Club Only"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "num": "03",
+            "title": "Members Discount",
+            "body": "A standing 15% on full-price pieces. Not stackable with sale. Not seasonal. Yours.",
+            "tag": "Always On"
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "num": "04",
+            "title": "Affiliate Program",
+            "body": "Refer friends, earn credit on every order. Top members unlock invitations to private events and lookbook previews.",
+            "tag": "Earn With Us"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3", "b4"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {
         "eyebrow": "Membership · No Fee",
         "title": "What You Get",
@@ -54,12 +141,45 @@
     "club-capsule": {
       "type": "club-capsule",
       "blocks": {
-        "c1": { "type": "piece", "settings": { "num": "P-01" } },
-        "c2": { "type": "piece", "settings": { "num": "P-02" } },
-        "c3": { "type": "piece", "settings": { "num": "P-03" } },
-        "c4": { "type": "piece", "settings": { "num": "P-04" } }
+        "c1": {
+          "type": "piece",
+          "settings": {
+            "num": "P-01",
+            "product": "",
+            "name_override": ""
+          }
+        },
+        "c2": {
+          "type": "piece",
+          "settings": {
+            "num": "P-02",
+            "product": "",
+            "name_override": ""
+          }
+        },
+        "c3": {
+          "type": "piece",
+          "settings": {
+            "num": "P-03",
+            "product": "",
+            "name_override": ""
+          }
+        },
+        "c4": {
+          "type": "piece",
+          "settings": {
+            "num": "P-04",
+            "product": "",
+            "name_override": ""
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
       "settings": {
         "eyebrow": "The Capsule · FW 25",
         "title": "No Apologies — The Paris Pieces",
