@@ -1,0 +1,116 @@
+{% comment %}
+  Club Benefits — 4 columns of member benefits.
+{% endcomment %}
+
+<section class="club-benefits" data-section-id="{{ section.id }}" id="benefits">
+  <div class="club-shell">
+    <div class="club-benefits__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="club-benefits__eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="club-benefits__title">{{ section.settings.title }}</h2>
+      {%- if section.settings.lead != blank -%}
+        <p class="club-benefits__lead">{{ section.settings.lead }}</p>
+      {%- endif -%}
+    </div>
+    <div class="club-benefits__grid" style="grid-template-columns: repeat({{ section.blocks.size | at_most: 4 | at_least: 1 }}, 1fr);">
+      {%- for block in section.blocks -%}
+        <div class="club-benefit" {{ block.shopify_attributes }}>
+          <div class="club-benefit__num">{{ block.settings.num }}</div>
+          <div class="club-benefit__title">{{ block.settings.title }}</div>
+          <p class="club-benefit__body">{{ block.settings.body }}</p>
+          {%- if block.settings.tag != blank -%}
+            <div class="club-benefit__tag">{{ block.settings.tag }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  .club-shell { max-width: 1340px; margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .club-benefits { padding: 120px 0; background: #fff; color: #0a0a0a; }
+  #shopify-section-{{ section.id }} .club-benefits__head { text-align: center; margin-bottom: 70px; }
+  #shopify-section-{{ section.id }} .club-benefits__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500;
+    color: #b8975a;
+  }
+  #shopify-section-{{ section.id }} .club-benefits__title {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(36px, 4.5vw, 60px); letter-spacing: 0.04em;
+    text-transform: uppercase; margin: 12px 0 18px; line-height: 1;
+  }
+  #shopify-section-{{ section.id }} .club-benefits__lead {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 22px; color: #6e6e6e; max-width: 620px; margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} .club-benefits__grid {
+    display: grid; gap: 0;
+    border-top: 1px solid #e8e8e1; border-left: 1px solid #e8e8e1;
+  }
+  #shopify-section-{{ section.id }} .club-benefit {
+    border-right: 1px solid #e8e8e1; border-bottom: 1px solid #e8e8e1;
+    padding: 44px 30px; min-height: 280px;
+    display: flex; flex-direction: column; gap: 18px;
+    transition: background 250ms ease;
+  }
+  #shopify-section-{{ section.id }} .club-benefit:hover { background: #f5f4f0; }
+  #shopify-section-{{ section.id }} .club-benefit__num {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.18em; color: #b8975a;
+  }
+  #shopify-section-{{ section.id }} .club-benefit__title {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 26px;
+    letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.1;
+  }
+  #shopify-section-{{ section.id }} .club-benefit__body {
+    font-family: 'Montserrat', sans-serif; font-size: 13px;
+    line-height: 1.65; color: #4a4a4a; margin: 0;
+  }
+  #shopify-section-{{ section.id }} .club-benefit__tag {
+    margin-top: auto;
+    font-family: 'Montserrat', sans-serif; font-size: 10px;
+    letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600;
+    color: #b8975a;
+  }
+  @media (max-width: 900px) {
+    #shopify-section-{{ section.id }} .club-benefits__grid { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Club Benefits",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Membership · No Fee" },
+    { "type": "text", "id": "title", "label": "Title", "default": "What You Get" },
+    { "type": "text", "id": "lead", "label": "Lead", "default": "Four things that make the Club a different way of wearing FredJo." }
+  ],
+  "blocks": [
+    {
+      "type": "benefit", "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "num", "label": "Number", "default": "01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Early Access" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Drops land in your inbox 48 hours before the public release. First pick. No restocks announced." },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Members First" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Club Benefits", "category": "Club",
+      "blocks": [
+        { "type": "benefit", "settings": { "num": "01", "title": "Early Access", "body": "Drops land in your inbox 48 hours before the public release. First pick. No restocks announced.", "tag": "Members First" } },
+        { "type": "benefit", "settings": { "num": "02", "title": "Exclusive Drops", "body": "Capsule pieces, members-only colorways, archival re-releases. Limited runs that never hit the main shop.", "tag": "Club Only" } },
+        { "type": "benefit", "settings": { "num": "03", "title": "Members Discount", "body": "A standing 15% on full-price pieces. Not stackable with sale. Not seasonal. Yours.", "tag": "Always On" } },
+        { "type": "benefit", "settings": { "num": "04", "title": "Affiliate Program", "body": "Refer friends, earn credit on every order. Top members unlock invitations to private events and lookbook previews.", "tag": "Earn With Us" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

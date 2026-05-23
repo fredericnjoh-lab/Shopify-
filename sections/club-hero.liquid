@@ -1,0 +1,143 @@
+{% comment %}
+  Club Hero — full-bleed hero for the No Apologies Club landing page.
+{% endcomment %}
+
+<section class="club-hero club-hero--{{ section.settings.tone }}" data-section-id="{{ section.id }}">
+  {%- if section.settings.image != blank -%}
+    <div class="club-hero__bg">
+      {{ section.settings.image | image_url: width: 2400 | image_tag:
+        loading: 'eager',
+        sizes: '100vw',
+        widths: '600, 900, 1200, 1600, 2000, 2400',
+        alt: section.settings.image.alt | default: section.settings.title,
+        class: 'club-hero__img'
+      }}
+    </div>
+  {%- else -%}
+    <div class="club-hero__bg club-hero__bg--placeholder" aria-hidden="true"></div>
+  {%- endif -%}
+
+  <div class="club-hero__scrim" style="opacity: {{ section.settings.scrim_opacity | divided_by: 100.0 }};"></div>
+
+  <div class="club-hero__inner">
+    <div class="club-hero__rule"></div>
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="club-hero__eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    <h1 class="club-hero__title">{{ section.settings.title }}</h1>
+    {%- if section.settings.subhead != blank -%}
+      <p class="club-hero__sub">{{ section.settings.subhead }}</p>
+    {%- endif -%}
+    <div class="club-hero__row">
+      {%- if section.settings.cta1_label != blank -%}
+        <a href="{{ section.settings.cta1_link | default: '#join' }}" class="club-btn club-btn--solid">{{ section.settings.cta1_label }}</a>
+      {%- endif -%}
+      {%- if section.settings.cta2_label != blank -%}
+        <a href="{{ section.settings.cta2_link | default: '#capsule' }}" class="club-btn club-btn--ghost">{{ section.settings.cta2_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="club-hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="club-hero__scroll-line"></span>
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .club-hero {
+    position: relative; height: 100vh; min-height: 720px;
+    overflow: hidden; color: #f5f4f0;
+  }
+  #shopify-section-{{ section.id }} .club-hero--light { color: #0a0a0a; }
+  #shopify-section-{{ section.id }} .club-hero__bg { position: absolute; inset: 0; }
+  #shopify-section-{{ section.id }} .club-hero__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #shopify-section-{{ section.id }} .club-hero__bg--placeholder { background: #1c1c1c; }
+  #shopify-section-{{ section.id }} .club-hero--light .club-hero__bg--placeholder { background: #f5f4f0; }
+  #shopify-section-{{ section.id }} .club-hero__scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.4) 70%, rgba(10,10,10,0.7) 100%);
+    pointer-events: none;
+  }
+  #shopify-section-{{ section.id }} .club-hero--light .club-hero__scrim {
+    background: linear-gradient(180deg, rgba(245,244,240,0) 0%, rgba(245,244,240,0.5) 100%);
+  }
+  #shopify-section-{{ section.id }} .club-hero__inner {
+    position: relative; height: 100%; max-width: 1340px; margin: 0 auto;
+    padding: 0 28px 96px; display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  #shopify-section-{{ section.id }} .club-hero__rule { width: 80px; height: 1px; background: #b8975a; margin-bottom: 26px; }
+  #shopify-section-{{ section.id }} .club-hero__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 16px; opacity: 0.88;
+  }
+  #shopify-section-{{ section.id }} .club-hero__title {
+    font-family: 'Bebas Neue', Impact, sans-serif; text-transform: uppercase;
+    line-height: 0.92; letter-spacing: 0.03em;
+    font-size: clamp(56px, 9.5vw, 168px); margin: 0;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  #shopify-section-{{ section.id }} .club-hero--light .club-hero__title { text-shadow: none; }
+  #shopify-section-{{ section.id }} .club-hero__sub {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px); line-height: 1.3;
+    margin: 18px 0 0; max-width: 540px;
+  }
+  #shopify-section-{{ section.id }} .club-hero__row { display: flex; gap: 22px; margin-top: 38px; flex-wrap: wrap; }
+  #shopify-section-{{ section.id }} .club-hero__scroll {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif; font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.7;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  #shopify-section-{{ section.id }} .club-hero__scroll-line { width: 1px; height: 28px; background: currentColor; animation: club-scroll-bob 1.6s ease-in-out infinite; }
+  @keyframes club-scroll-bob { 0%,100% { transform: scaleY(0.4); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } }
+
+  .club-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 36px; font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em;
+    border: 1px solid #0a0a0a; background: #0a0a0a; color: #f5f4f0;
+    text-decoration: none; cursor: pointer;
+    transition: background 250ms ease, color 250ms ease, border-color 250ms ease;
+  }
+  .club-btn:hover { background: #b8975a; border-color: #b8975a; color: #0a0a0a; }
+  .club-btn--solid.club-hero__cta {}
+  #shopify-section-{{ section.id }} .club-hero .club-btn--solid { background: #f5f4f0; border-color: #f5f4f0; color: #0a0a0a; }
+  #shopify-section-{{ section.id }} .club-hero--light .club-btn--solid { background: #0a0a0a; border-color: #0a0a0a; color: #f5f4f0; }
+  #shopify-section-{{ section.id }} .club-hero .club-btn--solid:hover { background: #b8975a; border-color: #b8975a; color: #0a0a0a; }
+  #shopify-section-{{ section.id }} .club-hero .club-btn--ghost { background: transparent; color: #f5f4f0; border-color: #f5f4f0; }
+  #shopify-section-{{ section.id }} .club-hero--light .club-btn--ghost { color: #0a0a0a; border-color: #0a0a0a; }
+  #shopify-section-{{ section.id }} .club-hero .club-btn--ghost:hover { background: #f5f4f0; color: #0a0a0a; }
+  #shopify-section-{{ section.id }} .club-hero--light .club-btn--ghost:hover { background: #0a0a0a; color: #f5f4f0; }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Club Hero",
+  "settings": [
+    { "type": "header", "content": "Background" },
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    {
+      "type": "select", "id": "tone", "label": "Tone",
+      "default": "dark",
+      "options": [
+        { "value": "dark", "label": "Dark — light type on dark scrim" },
+        { "value": "light", "label": "Light — dark type on ivory" }
+      ]
+    },
+    { "type": "range", "id": "scrim_opacity", "label": "Scrim opacity", "min": 0, "max": 100, "step": 5, "default": 60, "unit": "%" },
+    { "type": "header", "content": "Copy" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A FredJo Capsule · Membership" },
+    { "type": "text", "id": "title", "label": "Title", "default": "No Apologies Club" },
+    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "Made for those who already know. A members capsule, refined in Paris. The culture doesn't wait." },
+    { "type": "header", "content": "CTAs" },
+    { "type": "text", "id": "cta1_label", "label": "Primary button label", "default": "Join the Club" },
+    { "type": "url", "id": "cta1_link", "label": "Primary button link" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary button label", "default": "Shop the Capsule" },
+    { "type": "url", "id": "cta2_link", "label": "Secondary button link" }
+  ],
+  "presets": [{ "name": "Club Hero", "category": "Club" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

@@ -1,0 +1,73 @@
+{% comment %}
+  Club Marquee — gold-rule scrolling brand phrases.
+{% endcomment %}
+
+<section class="club-marquee" data-section-id="{{ section.id }}" aria-hidden="true">
+  <div class="club-marquee__track">
+    {%- for block in section.blocks -%}
+      <span class="club-marquee__item" {{ block.shopify_attributes }}>{{ block.settings.phrase }}</span>
+    {%- endfor -%}
+    {%- comment -%} Duplicate for seamless loop {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      <span class="club-marquee__item">{{ block.settings.phrase }}</span>
+    {%- endfor -%}
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .club-marquee {
+    background: #0a0a0a; color: #f5f4f0; padding: 22px 0;
+    overflow: hidden; border-top: 1px solid #b8975a; border-bottom: 1px solid #b8975a;
+  }
+  #shopify-section-{{ section.id }} .club-marquee__track {
+    display: flex; gap: 60px; white-space: nowrap;
+    animation: club-marquee-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+    width: max-content;
+  }
+  #shopify-section-{{ section.id }} .club-marquee__item {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 22px; letter-spacing: 0.18em; text-transform: uppercase;
+    display: inline-flex; align-items: center;
+  }
+  #shopify-section-{{ section.id }} .club-marquee__item + .club-marquee__item::before {
+    content: '{{ section.settings.separator | default: "·" }}';
+    color: #b8975a; margin-right: 60px;
+  }
+  @keyframes club-marquee-{{ section.id }} {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Club Marquee",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "range", "id": "speed", "label": "Seconds per loop", "min": 16, "max": 80, "step": 2, "default": 32 },
+    { "type": "text", "id": "separator", "label": "Separator character", "default": "·" }
+  ],
+  "blocks": [
+    {
+      "type": "phrase", "name": "Phrase",
+      "settings": [
+        { "type": "text", "id": "phrase", "label": "Phrase", "default": "Refined in Paris" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Club Marquee", "category": "Club",
+      "blocks": [
+        { "type": "phrase", "settings": { "phrase": "Refined in Paris" } },
+        { "type": "phrase", "settings": { "phrase": "Worn everywhere" } },
+        { "type": "phrase", "settings": { "phrase": "United by Attitude" } },
+        { "type": "phrase", "settings": { "phrase": "Divided by Nothing" } },
+        { "type": "phrase", "settings": { "phrase": "Paris doesn't follow anyone" } },
+        { "type": "phrase", "settings": { "phrase": "The Culture Doesn't Wait" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

@@ -1,0 +1,124 @@
+{
+  "sections": {
+    "club-hero": {
+      "type": "club-hero",
+      "settings": {
+        "tone": "dark",
+        "scrim_opacity": 60,
+        "eyebrow": "A FredJo Capsule · Membership",
+        "title": "No Apologies Club",
+        "subhead": "Made for those who already know. A members capsule, refined in Paris. The culture doesn't wait.",
+        "cta1_label": "Join the Club",
+        "cta1_link": "#join",
+        "cta2_label": "Shop the Capsule",
+        "cta2_link": "#capsule"
+      }
+    },
+    "club-marquee": {
+      "type": "club-marquee",
+      "blocks": {
+        "p1": { "type": "phrase", "settings": { "phrase": "Refined in Paris" } },
+        "p2": { "type": "phrase", "settings": { "phrase": "Worn everywhere" } },
+        "p3": { "type": "phrase", "settings": { "phrase": "United by Attitude" } },
+        "p4": { "type": "phrase", "settings": { "phrase": "Divided by Nothing" } },
+        "p5": { "type": "phrase", "settings": { "phrase": "Paris doesn't follow anyone" } },
+        "p6": { "type": "phrase", "settings": { "phrase": "The Culture Doesn't Wait" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "settings": { "speed": 32, "separator": "·" }
+    },
+    "club-manifesto": {
+      "type": "club-manifesto",
+      "settings": {
+        "quote": "<p>Paris doesn't follow anyone. Neither do you. The Club is for the ones who treat clothing like a decision — quiet, deliberate, and entirely their own.</p>",
+        "attribution": "— A Note From the Studio",
+        "bg": "#f5f4f0",
+        "fg": "#0a0a0a"
+      }
+    },
+    "club-benefits": {
+      "type": "club-benefits",
+      "blocks": {
+        "b1": { "type": "benefit", "settings": { "num": "01", "title": "Early Access", "body": "Drops land in your inbox 48 hours before the public release. First pick. No restocks announced.", "tag": "Members First" } },
+        "b2": { "type": "benefit", "settings": { "num": "02", "title": "Exclusive Drops", "body": "Capsule pieces, members-only colorways, archival re-releases. Limited runs that never hit the main shop.", "tag": "Club Only" } },
+        "b3": { "type": "benefit", "settings": { "num": "03", "title": "Members Discount", "body": "A standing 15% on full-price pieces. Not stackable with sale. Not seasonal. Yours.", "tag": "Always On" } },
+        "b4": { "type": "benefit", "settings": { "num": "04", "title": "Affiliate Program", "body": "Refer friends, earn credit on every order. Top members unlock invitations to private events and lookbook previews.", "tag": "Earn With Us" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "eyebrow": "Membership · No Fee",
+        "title": "What You Get",
+        "lead": "Four things that make the Club a different way of wearing FredJo."
+      }
+    },
+    "club-capsule": {
+      "type": "club-capsule",
+      "blocks": {
+        "c1": { "type": "piece", "settings": { "num": "P-01" } },
+        "c2": { "type": "piece", "settings": { "num": "P-02" } },
+        "c3": { "type": "piece", "settings": { "num": "P-03" } },
+        "c4": { "type": "piece", "settings": { "num": "P-04" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
+        "eyebrow": "The Capsule · FW 25",
+        "title": "No Apologies — The Paris Pieces",
+        "sub": "Four essentials. Heavyweight cotton, structured cuts, archive details."
+      }
+    },
+    "club-split": {
+      "type": "club-editorial-split",
+      "settings": {
+        "image_side": "left",
+        "eyebrow": "The Standard",
+        "title": "Heavyweight Cotton, Cut in Paris.",
+        "body": "<p>400 GSM brushed-back fleece. Dropped shoulder, oversized through the body, tapered at the cuff. Every seam triple-stitched. Built to outlast the season — and the next one.</p>",
+        "pull_quote": "Wear it once and it becomes the default."
+      }
+    },
+    "club-note": {
+      "type": "club-founder-note",
+      "settings": {
+        "eyebrow": "A Note From Fred",
+        "body": "<p>I started FredJo because I wanted clothes that didn't ask for permission. The Club is the smallest, sharpest version of that. No drops to chase. No noise. Just the pieces I'd wear myself, sent to you first.</p><p>You're either in, or you're not. There's nothing to apologize for either way.</p>",
+        "signature": "— Fred"
+      }
+    },
+    "club-join": {
+      "type": "club-join-form",
+      "settings": {
+        "eyebrow": "Membership · One Form",
+        "title": "Join the FredJo Family",
+        "sub": "No fee. No spam. First look at every drop.",
+        "placeholder": "your@email.com",
+        "button_label": "Enter",
+        "incentive": "+ 48-hour early access on your first drop",
+        "legal": "<p>By joining you accept the FredJo Terms and Privacy Notice. Unsubscribe anytime — one click, no questions.</p>",
+        "success_title": "You're in.",
+        "success_body": "Welcome to the Club. Check your inbox for the first drop."
+      }
+    },
+    "club-sticky": {
+      "type": "club-sticky-cta",
+      "settings": {
+        "enabled": true,
+        "show_after": 90,
+        "title": "No Apologies Club",
+        "sub": "Members get drops first.",
+        "cta_label": "Join",
+        "cta_link": "#join"
+      }
+    }
+  },
+  "order": [
+    "club-hero",
+    "club-marquee",
+    "club-manifesto",
+    "club-benefits",
+    "club-capsule",
+    "club-split",
+    "club-note",
+    "club-join",
+    "club-sticky"
+  ]
+}

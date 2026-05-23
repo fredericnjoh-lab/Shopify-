@@ -1,0 +1,122 @@
+{% comment %}
+  Club Capsule — 4-up product grid of capsule pieces.
+  Each block links to a real Shopify product.
+{% endcomment %}
+
+<section class="club-capsule" data-section-id="{{ section.id }}" id="capsule">
+  <div class="club-shell">
+    <div class="club-capsule__head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="club-capsule__eyebrow">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+        <h2 class="club-capsule__title">{{ section.settings.title }}</h2>
+      </div>
+      {%- if section.settings.sub != blank -%}
+        <div class="club-capsule__sub">{{ section.settings.sub }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="club-capsule__grid">
+      {%- for block in section.blocks -%}
+        {%- assign product = all_products[block.settings.product] -%}
+        <a href="{{ product.url | default: '#' }}" class="club-piece" {{ block.shopify_attributes }}>
+          <div class="club-piece__img">
+            {%- if product != blank and product.featured_image != blank -%}
+              {{ product.featured_image | image_url: width: 800 | image_tag:
+                loading: 'lazy', sizes: '(min-width: 900px) 25vw, 50vw',
+                widths: '300, 500, 800', alt: product.title, class: 'club-piece__photo' }}
+            {%- else -%}
+              <div class="club-piece__photo club-piece__photo--placeholder" aria-hidden="true"></div>
+            {%- endif -%}
+            <div class="club-piece__num">{{ block.settings.num }}</div>
+          </div>
+          <div class="club-piece__name">{{ block.settings.name_override | default: product.title | default: 'Piece' }}</div>
+          {%- if product != blank -%}
+            <div class="club-piece__price">{{ product.price | money }}</div>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .club-capsule { padding: 110px 0; background: #f5f4f0; color: #0a0a0a; }
+  #shopify-section-{{ section.id }} .club-capsule__head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 36px; gap: 24px; flex-wrap: wrap;
+  }
+  #shopify-section-{{ section.id }} .club-capsule__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: #6e6e6e; font-weight: 500;
+  }
+  #shopify-section-{{ section.id }} .club-capsule__title {
+    font-family: 'Bebas Neue', Impact, sans-serif; line-height: 1;
+    font-size: clamp(32px, 3.5vw, 52px); letter-spacing: 0.04em;
+    text-transform: uppercase; margin: 10px 0 0;
+  }
+  #shopify-section-{{ section.id }} .club-capsule__sub {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 18px; color: #6e6e6e; max-width: 420px;
+  }
+  #shopify-section-{{ section.id }} .club-capsule__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+  }
+  #shopify-section-{{ section.id }} .club-piece { display: block; color: inherit; text-decoration: none; }
+  #shopify-section-{{ section.id }} .club-piece__img { position: relative; aspect-ratio: 3/4; overflow: hidden; background: #1c1c1c; }
+  #shopify-section-{{ section.id }} .club-piece__photo { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms ease; }
+  #shopify-section-{{ section.id }} .club-piece:hover .club-piece__photo { transform: scale(1.03); }
+  #shopify-section-{{ section.id }} .club-piece__photo--placeholder { background: #1c1c1c; }
+  #shopify-section-{{ section.id }} .club-piece__num {
+    position: absolute; top: 14px; left: 14px; z-index: 2;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 0.2em; color: #b8975a;
+  }
+  #shopify-section-{{ section.id }} .club-piece__name {
+    font-family: 'Montserrat', sans-serif; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500;
+    margin-top: 14px;
+  }
+  #shopify-section-{{ section.id }} .club-piece__price {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: #4a4a4a; margin-top: 4px; letter-spacing: 0.04em;
+  }
+  @media (max-width: 900px) {
+    #shopify-section-{{ section.id }} .club-capsule__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Club Capsule",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Capsule · FW 25" },
+    { "type": "text", "id": "title", "label": "Title", "default": "No Apologies — The Paris Pieces" },
+    { "type": "text", "id": "sub", "label": "Subtitle", "default": "Four essentials. Heavyweight cotton, structured cuts, archive details." }
+  ],
+  "blocks": [
+    {
+      "type": "piece", "name": "Piece",
+      "settings": [
+        { "type": "text", "id": "num", "label": "Index", "default": "P-01" },
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "name_override", "label": "Display name override", "info": "Leave blank to use product title" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Club Capsule", "category": "Club",
+      "blocks": [
+        { "type": "piece", "settings": { "num": "P-01" } },
+        { "type": "piece", "settings": { "num": "P-02" } },
+        { "type": "piece", "settings": { "num": "P-03" } },
+        { "type": "piece", "settings": { "num": "P-04" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

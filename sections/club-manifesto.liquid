@@ -1,0 +1,46 @@
+{% comment %}
+  Club Manifesto — large editorial italic quote.
+{% endcomment %}
+
+<section class="club-manifesto" data-section-id="{{ section.id }}">
+  <div class="club-manifesto__shell">
+    <p class="club-manifesto__quote">{{ section.settings.quote }}</p>
+    {%- if section.settings.attribution != blank -%}
+      <div class="club-manifesto__sig">{{ section.settings.attribution }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .club-manifesto {
+    padding: 130px 0; text-align: center;
+    background: {{ section.settings.bg | default: '#f5f4f0' }};
+    color: {{ section.settings.fg | default: '#0a0a0a' }};
+  }
+  #shopify-section-{{ section.id }} .club-manifesto__shell { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .club-manifesto__quote {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+    font-size: clamp(28px, 3.6vw, 48px); line-height: 1.25;
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .club-manifesto__sig {
+    margin-top: 32px;
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: #6e6e6e;
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Club Manifesto",
+  "settings": [
+    { "type": "richtext", "id": "quote", "label": "Quote", "default": "<p>Paris doesn't follow anyone. Neither do you. The Club is for the ones who treat clothing like a decision — quiet, deliberate, and entirely their own.</p>" },
+    { "type": "text", "id": "attribution", "label": "Attribution", "default": "— A Note From the Studio" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#f5f4f0" },
+    { "type": "color", "id": "fg", "label": "Text color", "default": "#0a0a0a" }
+  ],
+  "presets": [{ "name": "Club Manifesto", "category": "Club" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

@@ -1,0 +1,101 @@
+{% comment %}
+  Club Sticky CTA — appears after the hero, dismissible, anchors to #join.
+{% endcomment %}
+
+{%- if section.settings.enabled -%}
+  <div class="club-sticky" data-section-id="{{ section.id }}" data-show-after="{{ section.settings.show_after }}">
+    <div class="club-sticky__copy">
+      <strong>{{ section.settings.title }}</strong>
+      <span class="club-sticky__sub">{{ section.settings.sub }}</span>
+    </div>
+    <div class="club-sticky__actions">
+      <a href="{{ section.settings.cta_link | default: '#join' }}" class="club-sticky__btn">{{ section.settings.cta_label }}</a>
+      <button type="button" class="club-sticky__close" aria-label="Dismiss">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+{%- endif -%}
+
+{%- style -%}
+  .club-sticky {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+    background: #0a0a0a; color: #f5f4f0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px; gap: 16px;
+    transform: translateY(100%); transition: transform 400ms cubic-bezier(0.4,0,0.2,1);
+    border-top: 1px solid #b8975a;
+  }
+  .club-sticky.is-shown { transform: translateY(0); }
+  .club-sticky.is-dismissed { display: none; }
+  .club-sticky__copy {
+    display: flex; align-items: center; gap: 16px;
+    font-family: 'Montserrat', sans-serif; font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .club-sticky__copy strong {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400;
+    font-size: 18px; letter-spacing: 0.2em;
+  }
+  .club-sticky__sub { opacity: 0.7; }
+  .club-sticky__actions { display: flex; align-items: center; gap: 12px; }
+  .club-sticky__btn {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600;
+    padding: 10px 20px; background: #b8975a; color: #0a0a0a;
+    border: none; cursor: pointer; text-decoration: none;
+    transition: background 200ms ease;
+  }
+  .club-sticky__btn:hover { background: #f5f4f0; }
+  .club-sticky__close {
+    background: transparent; border: none; color: #f5f4f0;
+    cursor: pointer; padding: 4px; opacity: 0.7;
+    display: inline-flex; align-items: center;
+  }
+  .club-sticky__close:hover { opacity: 1; }
+  @media (max-width: 600px) {
+    .club-sticky__sub { display: none; }
+  }
+{%- endstyle -%}
+
+<script defer>
+  (function() {
+    var el = document.querySelector('.club-sticky[data-section-id="{{ section.id }}"]');
+    if (!el) return;
+    var dismissed = false;
+    var showAfter = parseInt(el.getAttribute('data-show-after') || '90', 10) / 100;
+    var close = el.querySelector('.club-sticky__close');
+    close && close.addEventListener('click', function() {
+      dismissed = true;
+      el.classList.add('is-dismissed');
+    });
+    function onScroll() {
+      if (dismissed) return;
+      var y = window.scrollY;
+      var threshold = window.innerHeight * showAfter;
+      var nearBottom = y > document.body.scrollHeight - window.innerHeight * 1.5;
+      if (y > threshold && !nearBottom) el.classList.add('is-shown');
+      else el.classList.remove('is-shown');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Club Sticky CTA",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Enable sticky bar", "default": true },
+    { "type": "range", "id": "show_after", "label": "Show after % of viewport scrolled", "min": 30, "max": 200, "step": 10, "default": 90, "unit": "%" },
+    { "type": "text", "id": "title", "label": "Title", "default": "No Apologies Club" },
+    { "type": "text", "id": "sub", "label": "Sub", "default": "Members get drops first." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Join" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Club Sticky CTA", "category": "Club" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

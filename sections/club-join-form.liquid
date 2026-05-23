@@ -1,0 +1,154 @@
+{% comment %}
+  Club Join Form — full-bleed dark email capture.
+  Uses Shopify's built-in customer signup form (creates a customer marketing-only).
+{% endcomment %}
+
+<section class="club-join" data-section-id="{{ section.id }}" id="join">
+  {%- if section.settings.bg_image != blank -%}
+    <div class="club-join__bg">
+      {{ section.settings.bg_image | image_url: width: 2000 | image_tag:
+        loading: 'lazy', sizes: '100vw', widths: '600, 1000, 1600, 2000',
+        alt: '', class: 'club-join__bg-img' }}
+    </div>
+  {%- endif -%}
+
+  <div class="club-join__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="club-join__eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    <h2 class="club-join__title">{{ section.settings.title }}</h2>
+    {%- if section.settings.sub != blank -%}
+      <p class="club-join__sub">{{ section.settings.sub }}</p>
+    {%- endif -%}
+
+    {%- form 'customer', class: 'club-join__form-wrap' -%}
+      {%- if form.posted_successfully? -%}
+        <div class="club-join__success">
+          <h4>{{ section.settings.success_title }}</h4>
+          <p>{{ section.settings.success_body }}</p>
+        </div>
+      {%- else -%}
+        <input type="hidden" name="contact[tags]" value="newsletter, no-apologies-club">
+        <div class="club-join__form">
+          <label for="ClubEmail-{{ section.id }}" class="visually-hidden">Email</label>
+          <input
+            type="email" required
+            id="ClubEmail-{{ section.id }}"
+            name="contact[email]"
+            placeholder="{{ section.settings.placeholder | default: 'your@email.com' }}"
+            class="club-join__field"
+          >
+          <button type="submit" class="club-join__submit">
+            {{ section.settings.button_label }}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </button>
+        </div>
+        {%- if form.errors -%}
+          <div class="club-join__error">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+        {%- if section.settings.incentive != blank -%}
+          <div class="club-join__incentive">{{ section.settings.incentive }}</div>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endform -%}
+
+    {%- if section.settings.legal != blank -%}
+      <p class="club-join__legal">{{ section.settings.legal }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .club-join {
+    background: #0a0a0a; color: #f5f4f0; padding: 130px 0;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .club-join__bg { position: absolute; inset: 0; opacity: 0.18; }
+  #shopify-section-{{ section.id }} .club-join__bg-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #shopify-section-{{ section.id }} .club-join__inner { position: relative; max-width: 720px; margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .club-join__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 12px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: #b8975a; margin-bottom: 18px;
+  }
+  #shopify-section-{{ section.id }} .club-join__title {
+    font-family: 'Bebas Neue', Impact, sans-serif; line-height: 0.95;
+    font-size: clamp(48px, 6vw, 88px); letter-spacing: 0.04em;
+    text-transform: uppercase; margin: 0;
+  }
+  #shopify-section-{{ section.id }} .club-join__sub {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 22px; margin: 24px 0 44px; opacity: 0.92;
+  }
+  #shopify-section-{{ section.id }} .club-join__form-wrap { margin: 0; }
+  #shopify-section-{{ section.id }} .club-join__form {
+    display: grid; grid-template-columns: 1fr auto;
+    max-width: 540px; margin: 0 auto;
+    border-bottom: 1px solid #f5f4f0;
+  }
+  #shopify-section-{{ section.id }} .club-join__field {
+    background: transparent; border: none; color: #f5f4f0;
+    font-family: 'Montserrat', sans-serif; font-size: 16px;
+    padding: 16px 0; text-align: center;
+    letter-spacing: 0.04em; outline: none;
+  }
+  #shopify-section-{{ section.id }} .club-join__field::placeholder { color: rgba(245,244,240,0.55); }
+  #shopify-section-{{ section.id }} .club-join__submit {
+    background: transparent; border: none; color: #f5f4f0;
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    padding: 16px 22px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  #shopify-section-{{ section.id }} .club-join__submit:hover { color: #b8975a; }
+  #shopify-section-{{ section.id }} .club-join__incentive {
+    margin-top: 26px; display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: #b8975a;
+  }
+  #shopify-section-{{ section.id }} .club-join__legal {
+    margin-top: 28px; font-size: 11px; opacity: 0.55;
+    letter-spacing: 0.08em; line-height: 1.7;
+  }
+  #shopify-section-{{ section.id }} .club-join__success {
+    padding: 28px; border: 1px solid #b8975a; max-width: 480px; margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} .club-join__success h4 {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 26px; letter-spacing: 0.12em; margin: 0 0 10px;
+  }
+  #shopify-section-{{ section.id }} .club-join__success p {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 18px; margin: 0;
+  }
+  #shopify-section-{{ section.id }} .club-join__error {
+    margin-top: 12px; font-size: 12px; color: #d74a5d; letter-spacing: 0.04em;
+  }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Club Join Form",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background image (optional, dimmed)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Membership · One Form" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Join the FredJo Family" },
+    { "type": "text", "id": "sub", "label": "Subhead", "default": "No fee. No spam. First look at every drop." },
+    { "type": "text", "id": "placeholder", "label": "Field placeholder", "default": "your@email.com" },
+    { "type": "text", "id": "button_label", "label": "Submit label", "default": "Enter" },
+    { "type": "text", "id": "incentive", "label": "Incentive line (optional)", "default": "+ 48-hour early access on your first drop" },
+    {
+      "type": "richtext", "id": "legal", "label": "Legal copy",
+      "default": "<p>By joining you accept the FredJo Terms and Privacy Notice. Unsubscribe anytime — one click, no questions.</p>"
+    },
+    { "type": "header", "content": "Success state" },
+    { "type": "text", "id": "success_title", "label": "Success title", "default": "You're in." },
+    { "type": "text", "id": "success_body", "label": "Success body", "default": "Welcome to the Club. Check your inbox for the first drop." }
+  ],
+  "presets": [{ "name": "Club Join Form", "category": "Club" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

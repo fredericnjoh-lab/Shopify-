@@ -1,0 +1,79 @@
+{% comment %}
+  Club Founder Note — signed editorial letter from Fred.
+{% endcomment %}
+
+<section class="club-note" data-section-id="{{ section.id }}">
+  <div class="club-shell">
+    <div class="club-note__inner">
+      <div class="club-note__portrait">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 600 | image_tag:
+            loading: 'lazy', sizes: '280px', widths: '280, 560',
+            alt: section.settings.image.alt | default: 'Fred',
+            class: 'club-note__photo' }}
+        {%- else -%}
+          <div class="club-note__photo club-note__photo--placeholder" aria-hidden="true"></div>
+        {%- endif -%}
+      </div>
+      <div class="club-note__body">
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="club-note__eyebrow">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+        <div class="club-note__copy">{{ section.settings.body }}</div>
+        <div class="club-note__sign">
+          <span class="club-note__sign-line"></span>
+          <span class="club-note__sign-text">{{ section.settings.signature }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .club-note { padding: 130px 0; background: #f5f4f0; color: #0a0a0a; }
+  #shopify-section-{{ section.id }} .club-note__inner {
+    display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: center;
+  }
+  #shopify-section-{{ section.id }} .club-note__portrait { aspect-ratio: 1/1; overflow: hidden; background: #3a2117; }
+  #shopify-section-{{ section.id }} .club-note__photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #shopify-section-{{ section.id }} .club-note__photo--placeholder { background: #3a2117; }
+  #shopify-section-{{ section.id }} .club-note__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: #b8975a; font-weight: 500;
+    margin-bottom: 24px;
+  }
+  #shopify-section-{{ section.id }} .club-note__copy {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 22px; line-height: 1.55; max-width: 620px;
+  }
+  #shopify-section-{{ section.id }} .club-note__copy p { margin: 0 0 14px; }
+  #shopify-section-{{ section.id }} .club-note__sign {
+    margin-top: 26px; display: flex; align-items: center; gap: 14px;
+  }
+  #shopify-section-{{ section.id }} .club-note__sign-line { width: 50px; height: 1px; background: #b8975a; }
+  #shopify-section-{{ section.id }} .club-note__sign-text {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 22px; letter-spacing: 0.14em;
+  }
+  @media (max-width: 900px) {
+    #shopify-section-{{ section.id }} .club-note__inner { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .club-note__portrait { max-width: 280px; }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Club Founder Note",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Portrait" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A Note From Fred" },
+    {
+      "type": "richtext", "id": "body", "label": "Body",
+      "default": "<p>I started FredJo because I wanted clothes that didn't ask for permission. The Club is the smallest, sharpest version of that. No drops to chase. No noise. Just the pieces I'd wear myself, sent to you first.</p><p>You're either in, or you're not. There's nothing to apologize for either way.</p>"
+    },
+    { "type": "text", "id": "signature", "label": "Signature", "default": "— Fred" }
+  ],
+  "presets": [{ "name": "Club Founder Note", "category": "Club" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
