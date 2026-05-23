@@ -12,7 +12,7 @@
     "club-hero": {
       "type": "club-hero",
       "settings": {
-        "image": "shopify://shop_images/freestyle-creation-51a325b2-169f-4888-bd82-8046331d2b4c.jpg",
+        "image": "shopify://shop_images/freestyle-creation-1564ff24-318c-4dc4-a70f-49482dc04ebf.jpg",
         "tone": "dark",
         "scrim_opacity": 60,
         "eyebrow": "A FredJo Capsule · Membership",
@@ -189,6 +189,7 @@
     "club-split": {
       "type": "club-editorial-split",
       "settings": {
+        "image": "shopify://shop_images/unisex-oversized-heavyweight-hoodie-white-back-694d79873d2d3.jpg",
         "image_side": "left",
         "eyebrow": "The Standard",
         "title": "Heavyweight Cotton, Cut in Paris.",
@@ -199,6 +200,7 @@
     "club-note": {
       "type": "club-founder-note",
       "settings": {
+        "image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.37_PM.jpg",
         "eyebrow": "A Note From Fred",
         "body": "<p>I started FredJo because I wanted clothes that didn't ask for permission. The Club is the smallest, sharpest version of that. No drops to chase. No noise. Just the pieces I'd wear myself, sent to you first.</p><p>You're either in, or you're not. There's nothing to apologize for either way.</p>",
         "signature": "— Fred"
