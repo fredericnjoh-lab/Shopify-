@@ -12,7 +12,7 @@
     "club-hero": {
       "type": "club-hero",
       "settings": {
-        "image": "shopify://shop_images/product-ad-5f7fe5ee-03ad-477c-be5b-f36194f0dfee.jpg",
+        "image": "shopify://shop_images/freestyle-creation-51a325b2-169f-4888-bd82-8046331d2b4c.jpg",
         "tone": "dark",
         "scrim_opacity": 60,
         "eyebrow": "A FredJo Capsule · Membership",
@@ -80,8 +80,8 @@
     "club-manifesto": {
       "type": "club-manifesto",
       "settings": {
-        "quote": "<p>Paris doesn't follow anyone. Neither do you. The Club is for the ones who treat clothing like a decision — quiet, deliberate, and entirely their own.</p>",
-        "attribution": "— A Note From the Studio",
+        "quote": "<p>Paris doesn't follow anyone. Neither do you. The Club is for the ones who treat clothing like a decision - quiet, deliberate, and entirely their own.</p>",
+        "attribution": "— Fred Jo",
         "bg": "#f5f4f0",
         "fg": "#0a0a0a"
       }
@@ -144,32 +144,32 @@
         "c1": {
           "type": "piece",
           "settings": {
-            "num": "P-01",
-            "product": "",
+            "num": "",
+            "product": "fredjo-classic-hoodie",
             "name_override": ""
           }
         },
         "c2": {
           "type": "piece",
           "settings": {
-            "num": "P-02",
-            "product": "",
+            "num": "",
+            "product": "oversized-heavyweight-sweatshirt-streetwear-paris",
             "name_override": ""
           }
         },
         "c3": {
           "type": "piece",
           "settings": {
-            "num": "P-03",
-            "product": "",
+            "num": "",
+            "product": "unisex-short-sleeve-streetwear-t-shirt-paris",
             "name_override": ""
           }
         },
         "c4": {
           "type": "piece",
           "settings": {
-            "num": "P-04",
-            "product": "",
+            "num": "",
+            "product": "foam-trucker-hat-paris-edition",
             "name_override": ""
           }
         }
