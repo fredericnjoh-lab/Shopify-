@@ -230,6 +230,42 @@
         "cta_label": "Join",
         "cta_link": "#join"
       }
+    },
+    "rich_text_8jTk9a": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bDnCA3": {
+          "type": "heading",
+          "settings": {
+            "title": "Curious about the philosophy?"
+          }
+        },
+        "text_GxkDQH": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>No Apologies Club isn't just a capsule — it's a stance. Discover where it comes from.</p>"
+          }
+        },
+        "button_NdxrGD": {
+          "type": "button",
+          "settings": {
+            "link": "/pages/no-apologies-club",
+            "link_text": "Read the philosophy →"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bDnCA3",
+        "text_GxkDQH",
+        "button_NdxrGD"
+      ],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
     }
   },
   "order": [
@@ -241,6 +277,7 @@
     "club-split",
     "club-note",
     "club-join",
-    "club-sticky"
+    "club-sticky",
+    "rich_text_8jTk9a"
   ]
 }

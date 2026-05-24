@@ -43,6 +43,16 @@
         "type": "shopify://apps/page-speed-booster/blocks/app-embed/4a6fa896-93b0-4e15-9d32-c2311aca53bb",
         "disabled": false,
         "settings": {}
+      },
+      "18131037017812181619": {
+        "type": "shopify://apps/mailchimp-email-sms/blocks/mailchimp_for_shopify_script/e3b67dce-fd41-4b61-b3cf-961c12344cde",
+        "disabled": true,
+        "settings": {}
+      },
+      "12102000267677336833": {
+        "type": "shopify://apps/kopa-ai/blocks/preorders-embed/620872b9-a462-4846-ac89-03680b41edb8",
+        "disabled": true,
+        "settings": {}
       }
     }
   },
