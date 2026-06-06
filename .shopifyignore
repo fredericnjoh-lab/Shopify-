@@ -1,0 +1,2 @@
+# Shopify-generated assets the CLI must not overwrite during `theme dev`
+assets/country-flags.css
