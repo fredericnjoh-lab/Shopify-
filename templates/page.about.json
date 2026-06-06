@@ -1,1 +1,92 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{}},"slideshow":{"type":"slideshow","blocks":{"slideshow-0":{"type":"image","settings":{}}},"block_order":["slideshow-0"],"settings":{}},"rich-text":{"type":"rich-text","blocks":{"heading":{"type":"heading","settings":{}},"text":{"type":"text","settings":{}}},"block_order":["heading","text"],"settings":{}},"map":{"type":"map","settings":{}},"text-columns":{"type":"text-columns","blocks":{"column1":{"type":"text_block","settings":{}},"column2":{"type":"text_block","settings":{}},"column3":{"type":"text_block","settings":{}}},"block_order":["column1","column2","column3"],"settings":{}},"featured-collection":{"type":"featured-collection","settings":{}},"form":{"type":"contact-form","settings":{}}},"order":["main","slideshow","rich-text","text-columns","map","featured-collection","form"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "about-hero": {
+      "type": "club-hero",
+      "settings": {
+        "image": "shopify://shop_images/freestyle-creation-1564ff24-318c-4dc4-a70f-49482dc04ebf.jpg",
+        "tone": "dark",
+        "scrim_opacity": 55,
+        "eyebrow": "The House · Paris",
+        "title": "No Apologies",
+        "subhead": "FredJo is premium streetwear, refined in Paris and worn everywhere. Made for those who already know.",
+        "cta1_label": "Shop the collection",
+        "cta1_link": "shopify://collections/no-apologies-club",
+        "cta2_label": "Join the Club",
+        "cta2_link": "shopify://pages/no-apologies-club"
+      }
+    },
+    "about-marquee": {
+      "type": "club-marquee",
+      "blocks": {
+        "p1": { "type": "phrase", "settings": { "phrase": "Refined in Paris" } },
+        "p2": { "type": "phrase", "settings": { "phrase": "Worn everywhere" } },
+        "p3": { "type": "phrase", "settings": { "phrase": "United by Attitude" } },
+        "p4": { "type": "phrase", "settings": { "phrase": "Divided by Nothing" } },
+        "p5": { "type": "phrase", "settings": { "phrase": "Paris doesn't follow anyone" } },
+        "p6": { "type": "phrase", "settings": { "phrase": "The Culture Doesn't Wait" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "settings": { "speed": 32, "separator": "·" }
+    },
+    "about-manifesto": {
+      "type": "club-manifesto",
+      "settings": {
+        "quote": "<p>We do not follow trends. We follow conviction. FredJo exists for those who move with presence, confidence and no apologies. This is not streetwear for everyone. It is streetwear for those who already know.</p>",
+        "attribution": "— FredJo, Paris",
+        "bg": "#f5f4f0",
+        "fg": "#0a0a0a"
+      }
+    },
+    "about-standard": {
+      "type": "club-editorial-split",
+      "settings": {
+        "image": "shopify://shop_images/unisex-oversized-heavyweight-hoodie-white-back-694d79873d2d3.jpg",
+        "image_side": "left",
+        "eyebrow": "The Standard",
+        "title": "Refined in Paris. Built to last.",
+        "body": "<p>Heavyweight cotton. Structured cuts. Triple-stitched seams. Every piece is designed in Paris and made to outlast the season — and the next one.</p><p>No fast fashion. No noise. Garments built to be worn like a decision.</p>",
+        "pull_quote": "Wear it like a decision."
+      }
+    },
+    "about-founder": {
+      "type": "club-founder-note",
+      "settings": {
+        "image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.37_PM.jpg",
+        "eyebrow": "A Note From Fred",
+        "body": "<p>I started FredJo because I wanted clothes that didn't ask for permission — pieces that carry a point of view without saying a word.</p><p>Born in Paris, shaped by global street culture, FredJo is for people who already know who they are. No trends to chase. No apologies to make.</p><p>Refined in Paris. Worn everywhere.</p>",
+        "signature": "— Fred"
+      }
+    },
+    "about-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "The Collection",
+        "home_featured_products": "no-apologies-club",
+        "per_row": 3,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "about-hero",
+    "about-marquee",
+    "about-manifesto",
+    "about-standard",
+    "about-founder",
+    "about-collection",
+    "form"
+  ]
+}
