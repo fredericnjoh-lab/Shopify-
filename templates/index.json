@@ -23,14 +23,14 @@
             "title": "",
             "title_size": 69,
             "subheading": "",
-            "link": "shopify:\/\/collections\/no-apologies-club",
+            "link": "shopify://collections/no-apologies-club",
             "link_text": "Explore the Collection",
             "link_2": "",
             "link_text_2": "",
             "color_accent": "#6b3f21",
             "text_align": "vertical-center horizontal-center",
-            "image": "shopify:\/\/shop_images\/Untitled_design_12.png",
-            "image_mobile": "shopify:\/\/shop_images\/2025-04-23-at-03.53.33_76f77952.jpg",
+            "image": "shopify://shop_images/Untitled_design_12.png",
+            "image_mobile": "shopify://shop_images/2025-04-23-at-03.53.33_76f77952.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 0
           }
@@ -42,13 +42,13 @@
             "title": "",
             "title_size": 40,
             "subheading": "",
-            "link": "\/account\/register",
+            "link": "/account/register",
             "link_text": "Join the FredJo Family",
             "link_2": "",
             "link_text_2": "",
             "color_accent": "#321004",
             "text_align": "vertical-center horizontal-center",
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-09-27_at_12.35.15_PM_1.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-09-27_at_12.35.15_PM_1.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 30
           }
@@ -60,14 +60,14 @@
             "title": "NO APOLOGIES.",
             "title_size": 46,
             "subheading": "Premium streetwear for people who know who they are.",
-            "link": "shopify:\/\/collections\/no-apologies-club",
+            "link": "shopify://collections/no-apologies-club",
             "link_text": "Shop the Drop",
-            "link_2": "shopify:\/\/collections\/no-apologies-club",
+            "link_2": "shopify://collections/no-apologies-club",
             "link_text_2": "Discover No Apologies Club",
             "color_accent": "#8b4e40",
             "text_align": "vertical-bottom horizontal-center",
-            "image": "shopify:\/\/shop_images\/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
+            "image": "shopify://shop_images/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
+            "image_mobile": "shopify://shop_images/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 0
           }
@@ -79,14 +79,14 @@
             "title": "",
             "title_size": 46,
             "subheading": "",
-            "link": "shopify:\/\/collections\/no-apologies-club",
+            "link": "shopify://collections/no-apologies-club",
             "link_text": "Discover No Apologies",
             "link_2": "",
             "link_text_2": "",
             "color_accent": "#8b4e40",
             "text_align": "vertical-bottom horizontal-center",
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-10-25_at_7.20.33_PM_1.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/WhatsApp_Image_2025-10-25_at_7.20.33_PM_1.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-10-25_at_7.20.33_PM_1.jpg",
+            "image_mobile": "shopify://shop_images/WhatsApp_Image_2025-10-25_at_7.20.33_PM_1.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 0
           }
@@ -98,14 +98,14 @@
             "title": "",
             "title_size": 46,
             "subheading": "",
-            "link": "https:\/\/fredjoclothing.com\/a\/gempages?version=v7&shop_id=587236893280699242&theme_page_id=594102249941107503&page_type=GP_STATIC",
+            "link": "https://fredjoclothing.com/a/gempages?version=v7&shop_id=587236893280699242&theme_page_id=594102249941107503&page_type=GP_STATIC",
             "link_text": "",
             "link_2": "",
             "link_text_2": "",
             "color_accent": "#ffffff",
             "text_align": "vertical-bottom horizontal-center",
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
+            "image_mobile": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 0
           }
@@ -144,15 +144,15 @@
       "type": "text-and-image",
       "name": "t:sections.text-and-image.presets.image_with_text.name",
       "settings": {
-        "image": "shopify:\/\/shop_images\/image_No_Apologies.png",
+        "image": "shopify://shop_images/image_No_Apologies.png",
         "image_mask": "none",
-        "image2": "shopify:\/\/shop_images\/image_3_NA.png",
+        "image2": "shopify://shop_images/image_3_NA.png",
         "image2_mask": "none",
         "subtitle": "",
         "title": "COMPLETE THE UNIFORM.",
-        "text": "<p>The hoodie. The sweatpants. The full No Apologies look.<\/p><p><\/p><p>Built to be worn together. The Heavyweight Hoodie and Sweatpants are designed as one silhouette — structured, minimal, intentional.<\/p><p><\/p><p>Buy both. Save 15%.<\/p>",
+        "text": "<p>The hoodie. The sweatpants. The full No Apologies look.</p><p></p><p>Built to be worn together. The Heavyweight Hoodie and Sweatpants are designed as one silhouette — structured, minimal, intentional.</p><p></p><p>Buy both. Save 15%.</p>",
         "button_label": "Shop The Uniform — Save 15%",
-        "button_link": "shopify:\/\/products\/the-uniform-1",
+        "button_link": "shopify://products/the-uniform-1",
         "button_style": "primary",
         "align_text": "left",
         "image_width": "66",
@@ -160,7 +160,9 @@
         "divider": false,
         "top_padding": true,
         "bottom_padding": true,
-        "lazyload_images": true
+        "lazyload_images": true,
+        "image_url_override": "https://cdn.shopify.com/s/files/1/2583/1768/files/image_No_Apologies.png?v=1780775751",
+        "image2_url_override": "https://cdn.shopify.com/s/files/1/2583/1768/files/image_3_NA.png?v=1780775751"
       }
     },
     "featured_collection_GiTLkY": {
@@ -198,10 +200,10 @@
         "full_width": false,
         "text_color": "#1c1d1d",
         "background_color": "#512c13",
-        "background_image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-12-13_at_4.12.37_PM_2.jpg",
+        "background_image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.37_PM_2.jpg",
         "overlay_color": "#ffffff",
         "overlay_opacity": 0,
-        "mobile_image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-12-13_at_4.12.37_PM_2.jpg",
+        "mobile_image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.37_PM_2.jpg",
         "lazyload_images": true
       }
     },
@@ -215,10 +217,10 @@
             "heading": "New Arrival",
             "textarea": "",
             "cta_text1": "Explore collection",
-            "cta_link1": "shopify:\/\/collections\/t-shirts",
+            "cta_link1": "shopify://collections/t-shirts",
             "cta_text2": "",
-            "cta_link2": "shopify:\/\/collections\/tank-tops",
-            "image": "shopify:\/\/shop_images\/unisex-organic-cotton-t-shirt-black-left-front-66d87199c0e4e.jpg",
+            "cta_link2": "shopify://collections/tank-tops",
+            "image": "shopify://shop_images/unisex-organic-cotton-t-shirt-black-left-front-66d87199c0e4e.jpg",
             "video_url": "",
             "width": "50",
             "height": 700,
@@ -236,10 +238,10 @@
             "heading": "Stylish Versatility",
             "textarea": "",
             "cta_text1": "Discover What’s New",
-            "cta_link1": "shopify:\/\/collections\/no-apologies-club",
+            "cta_link1": "shopify://collections/no-apologies-club",
             "cta_text2": "",
             "cta_link2": "",
-            "image": "shopify:\/\/shop_images\/ChatGPT-Image-Oct-24-2025-09_31_23-AM.png",
+            "image": "shopify://shop_images/ChatGPT-Image-Oct-24-2025-09_31_23-AM.png",
             "video_url": "",
             "width": "50",
             "height": 600,
@@ -277,7 +279,7 @@
           "type": "text",
           "settings": {
             "enlarge_text": true,
-            "text": "<p>We do not follow trends.<\/p><p><\/p><p>We follow conviction.<\/p><p><\/p><p>Fredjo Clothing exists for those who move with presence, confidence and no apologies.<\/p><p><\/p><p>This is not streetwear for everyone.<\/p><p><\/p><p>It is streetwear for those who already know.<\/p>"
+            "text": "<p>We do not follow trends.</p><p></p><p>We follow conviction.</p><p></p><p>Fredjo Clothing exists for those who move with presence, confidence and no apologies.</p><p></p><p>This is not streetwear for everyone.</p><p></p><p>It is streetwear for those who already know.</p>"
           }
         }
       },
@@ -301,10 +303,10 @@
             "heading": "",
             "textarea": "",
             "cta_text1": "",
-            "cta_link1": "shopify:\/\/collections\/no-apologies-club",
+            "cta_link1": "shopify://collections/no-apologies-club",
             "cta_text2": "",
             "cta_link2": "",
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-12-13_at_4.12.37_PM_1.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.37_PM_1.jpg",
             "video_url": "",
             "width": "100",
             "height": 660,
@@ -428,7 +430,7 @@
       "name": "t:sections.featured-video.presets.video.name",
       "settings": {
         "title": "",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "divider": false
       }
     },
@@ -442,7 +444,7 @@
             "image_mask": "none",
             "image_width": 650,
             "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -451,11 +453,11 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-10-28_at_10.19.14_PM_3.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM_3.jpg",
             "image_mask": "none",
             "image_width": 650,
             "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -464,11 +466,11 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-10-28_at_10.19.14_PM_5.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM_5.jpg",
             "image_mask": "none",
             "image_width": 650,
             "title": "Hoodie to a global movement",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -477,11 +479,11 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-10-28_at_10.19.13_PM_2.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.13_PM_2.jpg",
             "image_mask": "none",
             "image_width": 650,
             "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.<\/p>",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -528,7 +530,7 @@
         "text_KGF8Nh": {
           "type": "text",
           "settings": {
-            "text": "<p>Get early access to new drops, exclusive offers and content made for those who move first.<\/p>"
+            "text": "<p>Get early access to new drops, exclusive offers and content made for those who move first.</p>"
           }
         },
         "form_Vr4ecd": {
@@ -560,39 +562,39 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-12-13_at_4.12.29_PM.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.29_PM.jpg",
             "image_mask": "none",
             "image_width": 650,
             "title": "",
-            "text": "<p>The <a href=\"\/collections\/no-apologies-club\" title=\"No Apologies Club\"><strong>No Apologies Club Hoodie<\/strong><\/a> is made for those who move with confidence and don’t follow rules — they set them.<\/p><p>Crafted from a soft, heavyweight fabric with a relaxed fit, this hoodie delivers all-day comfort while making a bold statement. The striking red embroidery stands out against deep black fabric, creating a powerful streetwear essential you can wear anywhere.<\/p>",
+            "text": "<p>The <a href=\"/collections/no-apologies-club\" title=\"No Apologies Club\"><strong>No Apologies Club Hoodie</strong></a> is made for those who move with confidence and don’t follow rules — they set them.</p><p>Crafted from a soft, heavyweight fabric with a relaxed fit, this hoodie delivers all-day comfort while making a bold statement. The striking red embroidery stands out against deep black fabric, creating a powerful streetwear essential you can wear anywhere.</p>",
             "button_label": "Learn More",
-            "button_link": "shopify:\/\/collections\/no-apologies-club"
+            "button_link": "shopify://collections/no-apologies-club"
           }
         },
         "text_block_4XdNgh": {
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2025-12-13_at_4.12.37_PM.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-12-13_at_4.12.37_PM.jpg",
             "image_mask": "none",
             "image_width": 650,
             "title": "",
-            "text": "<p>This hoodie is built around clean lines, heavy fabric, and a statement that doesn’t ask for approval. Minimal design up front. Maximum attitude in red.<\/p><p><\/p><p>Part of the <strong>FredJo capsule<\/strong>, it’s designed to move easily from street to off-duty without trying too hard. Wear it once and it becomes the default.<\/p>",
+            "text": "<p>This hoodie is built around clean lines, heavy fabric, and a statement that doesn’t ask for approval. Minimal design up front. Maximum attitude in red.</p><p></p><p>Part of the <strong>FredJo capsule</strong>, it’s designed to move easily from street to off-duty without trying too hard. Wear it once and it becomes the default.</p>",
             "button_label": "Learn More",
-            "button_link": "shopify:\/\/collections\/oversized-hoodies"
+            "button_link": "shopify://collections/oversized-hoodies"
           }
         },
         "text_block_fLb3mP": {
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify:\/\/shop_images\/ChatGPT_Image_Dec_5_2025_09_51_56_PM.png",
+            "image": "shopify://shop_images/ChatGPT_Image_Dec_5_2025_09_51_56_PM.png",
             "image_mask": "none",
             "image_width": 300,
             "title": "",
-            "text": "<p>Streetwear is more than clothing — it’s culture in motion. We created this brand for those who see style as self-expression, not just fashion. Inspired by global street culture and the evolution of modern streetwear, our mission is simple: <strong>create timeless pieces that represent confidence, individuality, and community<\/strong>.<\/p><p><\/p>",
+            "text": "<p>Streetwear is more than clothing — it’s culture in motion. We created this brand for those who see style as self-expression, not just fashion. Inspired by global street culture and the evolution of modern streetwear, our mission is simple: <strong>create timeless pieces that represent confidence, individuality, and community</strong>.</p><p></p>",
             "button_label": "Learn More",
-            "button_link": "shopify:\/\/collections\/sweatshirts"
+            "button_link": "shopify://collections/sweatshirts"
           }
         }
       },
