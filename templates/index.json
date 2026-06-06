@@ -130,12 +130,11 @@
     },
     "featured-collection": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
-        "title": "Best Collection No Apologies",
-        "home_featured_products": "sweatshirts",
-        "per_row": 5,
-        "rows": 2,
+        "title": "THE ESSENTIALS.",
+        "home_featured_products": "no-apologies-club",
+        "per_row": 3,
+        "rows": 1,
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
