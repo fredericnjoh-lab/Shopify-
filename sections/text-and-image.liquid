@@ -47,6 +47,9 @@
                       assign loading = true
                     endif
                   -%}
+                  {%- if section.settings.image_url_override != blank -%}
+                  <img src="{{ section.settings.image_url_override }}" alt="{{ section.settings.title | escape }}" class="feature-row__image" loading="lazy" style="width:100%;display:block;">
+                {%- else -%}
                   {%- render 'image-element',
                     img: section.settings.image,
                     widths: '180, 360, 540, 750, 900, 1080',
@@ -55,6 +58,7 @@
                     fallback: fallback,
                     classes: 'feature-row__image',
                   -%}
+                {%- endif -%}
                 </div>
               {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}</a>{%- endif -%}
             </div>
@@ -72,6 +76,9 @@
                       assign fallback = '60vw'
                     endif
                   -%}
+                  {%- if section.settings.image2_url_override != blank -%}
+                  <img src="{{ section.settings.image2_url_override }}" alt="{{ section.settings.title | escape }}" class="feature-row__image" loading="lazy" style="width:100%;display:block;">
+                {%- else -%}
                   {%- render 'image-element',
                     img: section.settings.image2,
                     widths: '180, 360, 540, 750, 900, 1080',
@@ -79,6 +86,7 @@
                     fallback: fallback,
                     classes: 'feature-row__image',
                   -%}
+                {%- endif -%}
                 </div>
               {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}</a>{%- endif -%}
             </div>
@@ -209,6 +217,16 @@
       "type": "image_picker",
       "id": "image2",
       "label": "t:sections.text-and-image.settings.image2.label"
+    },
+    {
+      "type": "text",
+      "id": "image_url_override",
+      "label": "Image 1 URL (override)"
+    },
+    {
+      "type": "text",
+      "id": "image2_url_override",
+      "label": "Image 2 URL (override)"
     },
     {
       "type": "select",
