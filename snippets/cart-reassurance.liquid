@@ -1,0 +1,48 @@
+{%- comment -%}
+  Shared cart trust signals. Used on cart page and cart drawer.
+{%- endcomment -%}
+<ul class="cart__reassurance" role="list">
+  <li>{{ 'cart.general.reassurance_shipping' | t }}</li>
+  <li>{{ 'cart.general.reassurance_returns' | t }}</li>
+  <li>{{ 'cart.general.reassurance_secure' | t }}</li>
+</ul>
+
+{%- style -%}
+  .cart__reassurance {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 14px 0 0;
+    border-top: 1px solid rgba(10, 10, 10, 0.12);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .cart__reassurance li {
+    position: relative;
+    padding-left: 18px;
+    opacity: 0.85;
+  }
+  .cart__reassurance li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    margin-top: -3.5px;
+    border-radius: 50%;
+    background: #B8975A;
+  }
+  .drawer__footer .cart__reassurance {
+    margin-top: 12px;
+    padding-top: 12px;
+    gap: 8px 16px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+{%- endstyle -%}
