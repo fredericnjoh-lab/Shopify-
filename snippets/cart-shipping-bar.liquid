@@ -1,0 +1,68 @@
+{%- comment -%}
+  Free-shipping threshold progress for cart drawer and cart page.
+  Threshold matches store messaging: $100 (10000 cents).
+{%- endcomment -%}
+{%- liquid
+  assign threshold_cents = 10000
+  assign remaining_cents = threshold_cents | minus: cart.total_price
+  if remaining_cents < 0
+    assign remaining_cents = 0
+  endif
+  assign progress = 0
+  if threshold_cents > 0
+    assign progress = cart.total_price | times: 100.0 | divided_by: threshold_cents
+  endif
+  if progress > 100
+    assign progress = 100
+  endif
+  assign remaining_money = remaining_cents | money
+-%}
+<div
+  class="cart-shipping-bar"
+  data-cart-shipping-bar
+  data-threshold="{{ threshold_cents }}"
+  data-remaining-template="{{ 'cart.general.shipping_bar_remaining_html' | t | escape }}"
+  data-qualified-text="{{ 'cart.general.shipping_bar_qualified' | t | escape }}">
+  <p class="cart-shipping-bar__message" data-cart-shipping-message>
+    {%- if cart.item_count == 0 or remaining_cents > 0 -%}
+      {{ 'cart.general.shipping_bar_remaining_html' | t | replace: '[amount]', remaining_money }}
+    {%- else -%}
+      {{ 'cart.general.shipping_bar_qualified' | t }}
+    {%- endif -%}
+  </p>
+  <div class="cart-shipping-bar__track" aria-hidden="true">
+    <span class="cart-shipping-bar__fill" data-cart-shipping-fill style="width: {{ progress }}%;"></span>
+  </div>
+</div>
+
+{%- style -%}
+  .cart-shipping-bar {
+    margin: 0 0 14px;
+    padding: 12px 0 0;
+  }
+  .cart-shipping-bar__message {
+    margin: 0 0 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.4;
+    opacity: 0.9;
+  }
+  .cart-shipping-bar__track {
+    height: 2px;
+    background: rgba(10, 10, 10, 0.12);
+    overflow: hidden;
+  }
+  .cart-shipping-bar__fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #B8975A;
+    transition: width 0.35s ease;
+  }
+  .drawer__footer .cart-shipping-bar {
+    margin-bottom: 12px;
+  }
+{%- endstyle -%}

@@ -46,6 +46,8 @@
             <div data-subtotal>{{ cart.total_price | money }}</div>
           </div>
 
+          {%- render 'cart-shipping-bar' -%}
+
           <div class="cart__item-row text-center">
             <small>
               {{ 'cart.general.shipping_at_checkout' | t }}<br />
