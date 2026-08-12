@@ -48,6 +48,8 @@
             <div data-subtotal>{{ cart.total_price | money }}</div>
           </div>
 
+          {%- render 'cart-shipping-bar' -%}
+
           {% if settings.cart_terms_conditions_enable %}
             <div class="cart__item-row cart__terms">
               <input type="checkbox" id="CartTerms" class="cart__terms-checkbox">
