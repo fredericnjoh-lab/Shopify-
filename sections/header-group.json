@@ -22,7 +22,7 @@
           "type": "announcement",
           "settings": {
             "text": "Free shipping",
-            "link_text": "On all orders over $100",
+            "link_text": "On all orders over 100 USD",
             "link": "shopify://collections/no-apologies-club"
           }
         },
@@ -95,7 +95,7 @@
         "msg-2": {
           "type": "message",
           "settings": {
-            "text": "Free worldwide shipping over $100",
+            "text": "Free worldwide shipping over 100 USD",
             "link": ""
           }
         },

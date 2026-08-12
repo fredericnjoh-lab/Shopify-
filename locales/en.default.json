@@ -38,7 +38,7 @@
       "subtotal": "Subtotal",
       "discounts": "Discounts",
       "shipping_at_checkout": "Shipping, taxes, and discount codes calculated at checkout.",
-      "reassurance_shipping": "Free worldwide shipping over $100",
+      "reassurance_shipping": "Free worldwide shipping over 100 USD",
       "reassurance_returns": "30-day returns, postage paid",
       "reassurance_secure": "Secure checkout",
       "shipping_bar_remaining_html": "[amount] away from free worldwide shipping",

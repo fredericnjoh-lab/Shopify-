@@ -1,37 +1,23 @@
 {%- comment -%}
   Free-shipping threshold progress for cart drawer and cart page.
-  Threshold matches store messaging: $100 (10000 cents).
+  Threshold is 100 in shop currency (USD). JS converts to the
+  active presentment currency via Shopify.currency.rate.
 {%- endcomment -%}
-{%- liquid
-  assign threshold_cents = 10000
-  assign remaining_cents = threshold_cents | minus: cart.total_price
-  if remaining_cents < 0
-    assign remaining_cents = 0
-  endif
-  assign progress = 0
-  if threshold_cents > 0
-    assign progress = cart.total_price | times: 100.0 | divided_by: threshold_cents
-  endif
-  if progress > 100
-    assign progress = 100
-  endif
-  assign remaining_money = remaining_cents | money
--%}
+{%- assign threshold_shop_cents = 10000 -%}
 <div
   class="cart-shipping-bar"
   data-cart-shipping-bar
-  data-threshold="{{ threshold_cents }}"
+  data-threshold-shop="{{ threshold_shop_cents }}"
+  data-shop-currency="{{ shop.currency }}"
+  data-cart-total="{{ cart.total_price }}"
+  data-cart-count="{{ cart.item_count }}"
   data-remaining-template="{{ 'cart.general.shipping_bar_remaining_html' | t | escape }}"
   data-qualified-text="{{ 'cart.general.shipping_bar_qualified' | t | escape }}">
   <p class="cart-shipping-bar__message" data-cart-shipping-message>
-    {%- if cart.item_count == 0 or remaining_cents > 0 -%}
-      {{ 'cart.general.shipping_bar_remaining_html' | t | replace: '[amount]', remaining_money }}
-    {%- else -%}
-      {{ 'cart.general.shipping_bar_qualified' | t }}
-    {%- endif -%}
+    {{ 'cart.general.reassurance_shipping' | t }}
   </p>
   <div class="cart-shipping-bar__track" aria-hidden="true">
-    <span class="cart-shipping-bar__fill" data-cart-shipping-fill style="width: {{ progress }}%;"></span>
+    <span class="cart-shipping-bar__fill" data-cart-shipping-fill style="width: 0%;"></span>
   </div>
 </div>
 
