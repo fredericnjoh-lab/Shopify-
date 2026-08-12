@@ -364,6 +364,7 @@
       "color_swatch_trigger": "Color",
       "size_trigger": "Size",
       "size_chart": "Size chart",
+      "size_chart_fallback_html": "<p>Oversized fit. Structured through the shoulder. True to size for the intended silhouette.</p><p>Between sizes: size down for a closer cut. Stay for the full drop.</p><p>30-day returns, postage paid.</p>",
       "save_html": "Save {{ saved_amount }}",
       "collection_return": "Back to {{ collection }}",
       "next_product": "Next: {{ title }}",
