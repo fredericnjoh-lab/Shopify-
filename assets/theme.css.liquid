@@ -9249,6 +9249,9 @@ label.tag__checkbox-wrapper{
 
 .variant-input-wrap label.disabled{
       color:var(--colorBorder);
+      opacity:0.55;
+      text-decoration:line-through;
+      text-decoration-color:rgba(10,10,10,0.35);
     }
 
 .variant-input-wrap label.disabled:after{
@@ -9261,6 +9264,16 @@ label.tag__checkbox-wrapper{
       top:0;
       transform:rotate(45deg);
     }
+
+.product-soldout-note{
+  margin:10px 0 0;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:0.08em;
+  line-height:1.4;
+  text-align:center;
+  color:#8A4A4A;
+}
 
 .variant-input-wrap input[type=radio]:focus+label{
     border-color:var(--colorTextBodyAlpha005);

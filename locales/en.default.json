@@ -385,7 +385,9 @@
         "other": "Low stock - {{ count }} items left"
       },
       "sold_out": "Sold Out",
+      "sold_out_hint": "This selection is sold out. Choose another size or color.",
       "unavailable": "Unavailable",
+      "unavailable_hint": "This combination is unavailable. Choose another size or color.",
       "quantity": "Quantity",
       "add_to_cart": "Add to cart",
       "preorder": "Pre-order",
