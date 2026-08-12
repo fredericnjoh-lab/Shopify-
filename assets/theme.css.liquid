@@ -827,6 +827,28 @@ tool-tip[data-tool-tip-open=true] .tool-tip__inner{
     margin-left:var(--sizeChartIconMargin);
   }
 
+.size-chart__standalone .tool-tip-trigger{
+  display:inline-flex;
+  align-items:center;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.size-chart__standalone .tool-tip-trigger__title{
+  color:#B8975A;
+  font-size:0.8em;
+  letter-spacing:0.16em;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.size-chart__standalone .tool-tip-trigger__title .icon-size-chart{
+  width:18px;
+  height:18px;
+  vertical-align:middle;
+  fill:currentColor;
+}
+
 .text-with-icons__blocks{
   display:flex;
   flex-wrap:wrap;
@@ -8196,11 +8218,6 @@ html[dir=rtl] .social-sharing__title{
 .theme-block:last-child{
     margin-bottom:0;
   }
-
-.size-chart__standalone .tool-tip-trigger__title{
-  font-size:0.8em;
-  letter-spacing:0.3em;
-}
 
 .slideshow-wrapper{
   position:relative;

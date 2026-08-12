@@ -315,6 +315,7 @@
       "color_swatch_trigger": "Couleur",
       "size_trigger": "Taille",
       "size_chart": "Tableau des tailles",
+      "size_chart_fallback_html": "<p>Coupe oversized. Structurée aux épaules. Taille fidèle à la silhouette prévue.</p><p>Entre deux tailles : prenez en dessous pour un rendu plus près du corps. Gardez votre taille pour le drop complet.</p><p>Retours sous 30 jours, port payé.</p>",
       "save_html": "Épargnez {{ saved_amount }}",
       "collection_return": "Retour à {{ collection }}",
       "next_product": "Suivant: {{ title }}",
