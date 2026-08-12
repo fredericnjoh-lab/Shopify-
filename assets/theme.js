@@ -1788,7 +1788,7 @@ theme.recentlyViewed = {
         // Update subtotal
         this.subtotal.innerHTML = theme.Currency.formatMoney(subtotal, theme.settings.moneyFormat);
 
-        this.updateShippingBar(subtotal, count);
+        theme.cartShippingBar.update(subtotal, count);
   
         this.reInit();
   
@@ -1797,41 +1797,6 @@ theme.recentlyViewed = {
         if (Shopify && Shopify.StorefrontExpressButtons) {
           Shopify.StorefrontExpressButtons.initialize();
         }
-      },
-
-      updateShippingBar: function(subtotal, count) {
-        var bars = document.querySelectorAll('[data-cart-shipping-bar]');
-        if (!bars.length) {
-          return;
-        }
-
-        var subtotalCents = parseInt(subtotal, 10) || 0;
-        var itemCount = parseInt(count, 10) || 0;
-
-        bars.forEach(function(bar) {
-          var threshold = parseInt(bar.getAttribute('data-threshold'), 10) || 10000;
-          var remaining = Math.max(threshold - subtotalCents, 0);
-          var progress = threshold > 0 ? Math.min((subtotalCents / threshold) * 100, 100) : 0;
-          var messageEl = bar.querySelector('[data-cart-shipping-message]');
-          var fillEl = bar.querySelector('[data-cart-shipping-fill]');
-          var remainingTemplate = bar.getAttribute('data-remaining-template') || '';
-          var qualifiedText = bar.getAttribute('data-qualified-text') || '';
-
-          if (fillEl) {
-            fillEl.style.width = progress + '%';
-          }
-
-          if (!messageEl) {
-            return;
-          }
-
-          if (itemCount === 0 || remaining > 0) {
-            var amount = theme.Currency.formatMoney(remaining, theme.settings.moneyFormat);
-            messageEl.innerHTML = remainingTemplate.replace('[amount]', amount);
-          } else {
-            messageEl.textContent = qualifiedText;
-          }
-        });
       },
   
       updateCartDiscounts: function(markup) {
@@ -1956,6 +1921,65 @@ theme.recentlyViewed = {
   
     return CartForm;
   })();
+
+  /*============================================================================
+    Free-shipping threshold bar (shop currency → presentment currency)
+  ==============================================================================*/
+  theme.cartShippingBar = {
+    update: function(subtotal, count) {
+      var bars = document.querySelectorAll('[data-cart-shipping-bar]');
+      if (!bars.length) {
+        return;
+      }
+
+      var subtotalCents = parseInt(subtotal, 10) || 0;
+      var itemCount = parseInt(count, 10) || 0;
+
+      bars.forEach(function(bar) {
+        var thresholdShop = parseInt(bar.getAttribute('data-threshold-shop'), 10) || 10000;
+        var shopCurrency = bar.getAttribute('data-shop-currency') || 'USD';
+        var threshold = thresholdShop;
+        var activeCurrency = (window.Shopify && Shopify.currency && Shopify.currency.active) || shopCurrency;
+        var rate = (window.Shopify && Shopify.currency && parseFloat(Shopify.currency.rate)) || 1;
+
+        if (activeCurrency !== shopCurrency && rate > 0) {
+          threshold = Math.round(thresholdShop * rate);
+        }
+
+        var remaining = Math.max(threshold - subtotalCents, 0);
+        var progress = threshold > 0 ? Math.min((subtotalCents / threshold) * 100, 100) : 0;
+        var messageEl = bar.querySelector('[data-cart-shipping-message]');
+        var fillEl = bar.querySelector('[data-cart-shipping-fill]');
+        var remainingTemplate = bar.getAttribute('data-remaining-template') || '';
+        var qualifiedText = bar.getAttribute('data-qualified-text') || '';
+
+        if (fillEl) {
+          fillEl.style.width = progress + '%';
+        }
+
+        if (!messageEl) {
+          return;
+        }
+
+        if (itemCount === 0 || remaining > 0) {
+          var amount = theme.Currency.formatMoney(remaining, theme.settings.moneyFormat);
+          messageEl.textContent = remainingTemplate.replace('[amount]', amount);
+        } else {
+          messageEl.textContent = qualifiedText;
+        }
+      });
+    },
+
+    initFromDom: function() {
+      var bar = document.querySelector('[data-cart-shipping-bar]');
+      if (!bar) {
+        return;
+      }
+      var subtotal = bar.getAttribute('data-cart-total') || 0;
+      var count = bar.getAttribute('data-cart-count') || 0;
+      theme.cartShippingBar.update(subtotal, count);
+    }
+  };
   
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
@@ -8393,6 +8417,10 @@ theme.recentlyViewed = {
       if (cartPageForm) {
         new theme.CartForm(cartPageForm);
       }
+    }
+
+    if (theme.cartShippingBar) {
+      theme.cartShippingBar.initFromDom();
     }
 
     if (theme.settings.isCustomerTemplate) {
