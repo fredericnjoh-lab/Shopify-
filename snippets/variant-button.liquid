@@ -42,17 +42,40 @@
     {%- endif -%}
   </label>
   {%- assign option_index = forloop.index -%}
+  {%- assign option_index0 = forloop.index0 -%}
   <fieldset class="variant-input-wrap"
     name="{{ option.name }}"
     data-index="option{{ option_index }}"
     data-handle="{{ option.name | handleize }}"
-    id="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ forloop.index0 }}">
+    id="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ option_index0 }}">
     <legend class="hide">{{ option.name }}</legend>
     {%- for value in option.values -%}
       {%- liquid
         assign product_available = true
-        if product.options.size == 1 and block.settings.product_dynamic_variants_enable
-          assign product_available = product.variants[forloop.index0].available
+
+        if block.settings.product_dynamic_variants_enable
+          if product.options.size == 1
+            assign product_available = product.variants[forloop.index0].available
+          else
+            assign product_available = false
+            for variant in product.variants
+              if variant.available and variant.options[option_index0] == value
+                assign matches_other = true
+                for opt_value in variant.options
+                  assign opt_i = forloop.index0
+                  unless opt_i == option_index0
+                    if variant.options[opt_i] != product.options_with_values[opt_i].selected_value
+                      assign matches_other = false
+                    endif
+                  endunless
+                endfor
+                if matches_other
+                  assign product_available = true
+                  break
+                endif
+              endif
+            endfor
+          endif
         endif
       -%}
       <div
@@ -81,6 +104,7 @@
               for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ option.name | handleize }}-{{ value | url_encode }}"
               class="variant__button-label color-swatch color-swatch--{{ value | handle }}{% unless product_available %} disabled{% endunless %}"
               style="background-color: {{ color_swatch_fallback }};{% if value.swatch.image %}  background-image: url({{ color_image }});{% endif %}"
+              {% unless product_available %}aria-label="{{ value | escape }} — {{ 'products.product.sold_out' | t }}"{% endunless %}
             >
               {{ value | escape }}
             </label>
@@ -95,6 +119,7 @@
               for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ option.name | handleize }}-{{ value | url_encode }}"
               class="variant__button-label color-swatch color-swatch--{{ value | handle }}{% unless product_available %} disabled{% endunless %}"
               style="background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}"
+              {% unless product_available %}aria-label="{{ value | escape }} — {{ 'products.product.sold_out' | t }}"{% endunless %}
             >
               {{ value | escape }}
             </label>
@@ -102,7 +127,9 @@
         {%- else -%}
           <label
             for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ option.name | handleize }}-{{ value | url_encode }}"
-            class="variant__button-label{% unless product_available %} disabled{% endunless %}">{{ value | escape }}</label>
+            class="variant__button-label{% unless product_available %} disabled{% endunless %}"
+            {% unless product_available %}aria-label="{{ value | escape }} — {{ 'products.product.sold_out' | t }}"{% endunless %}
+          >{{ value | escape }}</label>
         {%- endif -%}
       </div>
     {%- endfor -%}

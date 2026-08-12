@@ -53,6 +53,14 @@
     </div>
   {%- endif -%}
 
+  <p
+    class="product-soldout-note{% if current_variant.available %} hide{% endif %}"
+    data-soldout-note
+    data-soldout-text="{{ 'products.product.sold_out_hint' | t | escape }}"
+    data-unavailable-text="{{ 'products.product.unavailable_hint' | t | escape }}">
+    {{ 'products.product.sold_out_hint' | t }}
+  </p>
+
   <div class="shopify-payment-terms product__policies">{{ form | payment_terms }}</div>
 
   <select name="id" data-product-select class="product-single__variants no-js">

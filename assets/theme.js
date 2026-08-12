@@ -3556,6 +3556,7 @@ theme.recentlyViewed = {
                 if (currentOption1 && variant['option1'] === currentOption1.value) {
                   entry.soldOut = entry.soldOut && variant.available ? false : entry.soldOut;
                 }
+                break;
               case 'option3':
                 // Option 3 inputs should remain enabled based on available variants that match first and second option group
                 if (
@@ -3564,6 +3565,7 @@ theme.recentlyViewed = {
                 ) {
                   entry.soldOut = entry.soldOut && variant.available ? false : entry.soldOut;
                 }
+                break;
             }
           })
   
@@ -3627,11 +3629,13 @@ theme.recentlyViewed = {
           // Variant exists - enable & show variant
           input.classList.remove(classes.disabled);
           label.classList.remove(classes.disabled);
+          label.removeAttribute('aria-label');
   
           // Variant sold out - cross out option (remains selectable)
           if (obj.soldOut) {
             input.classList.add(classes.disabled);
             label.classList.add(classes.disabled);
+            label.setAttribute('aria-label', obj.value + ' — ' + theme.strings.soldOut);
           }
         }
       },
@@ -7194,6 +7198,7 @@ theme.recentlyViewed = {
         var variant = evt.detail.variant;
         var cartBtn = this.container.querySelector(this.selectors.addToCart);
         var cartBtnText = this.container.querySelector(this.selectors.addToCartText);
+        var soldOutNote = this.container.querySelector('[data-soldout-note]');
   
         if (!cartBtn) return;
   
@@ -7204,17 +7209,28 @@ theme.recentlyViewed = {
             cartBtn.disabled = false;
             var defaultText = cartBtnText.dataset.defaultText;
             cartBtnText.textContent = defaultText;
+            if (soldOutNote) {
+              soldOutNote.classList.add('hide');
+            }
           } else {
             // Sold out, disable the submit button and change text
             cartBtn.classList.add(classes.disabled);
             cartBtn.disabled = true;
             cartBtnText.textContent = theme.strings.soldOut;
+            if (soldOutNote) {
+              soldOutNote.textContent = soldOutNote.getAttribute('data-soldout-text') || '';
+              soldOutNote.classList.remove('hide');
+            }
           }
         } else {
           // The variant doesn't exist, disable submit button
           cartBtn.classList.add(classes.disabled);
           cartBtn.disabled = true;
           cartBtnText.textContent = theme.strings.unavailable;
+          if (soldOutNote) {
+            soldOutNote.textContent = soldOutNote.getAttribute('data-unavailable-text') || '';
+            soldOutNote.classList.remove('hide');
+          }
         }
       },
   
