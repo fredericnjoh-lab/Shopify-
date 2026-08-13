@@ -10,8 +10,8 @@
   {%- endif -%}
   "sameAs": [
     {%- assign social_links = '' -%}
-    {%- if settings.social_instagram_link != blank -%}{%- assign social_links = social_links | append: settings.social_instagram_link | append: ',' -%}{%- endif -%}
-    {%- if settings.social_facebook_link != blank -%}{%- assign social_links = social_links | append: settings.social_facebook_link | append: ',' -%}{%- endif -%}
+    {%- assign social_links = social_links | append: 'https://www.instagram.com/fredjoclothing.paris' | append: ',' -%}
+    {%- assign social_links = social_links | append: 'https://www.facebook.com/fredjoclothing' | append: ',' -%}
     {%- if settings.social_tiktok_link != blank -%}{%- assign social_links = social_links | append: settings.social_tiktok_link | append: ',' -%}{%- endif -%}
     {%- if settings.social_youtube_link != blank -%}{%- assign social_links = social_links | append: settings.social_youtube_link | append: ',' -%}{%- endif -%}
     {%- if settings.social_twitter_link != blank -%}{%- assign social_links = social_links | append: settings.social_twitter_link | append: ',' -%}{%- endif -%}
