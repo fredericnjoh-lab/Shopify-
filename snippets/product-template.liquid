@@ -308,21 +308,9 @@
                           -%}
                         </div>
 
-                        {%- comment -%} Shipping + returns note — shown under the buy buttons on every product {%- endcomment -%}
-                        <div class="product-block product-block--policy">
+                        {%- comment -%} 30-day returns note — shown under the buy buttons on every product {%- endcomment -%}
+                        <div class="product-block product-block--returns">
                           <ul class="sales-points">
-                            <li class="sales-point">
-                              <span class="icon-and-text">
-                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-truck" viewBox="0 0 64 64"><defs><style>.a{stroke-miterlimit:10}</style></defs><path class="a" d="M16.5 43.22H6.88V16.5h33.14v26.72H23.94m21.48 0h-5.4V30.4h17.1v12.82h-4.23m4.23-12.82-6.41-8.56H40.02"/><circle class="a" cx="20.24" cy="43.76" r="3.74"/><path class="a" d="M45.42 43.23a3.82 3.82 0 1 1 0 .37v-.37"/></svg>
-                                <span>
-                                  {%- if shop.shipping_policy.url != blank -%}
-                                    <a href="{{ shop.shipping_policy.url }}">{{ 'products.product.shipping_note' | t }}</a>
-                                  {%- else -%}
-                                    {{ 'products.product.shipping_note' | t }}
-                                  {%- endif -%}
-                                </span>
-                              </span>
-                            </li>
                             <li class="sales-point">
                               <span class="icon-and-text">
                                 <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-package" viewBox="0 0 64 64"><path d="M32 54.52 10 41.95v-19.9L32 9.48l22 12.57v19.9L32 54.52z"/><path d="M32 54.52v-19.9l22-12.57M32 34.62 10 22.05m31.7-7.03L21 28.33v8.38"/></svg>

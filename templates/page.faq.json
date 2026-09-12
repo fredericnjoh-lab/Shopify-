@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -93,7 +102,7 @@
           "type": "question",
           "settings": {
             "title": "How do I reach you?",
-            "text": "<p>Reach us through our contact page. We reply within one business day.</p>"
+            "text": "<p>Email us at info@fredjoclothing.com. We reply within one business day.</p>"
           }
         }
       },
@@ -116,5 +125,8 @@
       }
     }
   },
-  "order": ["main", "faq"]
+  "order": [
+    "main",
+    "faq"
+  ]
 }
