@@ -675,6 +675,15 @@
             "product": "fred-jo-unisex-zip-hoodie",
             "link": ""
           }
+        },
+        "photo_h9tka4": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-tee-beach.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -684,7 +693,8 @@
         "photo_gFfyDR",
         "photo_PR4apn",
         "photo_Afb7Mm",
-        "photo_99H7LB"
+        "photo_99H7LB",
+        "photo_h9tka4"
       ],
       "name": "Community gallery",
       "settings": {
