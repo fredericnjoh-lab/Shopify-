@@ -338,6 +338,7 @@
       "unavailable_hint": "Cette combinaison n'est pas disponible. Choisissez une autre taille ou couleur.",
       "quantity": "Quantité",
       "add_to_cart": "Ajouter au panier",
+      "returns_note": "Retours sous 30 jours · Échanges gratuits",
       "preorder": "Pré-commander",
       "include_taxes": "Taxes incluses.",
       "shipping_policy_html": "<a href='{{ link }}'>Frais d'expédition<\/a> calculés lors du passage à la caisse.",

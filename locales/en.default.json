@@ -390,6 +390,7 @@
       "unavailable_hint": "This combination is unavailable. Choose another size or color.",
       "quantity": "Quantity",
       "add_to_cart": "Add to cart",
+      "returns_note": "30-day returns · Free exchanges",
       "preorder": "Pre-order",
       "include_taxes": "Tax included.",
       "shipping_policy_html": "<a href='{{ link }}'>Shipping</a> calculated at checkout.",

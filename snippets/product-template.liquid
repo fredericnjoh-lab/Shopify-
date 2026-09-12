@@ -307,6 +307,24 @@
                             block: block,
                           -%}
                         </div>
+
+                        {%- comment -%} 30-day returns note — shown under the buy buttons on every product {%- endcomment -%}
+                        <div class="product-block product-block--returns">
+                          <ul class="sales-points">
+                            <li class="sales-point">
+                              <span class="icon-and-text">
+                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-package" viewBox="0 0 64 64"><path d="M32 54.52 10 41.95v-19.9L32 9.48l22 12.57v19.9L32 54.52z"/><path d="M32 54.52v-19.9l22-12.57M32 34.62 10 22.05m31.7-7.03L21 28.33v8.38"/></svg>
+                                <span>
+                                  {%- if shop.refund_policy.url != blank -%}
+                                    <a href="{{ shop.refund_policy.url }}">{{ 'products.product.returns_note' | t }}</a>
+                                  {%- else -%}
+                                    {{ 'products.product.returns_note' | t }}
+                                  {%- endif -%}
+                                </span>
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
                       {%- endunless -%}
 
                       {%- if block.settings.surface_pickup_enable -%}
