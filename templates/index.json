@@ -613,11 +613,38 @@
     "community_gallery_9Hp9VP": {
       "type": "community-gallery",
       "blocks": {
+        "photo_6XV6NA": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-beanie.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "fred-jo-cuffed-beanie-1",
+            "link": ""
+          }
+        },
+        "photo_FQQKLJ": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-hoodie-peace.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "fred-jo-black-unisex-hoodie",
+            "link": ""
+          }
+        },
+        "photo_KBq9qT": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-fredjo-tee-street.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "",
+            "link": ""
+          }
+        },
         "photo_gFfyDR": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/fredjo-nac-tee-fred.jpg",
-            "handle": "@fredjoclothing",
+            "handle": "@fredjoclothing.paris",
             "product": "unisex-short-sleeve-streetwear-t-shirt-paris",
             "link": ""
           }
@@ -626,7 +653,7 @@
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/fredjo-hoodie-graffiti-her.jpg",
-            "handle": "@fredjoclothing",
+            "handle": "@fredjoclothing.paris",
             "product": "fred-jo-crop-hoodie",
             "link": ""
           }
@@ -635,7 +662,7 @@
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/fredjo-pink-hoodie.jpg",
-            "handle": "@fredjoclothing",
+            "handle": "@fredjoclothing.paris",
             "product": "fred-jo-unisex-sueded-fleece-hoodie",
             "link": ""
           }
@@ -644,13 +671,16 @@
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/fredjo-duo-paris.jpg",
-            "handle": "@fredjoclothing",
+            "handle": "@fredjoclothing.paris",
             "product": "fred-jo-unisex-zip-hoodie",
             "link": ""
           }
         }
       },
       "block_order": [
+        "photo_6XV6NA",
+        "photo_FQQKLJ",
+        "photo_KBq9qT",
         "photo_gFfyDR",
         "photo_PR4apn",
         "photo_Afb7Mm",
@@ -659,7 +689,7 @@
       "name": "Community gallery",
       "settings": {
         "title": "As worn",
-        "subtitle": "<p>Real people, real pieces. Tag @fredjoclothing to be featured.</p>",
+        "subtitle": "<p>Real people, real pieces. Tag @fredjoclothing.paris to be featured.</p>",
         "columns_desktop": 4,
         "columns_mobile": "2",
         "image_ratio": "4 / 5",
