@@ -1,0 +1,214 @@
+{% comment %}
+  Creators / Ambassadors hub — hero, benefits, and a native application form.
+  Uses Shopify's built-in contact form (application lands in the store inbox).
+{% endcomment %}
+
+<section class="creators" data-section-id="{{ section.id }}" id="creators">
+  {%- if section.settings.bg_image != blank -%}
+    <div class="creators__bg">
+      {{ section.settings.bg_image | image_url: width: 2000 | image_tag:
+        loading: 'lazy', sizes: '100vw', widths: '600, 1000, 1600, 2000',
+        alt: '', class: 'creators__bg-img' }}
+    </div>
+  {%- endif -%}
+
+  <div class="creators__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="creators__eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    {%- if section.settings.title != blank -%}
+      <h1 class="creators__title">{{ section.settings.title }}</h1>
+    {%- endif -%}
+    {%- if section.settings.sub != blank -%}
+      <p class="creators__sub">{{ section.settings.sub }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="creators__benefits">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'benefit' -%}
+            <li class="creators__benefit" {{ block.shopify_attributes }}>
+              {%- if block.settings.title != blank -%}
+                <h3 class="creators__benefit-title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="creators__benefit-text">{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- form 'contact', class: 'creators__form-wrap' -%}
+      {%- if form.posted_successfully? -%}
+        <div class="creators__success">
+          <h4>{{ section.settings.success_title }}</h4>
+          <p>{{ section.settings.success_body }}</p>
+        </div>
+      {%- else -%}
+        {%- if section.settings.form_title != blank -%}
+          <h2 class="creators__form-title">{{ section.settings.form_title }}</h2>
+        {%- endif -%}
+        <div class="creators__form">
+          <div class="creators__row">
+            <label for="CreatorName-{{ section.id }}" class="visually-hidden">Name</label>
+            <input type="text" required id="CreatorName-{{ section.id }}" name="contact[name]" placeholder="Name" class="creators__field">
+            <label for="CreatorEmail-{{ section.id }}" class="visually-hidden">Email</label>
+            <input type="email" required id="CreatorEmail-{{ section.id }}" name="contact[email]" placeholder="Email" class="creators__field">
+          </div>
+          <div class="creators__row">
+            <label for="CreatorSocial-{{ section.id }}" class="visually-hidden">Instagram or TikTok</label>
+            <input type="text" id="CreatorSocial-{{ section.id }}" name="contact[Instagram or TikTok]" placeholder="Instagram / TikTok" class="creators__field">
+            <label for="CreatorFollowers-{{ section.id }}" class="visually-hidden">Followers</label>
+            <input type="text" id="CreatorFollowers-{{ section.id }}" name="contact[Followers]" placeholder="Followers" class="creators__field">
+          </div>
+          <div class="creators__row">
+            <label for="CreatorCity-{{ section.id }}" class="visually-hidden">City</label>
+            <input type="text" id="CreatorCity-{{ section.id }}" name="contact[City]" placeholder="City" class="creators__field">
+          </div>
+          <label for="CreatorStory-{{ section.id }}" class="visually-hidden">Your story</label>
+          <textarea id="CreatorStory-{{ section.id }}" name="contact[Story]" rows="4" placeholder="{{ section.settings.story_placeholder | default: 'Tell us how you move the culture.' }}" class="creators__field creators__field--area"></textarea>
+          <button type="submit" class="creators__submit">
+            {{ section.settings.button_label }}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </button>
+        </div>
+        {%- if form.errors -%}
+          <div class="creators__error">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endform -%}
+
+    {%- if section.settings.legal != blank -%}
+      <p class="creators__legal">{{ section.settings.legal }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .creators {
+    background: #0a0a0a; color: #f5f4f0; padding: 120px 0;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .creators__bg { position: absolute; inset: 0; opacity: 0.16; }
+  #shopify-section-{{ section.id }} .creators__bg-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #shopify-section-{{ section.id }} .creators__inner { position: relative; max-width: 760px; margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .creators__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 12px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: #b8975a; margin-bottom: 18px;
+  }
+  #shopify-section-{{ section.id }} .creators__title {
+    font-family: 'Bebas Neue', Impact, sans-serif; line-height: 0.95;
+    font-size: clamp(48px, 6vw, 88px); letter-spacing: 0.04em;
+    text-transform: uppercase; margin: 0;
+  }
+  #shopify-section-{{ section.id }} .creators__sub {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 22px; margin: 24px 0 44px; opacity: 0.92;
+  }
+  #shopify-section-{{ section.id }} .creators__benefits {
+    list-style: none; margin: 0 0 56px; padding: 0;
+    display: grid; grid-template-columns: 1fr; gap: 28px;
+    text-align: left; max-width: 620px; margin-left: auto; margin-right: auto;
+  }
+  #shopify-section-{{ section.id }} .creators__benefit {
+    padding-left: 20px; border-left: 1px solid #b8975a;
+  }
+  #shopify-section-{{ section.id }} .creators__benefit-title {
+    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.24em; text-transform: uppercase; color: #b8975a; margin: 0 0 8px;
+  }
+  #shopify-section-{{ section.id }} .creators__benefit-text {
+    font-family: 'Cormorant Garamond', serif; font-size: 19px; margin: 0; opacity: 0.92;
+  }
+  #shopify-section-{{ section.id }} .creators__form-title {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: clamp(30px, 4vw, 44px);
+    letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 28px;
+  }
+  #shopify-section-{{ section.id }} .creators__form { max-width: 540px; margin: 0 auto; display: grid; gap: 16px; }
+  #shopify-section-{{ section.id }} .creators__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  #shopify-section-{{ section.id }} .creators__field {
+    background: transparent; border: none; border-bottom: 1px solid rgba(245,244,240,0.4);
+    color: #f5f4f0; font-family: 'Montserrat', sans-serif; font-size: 15px;
+    padding: 14px 0; letter-spacing: 0.03em; outline: none; width: 100%;
+  }
+  #shopify-section-{{ section.id }} .creators__field:focus { border-bottom-color: #b8975a; }
+  #shopify-section-{{ section.id }} .creators__field::placeholder { color: rgba(245,244,240,0.5); }
+  #shopify-section-{{ section.id }} .creators__field--area { resize: vertical; }
+  #shopify-section-{{ section.id }} .creators__submit {
+    justify-self: center; margin-top: 12px;
+    background: transparent; border: 1px solid #f5f4f0; color: #f5f4f0;
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase; padding: 16px 34px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px; transition: color 0.25s, border-color 0.25s;
+  }
+  #shopify-section-{{ section.id }} .creators__submit:hover { color: #b8975a; border-color: #b8975a; }
+  #shopify-section-{{ section.id }} .creators__legal {
+    margin-top: 28px; font-size: 11px; opacity: 0.55; letter-spacing: 0.08em; line-height: 1.7;
+  }
+  #shopify-section-{{ section.id }} .creators__success {
+    padding: 28px; border: 1px solid #b8975a; max-width: 480px; margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} .creators__success h4 {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 26px; letter-spacing: 0.12em; margin: 0 0 10px;
+  }
+  #shopify-section-{{ section.id }} .creators__success p {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; margin: 0;
+  }
+  #shopify-section-{{ section.id }} .creators__error {
+    margin-top: 12px; font-size: 12px; color: #d74a5d; letter-spacing: 0.04em;
+  }
+  @media (max-width: 600px) {
+    #shopify-section-{{ section.id }} .creators__row { grid-template-columns: 1fr; }
+  }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Creators Hub",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background image (optional, dimmed)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Creators · Ambassadors" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Made for those who already know" },
+    { "type": "text", "id": "sub", "label": "Subhead", "default": "We back a small circle of creators who move the culture forward. No contracts. No noise." },
+    { "type": "header", "content": "Application form" },
+    { "type": "text", "id": "form_title", "label": "Form title", "default": "Apply" },
+    { "type": "text", "id": "story_placeholder", "label": "Story field placeholder", "default": "Tell us how you move the culture." },
+    { "type": "text", "id": "button_label", "label": "Submit label", "default": "Send application" },
+    {
+      "type": "richtext", "id": "legal", "label": "Legal copy",
+      "default": "<p>We review every application. Your details stay private and are used only to assess your fit.</p>"
+    },
+    { "type": "header", "content": "Success state" },
+    { "type": "text", "id": "success_title", "label": "Success title", "default": "Received." },
+    { "type": "text", "id": "success_body", "label": "Success body", "default": "We review every application. Expect a reply within one week." }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Early access" },
+        { "type": "text", "id": "text", "label": "Text", "default": "First look at every drop, before it goes public." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Creators Hub",
+      "category": "Club",
+      "blocks": [
+        { "type": "benefit", "settings": { "title": "Early access", "text": "First look at every drop, before it goes public." } },
+        { "type": "benefit", "settings": { "title": "Your code", "text": "A personal code and commission on every order it brings." } },
+        { "type": "benefit", "settings": { "title": "Featured", "text": "Your work, reposted across our channels." } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

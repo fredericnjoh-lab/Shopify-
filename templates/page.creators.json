@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "creators": {
+      "type": "creators-hub",
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Early access",
+            "text": "First look at every drop, before it goes public."
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Your code",
+            "text": "A personal code and commission on every order it brings."
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Featured",
+            "text": "Your work, reposted across our channels."
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3"],
+      "settings": {
+        "eyebrow": "Creators · Ambassadors",
+        "title": "Made for those who already know",
+        "sub": "We back a small circle of creators who move the culture forward. No contracts. No noise.",
+        "form_title": "Apply",
+        "story_placeholder": "Tell us how you move the culture.",
+        "button_label": "Send application",
+        "legal": "<p>We review every application. Your details stay private and are used only to assess your fit.</p>",
+        "success_title": "Received.",
+        "success_body": "We review every application. Expect a reply within one week."
+      }
+    }
+  },
+  "order": ["creators"]
+}
