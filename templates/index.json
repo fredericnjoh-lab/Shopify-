@@ -140,6 +140,30 @@
         "divider": false
       }
     },
+    "nac_hero_home": {
+      "type": "nac-hero",
+      "settings": {
+        "eyebrow": "No Apologies Club",
+        "headline": "Heavyweight. Limited. Earned.",
+        "subline": "Drop 01 · 100 pieces per style · Members get 48h early access",
+        "cta_label": "Enter the Club",
+        "cta_link": "/collections/no-apologies-club",
+        "link_label": "How the Club works",
+        "link_link": "/pages/no-apologies-club",
+        "collection": "no-apologies-club"
+      }
+    },
+    "fredjo_divider_home": {
+      "type": "fredjo-line-divider",
+      "settings": {
+        "eyebrow": "THE FREDJO LINE",
+        "headline": "Everyday pieces. Designed in Paris.",
+        "sentence": "The permanent collection. Always in stock, always restocked. Where most people start.",
+        "cta_label": "Shop the line",
+        "cta_link": "/collections/all",
+        "collection": "all"
+      }
+    },
     "rich-text": {
       "type": "rich-text",
       "blocks": {
@@ -713,7 +737,9 @@
   "order": [
     "1761460688dc6051bb",
     "slideshow",
+    "nac_hero_home",
     "featured-collection",
+    "fredjo_divider_home",
     "community_gallery_9Hp9VP",
     "rich-text",
     "text_and_image_j4LhBx",

@@ -1,0 +1,90 @@
+{% comment %}
+  NAC collection header — dark, full-bleed editorial header for the
+  No Apologies Club capsule collection. Reuses the club aesthetic.
+{% endcomment %}
+
+<section class="nac-collection-header" data-section-id="{{ section.id }}">
+  {%- if section.settings.bg_image != blank -%}
+    <div class="nac-collection-header__bg">
+      {{ section.settings.bg_image | image_url: width: 2400 | image_tag:
+        loading: 'eager', sizes: '100vw', widths: '800, 1200, 1800, 2400',
+        alt: collection.title, class: 'nac-collection-header__bg-img' }}
+    </div>
+  {%- endif -%}
+
+  <div class="nac-collection-header__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="nac-collection-header__eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+
+    <h1 class="nac-collection-header__title">{{ collection.title | default: section.settings.fallback_title }}</h1>
+
+    {%- if section.settings.manifesto != blank -%}
+      <div class="nac-collection-header__manifesto rte">{{ section.settings.manifesto }}</div>
+    {%- endif -%}
+
+    <div class="nac-collection-header__meta">
+      {%- if section.settings.drop_label != blank -%}
+        <span class="nac-collection-header__drop">{{ section.settings.drop_label }}</span>
+      {%- endif -%}
+      {%- if section.settings.drop_size != blank -%}
+        <span class="nac-collection-header__count">{{ section.settings.drop_size }} pieces per style</span>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .nac-collection-header {
+    position: relative; overflow: hidden;
+    background: #0a0a0a; color: #f5f4f0;
+    padding: 96px 0; text-align: center;
+  }
+  #shopify-section-{{ section.id }} .nac-collection-header__bg { position: absolute; inset: 0; opacity: 0.28; }
+  #shopify-section-{{ section.id }} .nac-collection-header__bg-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #shopify-section-{{ section.id }} .nac-collection-header__inner { position: relative; max-width: 760px; margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .nac-collection-header__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase; color: #b8975a; margin-bottom: 16px;
+  }
+  #shopify-section-{{ section.id }} .nac-collection-header__title {
+    font-family: 'Bebas Neue', Impact, sans-serif; line-height: 0.95;
+    font-size: clamp(44px, 7vw, 96px); letter-spacing: 0.06em;
+    text-transform: uppercase; margin: 0; color: #f5f4f0;
+  }
+  #shopify-section-{{ section.id }} .nac-collection-header__manifesto {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 20px; line-height: 1.5; margin: 24px auto 0; max-width: 620px; opacity: 0.9;
+  }
+  #shopify-section-{{ section.id }} .nac-collection-header__meta {
+    margin-top: 32px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+  }
+  #shopify-section-{{ section.id }} .nac-collection-header__drop { color: #b8975a; }
+  #shopify-section-{{ section.id }} .nac-collection-header__count { color: #9a9a9a; }
+  @media (max-width: 600px) {
+    #shopify-section-{{ section.id }} .nac-collection-header { padding: 64px 0; }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "NAC Collection Header",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background image (optional, dimmed)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "No Apologies Club" },
+    { "type": "text", "id": "fallback_title", "label": "Fallback title", "default": "No Apologies Club", "info": "Shown only if the collection has no title." },
+    {
+      "type": "richtext", "id": "manifesto", "label": "Manifesto (3 lines)",
+      "default": "<p>Some people wait for permission. Others move first. Heavyweight pieces, designed in Paris, released in numbered drops. This is not for everyone. It might be for you.</p>"
+    },
+    { "type": "text", "id": "drop_label", "label": "Current drop label", "default": "Drop 01" },
+    { "type": "text", "id": "drop_size", "label": "Pieces per style", "default": "100" }
+  ],
+  "presets": [
+    { "name": "NAC Collection Header" }
+  ],
+  "enabled_on": { "templates": ["collection"] }
+}
+{% endschema %}

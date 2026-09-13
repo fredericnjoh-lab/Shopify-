@@ -1,0 +1,47 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "nac-header": {
+      "type": "nac-collection-header",
+      "settings": {
+        "eyebrow": "No Apologies Club",
+        "fallback_title": "No Apologies Club",
+        "manifesto": "<p>Some people wait for permission. Others move first. Heavyweight pieces, designed in Paris, released in numbered drops. This is not for everyone. It might be for you.</p>",
+        "drop_label": "Drop 01",
+        "drop_size": "100"
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "enable_collection_count": true,
+            "per_row": 3,
+            "rows_per_page": 8,
+            "mobile_flush_grid": true
+          }
+        }
+      },
+      "block_order": ["product_grid"],
+      "settings": {
+        "enable_sidebar": true,
+        "collapsed": false,
+        "filter_style": "sidebar",
+        "enable_color_swatches": true,
+        "enable_swatch_labels": true,
+        "enable_sort": false
+      }
+    }
+  },
+  "order": ["nac-header", "main-collection"]
+}

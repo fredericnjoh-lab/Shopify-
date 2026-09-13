@@ -1,0 +1,82 @@
+{% comment %}
+  FREDJO line divider — light section that switches the page from the NAC
+  capsule to the permanent FREDJO line, followed by an 8-product grid of
+  standard light cards.
+{% endcomment %}
+
+<section class="fredjo-divider" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="fredjo-divider__head">
+      <span class="fredjo-divider__rule" aria-hidden="true"></span>
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="fredjo-divider__eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      {%- if section.settings.headline != blank -%}
+        <h2 class="fredjo-divider__headline">{{ section.settings.headline }}</h2>
+      {%- endif -%}
+      {%- if section.settings.sentence != blank -%}
+        <p class="fredjo-divider__sentence">{{ section.settings.sentence }}</p>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a href="{{ section.settings.cta_link }}" class="fredjo-divider__cta">{{ section.settings.cta_label }} &rarr;</a>
+      {%- endif -%}
+    </div>
+
+    {%- assign line_collection = collections[section.settings.collection] -%}
+    {%- if line_collection != blank and line_collection.products_count > 0 -%}
+      <div class="grid grid--uniform fredjo-divider__grid">
+        {%- for product in line_collection.products limit: 8 -%}
+          {%- render 'product-grid-item', product: product, per_row: 4, collection: line_collection -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .fredjo-divider { padding: 64px 0; }
+  #shopify-section-{{ section.id }} .fredjo-divider__head { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+  #shopify-section-{{ section.id }} .fredjo-divider__rule {
+    display: block; width: 56px; height: 1px; background: #b8975a; margin: 0 auto 22px;
+  }
+  #shopify-section-{{ section.id }} .fredjo-divider__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase; color: #b8975a; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .fredjo-divider__headline {
+    font-family: 'Bebas Neue', Impact, sans-serif; line-height: 0.98;
+    font-size: clamp(34px, 5vw, 60px); letter-spacing: 0.04em;
+    text-transform: uppercase; margin: 0;
+  }
+  #shopify-section-{{ section.id }} .fredjo-divider__sentence {
+    font-family: 'Montserrat', sans-serif; font-size: 14px; line-height: 1.7;
+    margin: 18px 0 26px; color: #1c1c1c;
+  }
+  #shopify-section-{{ section.id }} .fredjo-divider__cta {
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.24em; text-transform: uppercase; color: #0a0a0a;
+    border-bottom: 1px solid #0a0a0a; padding-bottom: 4px;
+  }
+  #shopify-section-{{ section.id }} .fredjo-divider__cta:hover { color: #b8975a; border-bottom-color: #b8975a; }
+  #shopify-section-{{ section.id }} .fredjo-divider__grid { margin-top: 8px; }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "FREDJO Line Divider",
+  "class": "index-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE FREDJO LINE" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Everyday pieces. Designed in Paris." },
+    { "type": "text", "id": "sentence", "label": "Sentence", "default": "The permanent collection. Always in stock, always restocked. Where most people start." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop the line" },
+    { "type": "url", "id": "cta_link", "label": "Button link", "default": "/collections/all" },
+    { "type": "header", "content": "Featured pieces" },
+    { "type": "collection", "id": "collection", "label": "Collection (shows first 8 pieces as standard cards)" }
+  ],
+  "presets": [
+    { "name": "FREDJO Line Divider" }
+  ],
+  "disabled_on": { "groups": ["header", "footer"] }
+}
+{% endschema %}

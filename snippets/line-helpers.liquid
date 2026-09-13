@@ -1,0 +1,28 @@
+{% comment %}
+  Line helper — single source of truth for the FREDJO / NAC split.
+
+  Reads the product metafield custom.line and echoes a flag:
+    - "true"  when custom.line == "nac"
+    - "false" otherwise (empty metafield, "fredjo", or anything else)
+
+  Because {% render %} runs in an isolated scope, callers capture the output
+  and compare it to the string "true":
+
+    {%- capture is_nac -%}{%- render 'line-helpers', product: product -%}{%- endcapture -%}
+    {%- assign is_nac = is_nac | strip -%}
+    {%- if is_nac == 'true' -%} ... NAC treatment ... {%- endif -%}
+
+  Defaulting to "false" guarantees every product renders exactly as today
+  until the merchant fills custom.line in the admin.
+
+  Parameters:
+    - product (required): product object
+{% endcomment %}
+{%- liquid
+  assign line_value = product.metafields.custom.line.value | default: '' | downcase | strip
+  if line_value == 'nac'
+    echo 'true'
+  else
+    echo 'false'
+  endif
+-%}

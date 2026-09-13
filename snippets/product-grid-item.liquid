@@ -28,6 +28,17 @@ Arguments
     assign on_sale = true
   endif
 
+  # FREDJO / NAC line split — defaults to non-NAC when the metafield is empty
+  capture is_nac
+    render 'line-helpers', product: product
+  endcapture
+  assign is_nac = is_nac | strip
+  assign nac_line = product.metafields.custom.line.value | default: '' | downcase | strip
+  assign nac_drop = product.metafields.custom.drop.value | default: ''
+  if is_nac == 'true'
+    assign on_sale = false
+  endif
+
   assign product_tags = product.tags | join: ','
   assign has_custom_label = false
   if product.metafields.theme.label and product.metafields.theme.label != blank
@@ -46,14 +57,14 @@ Arguments
   endif
 -%}
 
-<div class="grid__item grid-product {{ gridView }} {% if quick_shop_enable %} grid-product__has-quick-shop{% endif %}" data-aos="row-of-{{ per_row }}" data-product-handle="{{ product.handle }}" data-product-id="{{ product.id }}">
+<div class="grid__item grid-product {{ gridView }} {% if quick_shop_enable %} grid-product__has-quick-shop{% endif %}{% if is_nac == 'true' %} grid-product--nac{% endif %}" data-aos="row-of-{{ per_row }}" data-product-handle="{{ product.handle }}" data-product-id="{{ product.id }}">
   <div class="grid-product__content">
     {%- if has_custom_label -%}
       <div class="grid-product__tag grid-product__tag--custom">
         {{ custom_label }}
       </div>
     {%- else -%}
-      {%- unless product.available -%}
+      {%- unless product.available or is_nac == 'true' -%}
         <div class="grid-product__tag grid-product__tag--sold-out">
           {{ 'products.product.sold_out' | t }}
         </div>
@@ -82,6 +93,9 @@ Arguments
 
     <div class="grid__item-image-wrapper">
       <div class="grid-product__image-mask">
+        {%- if is_nac == 'true' and product.available == false -%}
+          <div class="grid-product__nac-soldout">Sold out — next drop soon</div>
+        {%- endif -%}
         {%- if fixed_aspect_ratio -%}
           <div
             class="grid__image-ratio grid__image-ratio--{% if image_style == 'circle' %}square{% else %}{{ settings.product_grid_image_size }}{% endif %}">
@@ -191,6 +205,9 @@ Arguments
 
       <a href="{{ product.url | within: collection }}" class="grid-product__link">
         <div class="grid-product__meta">
+          {%- if is_nac == 'true' -%}
+            <div class="grid-product__nac-badge">No Apologies Club</div>
+          {%- endif -%}
           <div class="grid-product__title grid-product__title--{{ settings.type_product_style }}">{{ product.title }}</div>
           {%- if settings.vendor_enable -%}
             <div class="grid-product__vendor">{{ product.vendor }}</div>
@@ -236,6 +253,14 @@ Arguments
               </div>
             {%- endif -%}
           </div>
+
+          {%- if is_nac == 'true' -%}
+            {%- if nac_drop != blank -%}
+              <div class="grid-product__nac-rarity">{{ nac_drop }} · Limited</div>
+            {%- endif -%}
+          {%- elsif nac_line == 'fredjo' -%}
+            <div class="grid-product__permanent">Permanent collection</div>
+          {%- endif -%}
 
           {%- if settings.enable_swatches and type == 'horizontal' -%}
             {%- liquid
@@ -357,5 +382,33 @@ Arguments
 
   {%- if quick_shop_enable and type == blank -%}
     {%- render 'quick-shop-modal', product: product -%}
+  {%- endif -%}
+
+  {%- if is_nac == 'true' or nac_line == 'fredjo' -%}
+    {%- style -%}
+      .grid-product--nac .grid-product__content { background: #0a0a0a; }
+      .grid-product--nac .grid-product__meta { background: #0a0a0a; padding: 12px 12px 16px; }
+      .grid-product--nac .grid-product__title { color: #f5f4f0; }
+      .grid-product--nac .grid-product__price { color: #9a9a9a; }
+      .grid-product--nac .grid-product__image-mask { position: relative; }
+      .grid-product__nac-badge {
+        font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600;
+        letter-spacing: 0.24em; text-transform: uppercase; color: #b8975a; margin-bottom: 6px;
+      }
+      .grid-product__nac-rarity {
+        font-family: 'Montserrat', sans-serif; font-size: 10px;
+        letter-spacing: 0.2em; text-transform: uppercase; color: #9a9a9a; margin-top: 6px;
+      }
+      .grid-product__permanent {
+        font-family: 'Montserrat', sans-serif; font-size: 10px;
+        letter-spacing: 0.2em; text-transform: uppercase; color: #9a9a9a; margin-top: 6px;
+      }
+      .grid-product__nac-soldout {
+        position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+        background: rgba(10,10,10,0.82); color: #f5f4f0;
+        font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600;
+        letter-spacing: 0.22em; text-transform: uppercase; text-align: center; padding: 10px 8px;
+      }
+    {%- endstyle -%}
   {%- endif -%}
 </div>

@@ -20,6 +20,7 @@
   mobile_layout: section.settings.mobile_layout,
   video_looping: section.settings.enable_video_looping,
   video_style: section.settings.product_video_style,
+  trust_line: section.settings.trust_line,
   context: 'main-product',
 -%}
 
@@ -27,6 +28,16 @@
 {
   "name": "t:sections.main-product.name",
   "settings": [
+    {
+      "type": "header",
+      "content": "Trust line"
+    },
+    {
+      "type": "text",
+      "id": "trust_line",
+      "label": "Trust line (shown under the buy button, all products)",
+      "default": "Made to order · Ships in 2–5 days · Free shipping over $100 · 30-day returns, free exchanges"
+    },
     {
       "type": "checkbox",
       "id": "sku_enable",

@@ -7,6 +7,15 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
 
+  # FREDJO / NAC line split — defaults to non-NAC until the metafield is filled
+  capture is_nac
+    render 'line-helpers', product: product
+  endcapture
+  assign is_nac = is_nac | strip
+  assign nac_line = product.metafields.custom.line.value | default: '' | downcase | strip
+  assign nac_drop = product.metafields.custom.drop.value | default: ''
+  assign nac_drop_size = product.metafields.custom.drop_size.value | default: ''
+
   unless thumbnail_position
     assign thumbnail_position = 'beside'
   endunless
@@ -106,6 +115,10 @@
                 </div>
               {%- endif -%}
 
+              {%- if is_nac == 'true' -%}
+                <div class="product-single__nac-eyebrow">No Apologies Club</div>
+              {%- endif -%}
+
               {%- if isModal -%}
                 <p class="h2 product-single__title">
                   {{ product.title }}
@@ -165,7 +178,7 @@
                   {%- when 'price' -%}
                     <div class="product-block product-block--price" {{ block.shopify_attributes }}>
                       {%- assign hide_sale_price = true -%}
-                      {%- if product.compare_at_price_max > product.price -%}
+                      {%- if product.compare_at_price_max > product.price and is_nac != 'true' -%}
                         {%- if current_variant.compare_at_price > current_variant.price -%}
                           {%- assign hide_sale_price = false -%}
                         {%- endif -%}
@@ -196,7 +209,7 @@
                         {%- endunless -%}
                       </span>
 
-                      {%- if settings.product_save_amount -%}
+                      {%- if settings.product_save_amount and is_nac != 'true' -%}
                         {%- if settings.product_save_type == 'dollar' -%}
                           {%- capture saved_amount -%}{{ current_variant.compare_at_price | minus: current_variant.price | money }}{%- endcapture -%}
                         {%- else -%}
@@ -235,6 +248,17 @@
                             {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
                           {%- endif -%}
                         </div>
+                      {%- endif -%}
+
+                      {%- if is_nac == 'true' -%}
+                        {%- if nac_drop != blank or nac_drop_size != blank -%}
+                          <div class="product-single__nac-rarity">
+                            {%- if nac_drop != blank -%}{{ nac_drop }}{%- endif -%}
+                            {%- if nac_drop_size != blank -%}{% if nac_drop != blank %} · {% endif %}Limited run of {{ nac_drop_size }} · Numbered{%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      {%- elsif nac_line == 'fredjo' -%}
+                        <div class="product-single__permanent">Permanent collection · Restocked continuously</div>
                       {%- endif -%}
                     </div>
                   {%- when 'quantity_selector' -%}
@@ -298,33 +322,58 @@
                   {%- when 'buy_buttons' -%}
                     <div class="product-block" {{ block.shopify_attributes }}>
                       {%- unless product.empty? -%}
-                        <div class="product-block">
-                          {%- render 'product-form',
-                            form_id: form_id,
-                            product: product,
-                            show_dynamic_checkout: block.settings.show_dynamic_checkout,
-                            current_variant: current_variant,
-                            block: block,
-                          -%}
-                        </div>
+                        {%- if is_nac == 'true' and product.available == false -%}
+                          <div class="product-block product-single__nac-soldout">
+                            <button type="button" class="btn product-single__soldout-btn" disabled>Sold out</button>
+                            <a href="/pages/no-apologies-club#join" class="product-single__notify-link">Notify me for Drop 02</a>
+                          </div>
+                        {%- else -%}
+                          <div class="product-block">
+                            {%- render 'product-form',
+                              form_id: form_id,
+                              product: product,
+                              show_dynamic_checkout: block.settings.show_dynamic_checkout,
+                              current_variant: current_variant,
+                              block: block,
+                            -%}
+                          </div>
+                        {%- endif -%}
 
-                        {%- comment -%} 30-day returns note — shown under the buy buttons on every product {%- endcomment -%}
-                        <div class="product-block product-block--returns">
-                          <ul class="sales-points">
-                            <li class="sales-point">
-                              <span class="icon-and-text">
-                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-package" viewBox="0 0 64 64"><path d="M32 54.52 10 41.95v-19.9L32 9.48l22 12.57v19.9L32 54.52z"/><path d="M32 54.52v-19.9l22-12.57M32 34.62 10 22.05m31.7-7.03L21 28.33v8.38"/></svg>
-                                <span>
-                                  {%- if shop.refund_policy.url != blank -%}
-                                    <a href="{{ shop.refund_policy.url }}">{{ 'products.product.returns_note' | t }}</a>
-                                  {%- else -%}
-                                    {{ 'products.product.returns_note' | t }}
-                                  {%- endif -%}
-                                </span>
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
+                        {%- comment -%} Trust line — shown under the buy buttons on every product (section setting) {%- endcomment -%}
+                        {%- if trust_line != blank -%}
+                          <div class="product-block product-single__trust">{{ trust_line }}</div>
+                        {%- endif -%}
+
+                        {%- if is_nac == 'true' -%}
+                          {%- liquid
+                            assign spec_weight = product.metafields.custom.fabric_weight.value | default: ''
+                            assign spec_comp = product.metafields.custom.composition.value | default: ''
+                            assign spec_fit = product.metafields.custom.fit.value | default: ''
+                            assign spec_origin = product.metafields.custom.origin.value | default: ''
+                            assign spec_care = product.metafields.custom.care.value | default: ''
+                            assign size_chart = product.metafields.custom.size_chart
+                          -%}
+                          {%- if spec_weight != blank or spec_comp != blank or spec_fit != blank or spec_origin != blank or spec_care != blank -%}
+                            <dl class="product-single__specs">
+                              {%- if spec_weight != blank -%}<div class="spec-row"><dt>Weight</dt><dd>{{ spec_weight }}</dd></div>{%- endif -%}
+                              {%- if spec_comp != blank -%}<div class="spec-row"><dt>Composition</dt><dd>{{ spec_comp }}</dd></div>{%- endif -%}
+                              {%- if spec_fit != blank -%}<div class="spec-row"><dt>Fit</dt><dd>{{ spec_fit }}</dd></div>{%- endif -%}
+                              {%- if spec_origin != blank -%}<div class="spec-row"><dt>Origin</dt><dd>{{ spec_origin }}</dd></div>{%- endif -%}
+                              {%- if spec_care != blank -%}<div class="spec-row"><dt>Care</dt><dd>{{ spec_care }}</dd></div>{%- endif -%}
+                            </dl>
+                          {%- endif -%}
+
+                          <details class="product-single__sizeguide">
+                            <summary>Size guide (cm)</summary>
+                            <div class="product-single__sizeguide-body rte">
+                              {%- if size_chart != blank -%}
+                                {{ size_chart }}
+                              {%- else -%}
+                                <p>Oversized fit. Structured through the shoulder. True to size for the intended silhouette. Between sizes: size down for a closer cut, stay for the full drop.</p>
+                              {%- endif -%}
+                            </div>
+                          </details>
+                        {%- endif -%}
                       {%- endunless -%}
 
                       {%- if block.settings.surface_pickup_enable -%}
@@ -435,3 +484,52 @@
     </div>
   </div>
 </div>
+
+{%- if is_nac == 'true' or nac_line == 'fredjo' -%}
+  {%- style -%}
+    .product-single__nac-eyebrow {
+      font-family: 'Montserrat', sans-serif; font-size: 11px;
+      letter-spacing: 0.28em; text-transform: uppercase; color: #b8975a; margin-bottom: 8px;
+    }
+    .product-single__nac-rarity,
+    .product-single__permanent {
+      font-family: 'Montserrat', sans-serif; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #6f6f6f; margin-top: 10px;
+    }
+    .product-single__trust {
+      font-family: 'Montserrat', sans-serif; font-size: 12px; line-height: 1.7;
+      letter-spacing: 0.04em; color: #6f6f6f; margin-top: 14px;
+    }
+    .product-single__specs { margin: 22px 0 0; padding: 0; }
+    .product-single__specs .spec-row {
+      display: flex; justify-content: space-between; gap: 16px; padding: 11px 0;
+      border-bottom: 1px solid rgba(10,10,10,0.1);
+      font-family: 'Montserrat', sans-serif; font-size: 12px;
+    }
+    .product-single__specs .spec-row:first-child { border-top: 1px solid rgba(10,10,10,0.1); }
+    .product-single__specs dt { margin: 0; text-transform: uppercase; letter-spacing: 0.18em; color: #6f6f6f; }
+    .product-single__specs dd { margin: 0; text-align: right; color: #1c1c1c; }
+    .product-single__sizeguide { margin-top: 8px; border-bottom: 1px solid rgba(10,10,10,0.1); }
+    .product-single__sizeguide summary {
+      cursor: pointer; list-style: none; padding: 14px 0;
+      font-family: 'Montserrat', sans-serif; font-size: 11px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #0a0a0a;
+    }
+    .product-single__sizeguide summary::-webkit-details-marker { display: none; }
+    .product-single__sizeguide summary:focus-visible { outline: 2px solid #b8975a; outline-offset: 2px; }
+    .product-single__sizeguide-body { padding: 0 0 18px; font-size: 14px; }
+    .product-single__nac-soldout { text-align: center; }
+    .product-single__soldout-btn {
+      width: 100%; background: #0a0a0a; color: #f5f4f0; border: none; border-radius: 2px;
+      padding: 17px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.55; cursor: not-allowed;
+    }
+    .product-single__notify-link {
+      display: inline-block; margin-top: 14px;
+      font-family: 'Montserrat', sans-serif; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #0a0a0a;
+      border-bottom: 1px solid #0a0a0a; padding-bottom: 3px;
+    }
+    .product-single__notify-link:hover { color: #b8975a; border-bottom-color: #b8975a; }
+  {%- endstyle -%}
+{%- endif -%}

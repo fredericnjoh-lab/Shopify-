@@ -1,0 +1,123 @@
+{% comment %}
+  NAC hero — full-width dark hero for the No Apologies Club capsule,
+  followed by an optional 4-product featured grid using NAC cards.
+  Designed to look intentional even without a background image.
+{% endcomment %}
+
+<section class="nac-hero" data-section-id="{{ section.id }}">
+  <div class="nac-hero__stage">
+    {%- if section.settings.bg_image != blank -%}
+      <div class="nac-hero__bg">
+        {{ section.settings.bg_image | image_url: width: 2400 | image_tag:
+          loading: 'eager', sizes: '100vw', widths: '800, 1200, 1800, 2400',
+          alt: section.settings.headline, class: 'nac-hero__bg-img' }}
+      </div>
+    {%- endif -%}
+    <div class="nac-hero__scrim"></div>
+
+    <div class="nac-hero__inner">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="nac-hero__eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      {%- if section.settings.headline != blank -%}
+        <h2 class="nac-hero__headline">{{ section.settings.headline }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subline != blank -%}
+        <p class="nac-hero__subline">{{ section.settings.subline }}</p>
+      {%- endif -%}
+      <div class="nac-hero__actions">
+        {%- if section.settings.cta_label != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="nac-hero__cta">{{ section.settings.cta_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.link_label != blank -%}
+          <a href="{{ section.settings.link_link }}" class="nac-hero__link">{{ section.settings.link_label }} &rarr;</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  {%- assign nac_collection = collections[section.settings.collection] -%}
+  {%- if nac_collection != blank and nac_collection.products_count > 0 -%}
+    <div class="nac-hero__grid-wrap">
+      <div class="page-width">
+        <div class="grid grid--uniform">
+          {%- for product in nac_collection.products limit: 4 -%}
+            {%- render 'product-grid-item', product: product, per_row: 4, collection: nac_collection -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .nac-hero { background: #0a0a0a; }
+  #shopify-section-{{ section.id }} .nac-hero__stage {
+    position: relative; overflow: hidden; min-height: 72vh;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: #f5f4f0;
+  }
+  #shopify-section-{{ section.id }} .nac-hero__bg { position: absolute; inset: 0; }
+  #shopify-section-{{ section.id }} .nac-hero__bg-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #shopify-section-{{ section.id }} .nac-hero__scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.65) 100%);
+  }
+  #shopify-section-{{ section.id }} .nac-hero__inner { position: relative; max-width: 780px; padding: 80px 28px; }
+  #shopify-section-{{ section.id }} .nac-hero__eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.34em; text-transform: uppercase; color: #b8975a; margin-bottom: 18px;
+  }
+  #shopify-section-{{ section.id }} .nac-hero__headline {
+    font-family: 'Bebas Neue', Impact, sans-serif; line-height: 0.94;
+    font-size: clamp(52px, 8vw, 118px); letter-spacing: 0.05em;
+    text-transform: uppercase; margin: 0; color: #f5f4f0;
+  }
+  #shopify-section-{{ section.id }} .nac-hero__subline {
+    font-family: 'Montserrat', sans-serif; font-size: 13px;
+    letter-spacing: 0.12em; margin: 22px 0 40px; color: #f5f4f0; opacity: 0.9;
+  }
+  #shopify-section-{{ section.id }} .nac-hero__actions {
+    display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: wrap;
+  }
+  #shopify-section-{{ section.id }} .nac-hero__cta {
+    display: inline-block; background: #f5f4f0; color: #0a0a0a;
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.24em; text-transform: uppercase; padding: 17px 40px;
+    border: 1px solid #f5f4f0; transition: background 0.25s, color 0.25s;
+  }
+  #shopify-section-{{ section.id }} .nac-hero__cta:hover { background: transparent; color: #f5f4f0; }
+  #shopify-section-{{ section.id }} .nac-hero__link {
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; color: #f5f4f0;
+    border-bottom: 1px solid rgba(245,244,240,0.4); padding-bottom: 3px;
+  }
+  #shopify-section-{{ section.id }} .nac-hero__link:hover { color: #b8975a; border-bottom-color: #b8975a; }
+  #shopify-section-{{ section.id }} .nac-hero__grid-wrap { background: #0a0a0a; padding: 48px 0 64px; }
+  @media (max-width: 600px) {
+    #shopify-section-{{ section.id }} .nac-hero__stage { min-height: 60vh; }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "NAC Hero",
+  "class": "index-section index-section--flush",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "No Apologies Club" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Heavyweight. Limited. Earned." },
+    { "type": "text", "id": "subline", "label": "Sub-line", "default": "Drop 01 · 100 pieces per style · Members get 48h early access" },
+    { "type": "text", "id": "cta_label", "label": "Primary button label", "default": "Enter the Club" },
+    { "type": "url", "id": "cta_link", "label": "Primary button link", "default": "/collections/no-apologies-club" },
+    { "type": "text", "id": "link_label", "label": "Secondary link label", "default": "How the Club works" },
+    { "type": "url", "id": "link_link", "label": "Secondary link", "default": "/pages/no-apologies-club" },
+    { "type": "header", "content": "Featured pieces" },
+    { "type": "collection", "id": "collection", "label": "Collection (shows first 4 pieces as NAC cards)" }
+  ],
+  "presets": [
+    { "name": "NAC Hero" }
+  ],
+  "disabled_on": { "groups": ["header", "footer"] }
+}
+{% endschema %}
