@@ -29,16 +29,16 @@
         "announcement-1": {
           "type": "announcement",
           "settings": {
-            "text": "Returns",
-            "link_text": "30-day returns, postage paid",
-            "link": "/policies/refund-policy"
+            "text": "Shipping",
+            "link_text": "Made to order · Ships in 3–7 days · Delivered in 2–3 weeks",
+            "link": "shopify://policies/shipping-policy"
           }
         },
         "announcement-2": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome offer",
-            "link_text": "20% off with code WELCOME20",
+            "text": "New here?",
+            "link_text": "10% off your first piece — join the Club below.",
             "link": "shopify://collections/all"
           }
         }
@@ -65,7 +65,7 @@
         "msg-2": {
           "type": "message",
           "settings": {
-            "text": "Free worldwide shipping over 100 USD",
+            "text": "Made to order. Worn everywhere.",
             "link": ""
           }
         },
