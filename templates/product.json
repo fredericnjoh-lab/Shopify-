@@ -14,6 +14,7 @@
       "blocks": {
         "judge_me_reviews_preview_badge_C3Bjra": {
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
           "settings": {}
         },
         "price": {
@@ -70,6 +71,7 @@
         },
         "judge_me_reviews_review_widget_dJy4rg": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
           "settings": {
             "review_data": "sample_data",
             "max_width": 1200,
@@ -105,6 +107,7 @@
         "share"
       ],
       "settings": {
+        "trust_line": "Made to order · Ships in 2–5 days · Free shipping over $100 · 30-day returns, free exchanges",
         "sku_enable": false,
         "image_position": "left",
         "image_size": "medium",
