@@ -29,9 +29,9 @@
         "announcement-1": {
           "type": "announcement",
           "settings": {
-            "text": "Shipping",
-            "link_text": "Made to order · Ships in 3–7 days · Delivered in 2–3 weeks",
-            "link": "shopify://policies/shipping-policy"
+            "text": "Free & Fast Shipping",
+            "link_text": "See our Shipping Policy for delivery details",
+            "link": "shopify://pages/shipping-policy"
           }
         },
         "announcement-2": {
