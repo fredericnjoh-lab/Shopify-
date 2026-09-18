@@ -140,28 +140,103 @@
         "divider": false
       }
     },
-    "nac_hero_home": {
-      "type": "nac-hero",
+    "community_gallery_9Hp9VP": {
+      "type": "community-gallery",
+      "blocks": {
+        "photo_6XV6NA": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-beanie.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "fred-jo-cuffed-beanie-1",
+            "link": ""
+          }
+        },
+        "photo_FQQKLJ": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-hoodie-peace.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "fred-jo-black-unisex-hoodie",
+            "link": ""
+          }
+        },
+        "photo_KBq9qT": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-fredjo-tee-street.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "",
+            "link": ""
+          }
+        },
+        "photo_gFfyDR": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-nac-tee-fred.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "unisex-short-sleeve-streetwear-t-shirt-paris",
+            "link": ""
+          }
+        },
+        "photo_PR4apn": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-hoodie-graffiti-her.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "fred-jo-crop-hoodie",
+            "link": ""
+          }
+        },
+        "photo_Afb7Mm": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-pink-hoodie.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "fred-jo-unisex-sueded-fleece-hoodie",
+            "link": ""
+          }
+        },
+        "photo_99H7LB": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-duo-paris.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "fred-jo-unisex-zip-hoodie",
+            "link": ""
+          }
+        },
+        "photo_h9tka4": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/fredjo-tee-beach.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "photo_6XV6NA",
+        "photo_FQQKLJ",
+        "photo_KBq9qT",
+        "photo_gFfyDR",
+        "photo_PR4apn",
+        "photo_Afb7Mm",
+        "photo_99H7LB",
+        "photo_h9tka4"
+      ],
+      "name": "Community gallery",
       "settings": {
-        "eyebrow": "No Apologies Club",
-        "headline": "Heavyweight. Limited. Earned.",
-        "subline": "Drop 01 · 100 pieces per style · Members get 48h early access",
-        "cta_label": "Enter the Club",
-        "cta_link": "/collections/no-apologies-club",
-        "link_label": "How the Club works",
-        "link_link": "/pages/no-apologies-club",
-        "collection": "no-apologies-club"
-      }
-    },
-    "fredjo_divider_home": {
-      "type": "fredjo-line-divider",
-      "settings": {
-        "eyebrow": "THE FREDJO LINE",
-        "headline": "Everyday pieces. Designed in Paris.",
-        "sentence": "The permanent collection. Always in stock, always restocked. Where most people start.",
-        "cta_label": "Shop the line",
-        "cta_link": "/collections/all",
-        "collection": "all"
+        "title": "As worn",
+        "subtitle": "<p>Real people, real pieces. Tag @fredjoclothing.paris to be featured.</p>",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "4 / 5",
+        "grid_gap": 8,
+        "divider": false,
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "rich-text": {
@@ -196,16 +271,16 @@
       "type": "text-and-image",
       "name": "t:sections.text-and-image.presets.image_with_text.name",
       "settings": {
-        "image": "shopify://shop_images/unisex-oversized-heavyweight-hoodie-white-back-694d79873d2d3.jpg",
+        "image": "shopify://shop_images/image_No_Apologies.png",
         "image_mask": "none",
-        "image2": "shopify://shop_images/fredjo-hoodie-peace.jpg",
-        "image_url_override": "",
+        "image2": "shopify://shop_images/unisex-heavyweight-sweatpants-black-left-68fe8696e99f9.jpg",
+        "image_url_override": "https://cdn.shopify.com/s/files/1/2583/1768/files/image_No_Apologies.png?v=1780775751",
         "image2_url_override": "",
         "image2_mask": "none",
         "subtitle": "",
         "title": "COMPLETE THE UNIFORM.",
-        "text": "<p>The hoodie. The sweatpants. The full No Apologies look.</p><p></p><p>Built to be worn together. The Heavyweight Hoodie and Sweatpants are designed as one silhouette — structured, minimal, intentional.</p><p></p><p>Worn as one.</p>",
-        "button_label": "Shop The Uniform",
+        "text": "<p>The hoodie. The sweatpants. The full No Apologies look.</p><p></p><p>Built to be worn together. The Heavyweight Hoodie and Sweatpants are designed as one silhouette — structured, minimal, intentional.</p><p></p><p>Buy both. Save 15%.</p>",
+        "button_label": "Shop The Uniform — Save 15%",
         "button_link": "shopify://products/the-uniform-1",
         "button_style": "primary",
         "align_text": "left",
@@ -633,113 +708,12 @@
         "align_text": "center",
         "divider": false
       }
-    },
-    "community_gallery_9Hp9VP": {
-      "type": "community-gallery",
-      "blocks": {
-        "photo_6XV6NA": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/fredjo-beanie.jpg",
-            "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-cuffed-beanie-1",
-            "link": ""
-          }
-        },
-        "photo_FQQKLJ": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/fredjo-hoodie-peace.jpg",
-            "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-black-unisex-hoodie",
-            "link": ""
-          }
-        },
-        "photo_KBq9qT": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/fredjo-fredjo-tee-street.jpg",
-            "handle": "@fredjoclothing.paris",
-            "product": "",
-            "link": ""
-          }
-        },
-        "photo_gFfyDR": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/fredjo-nac-tee-fred.jpg",
-            "handle": "@fredjoclothing.paris",
-            "product": "unisex-short-sleeve-streetwear-t-shirt-paris",
-            "link": ""
-          }
-        },
-        "photo_PR4apn": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/fredjo-hoodie-graffiti-her.jpg",
-            "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-crop-hoodie",
-            "link": ""
-          }
-        },
-        "photo_Afb7Mm": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/fredjo-pink-hoodie.jpg",
-            "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-unisex-sueded-fleece-hoodie",
-            "link": ""
-          }
-        },
-        "photo_99H7LB": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/fredjo-duo-paris.jpg",
-            "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-unisex-zip-hoodie",
-            "link": ""
-          }
-        },
-        "photo_h9tka4": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/fredjo-tee-beach.jpg",
-            "handle": "@fredjoclothing.paris",
-            "product": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "photo_6XV6NA",
-        "photo_FQQKLJ",
-        "photo_KBq9qT",
-        "photo_gFfyDR",
-        "photo_PR4apn",
-        "photo_Afb7Mm",
-        "photo_99H7LB",
-        "photo_h9tka4"
-      ],
-      "name": "Community gallery",
-      "settings": {
-        "title": "As worn",
-        "subtitle": "<p>Real people, real pieces. Tag @fredjoclothing.paris to be featured.</p>",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "image_ratio": "4 / 5",
-        "grid_gap": 8,
-        "divider": false,
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
     }
   },
   "order": [
     "1761460688dc6051bb",
     "slideshow",
-    "nac_hero_home",
     "featured-collection",
-    "fredjo_divider_home",
     "community_gallery_9Hp9VP",
     "rich-text",
     "text_and_image_j4LhBx",
