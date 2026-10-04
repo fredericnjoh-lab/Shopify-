@@ -18,10 +18,10 @@
         "translate": true,
         "kicker": "Refined in Paris",
         "title": "No Apologies",
-        "lede": "Une coupe oversized. Une présence nette. Un standard sans compromis.",
-        "cta1_label": "Découvrir la collection",
+        "lede": "An oversized cut. A quiet presence. A standard without compromise.",
+        "cta1_label": "Discover the collection",
         "cta1_link": "shopify://collections/no-apologies-club",
-        "cta2_label": "Voir la pièce",
+        "cta2_label": "See the piece",
         "cta2_link": "shopify://products/unisex-short-sleeve-streetwear-t-shirt-paris"
       }
     },
@@ -32,8 +32,8 @@
           "type": "piece",
           "settings": {
             "product": "unisex-short-sleeve-streetwear-t-shirt-paris",
-            "title": "Tee No Apologies",
-            "caption": "Coton lourd. Coupe droite.",
+            "title": "No Apologies Tee",
+            "caption": "Heavy cotton. Straight cut.",
             "link": ""
           }
         },
@@ -41,8 +41,8 @@
           "type": "piece",
           "settings": {
             "product": "fred-jo-black-unisex-hoodie",
-            "title": "Hoodie Essential",
-            "caption": "Épaule tombante. Grammage dense.",
+            "title": "Essential Hoodie",
+            "caption": "Dropped shoulder. Dense weight.",
             "link": ""
           }
         },
@@ -52,7 +52,7 @@
             "product": "the-uniform-1",
             "image": "shopify://shop_images/unisex-heavyweight-sweatpants-black-left-68fe8696e99f9.jpg",
             "title": "The Uniform",
-            "caption": "Hoodie et sweatpants. Une silhouette.",
+            "caption": "Hoodie and sweatpants. One silhouette.",
             "link": ""
           }
         }
@@ -64,9 +64,9 @@
       ],
       "settings": {
         "translate": true,
-        "kicker": "Sélection",
-        "title": "Pièces phares",
-        "cta_label": "Toute la boutique",
+        "kicker": "Selection",
+        "title": "Signature pieces",
+        "cta_label": "The full house",
         "cta_link": "shopify://collections/all",
         "show_price": false
       }
@@ -79,8 +79,8 @@
           "settings": {
             "collection": "sweatshirts",
             "image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_18_55_03.png",
-            "title": "Essentiels",
-            "subtitle": "La ligne permanente",
+            "title": "Essentials",
+            "subtitle": "The permanent line",
             "link": ""
           }
         },
@@ -89,7 +89,7 @@
           "settings": {
             "collection": "no-apologies-club",
             "image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_18_47_51.png",
-            "title": "Éditions limitées",
+            "title": "Limited editions",
             "subtitle": "No Apologies Club",
             "link": ""
           }
@@ -112,28 +112,28 @@
       ],
       "settings": {
         "translate": true,
-        "kicker": "Univers",
-        "title": "Trois collections. Une même exigence."
+        "kicker": "Universe",
+        "title": "Three collections. One standard."
       }
     },
     "maison_matiere": {
       "type": "maison-matiere",
       "settings": {
         "translate": true,
-        "title": "La matière avant tout",
-        "body": "<p>Chaque pièce part d’un coton à fibres longues, travaillé pour une tenue qui ne se déforme pas au lavage. Coupe oversized, épaule structurée, proportion pensée pour durer.</p><p>Rien n’est ajouté pour se faire remarquer. Tout est là pour tenir.</p>",
+        "title": "The cloth comes first",
+        "body": "<p>Each piece starts with long-staple cotton, cut to hold its line after the wash. Oversized through the body. Structured at the shoulder. Proportioned to last.</p><p>Nothing is added to be noticed. Everything is there to hold.</p>",
         "portrait": "shopify://shop_images/fredjo-nac-tee-fred.jpg",
         "founder_label": "—Fred",
-        "tab_a": "Grammage",
-        "tab_b": "Étapes de contrôle",
-        "quote": "Un vêtement ne se justifie pas. Il tient.",
+        "tab_a": "Weight",
+        "tab_b": "Control",
+        "quote": "A garment does not explain itself. It holds.",
         "quote_image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_18_59_46.png"
       }
     },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Les essentiels.",
+        "title": "The essentials.",
         "home_featured_products": "no-apologies-club",
         "per_row": 3,
         "rows": 1,

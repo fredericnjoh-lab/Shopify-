@@ -14,6 +14,7 @@
 .template-index .main-content {
   background: var(--maison-ivory);
   color: var(--maison-black);
+  overflow-x: clip;
 }
 
 .template-index .index-section {
@@ -601,16 +602,89 @@
 
 /* ----- Responsive ----- */
 @media (max-width: 989px) {
+  .template-index .section-header__title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  .template-index .enlarge-text,
+  .template-index .enlarge-text p {
+    font-size: clamp(18px, 5.4vw, 24px);
+  }
+
+  .template-index .newsletter-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
   .maison-shell {
-    padding: 0 22px;
+    padding: 0 20px;
+  }
+
+  .maison-heading {
+    font-size: clamp(26px, 7.2vw, 36px);
+    max-width: 16ch;
+  }
+
+  .maison-kicker {
+    letter-spacing: 0.22em;
+  }
+
+  .maison-hero {
+    min-height: 100svh;
   }
 
   .maison-hero__inner {
-    padding: 120px 22px 80px;
+    min-height: 100svh;
+    padding: max(96px, calc(env(safe-area-inset-top) + 88px)) 20px max(28px, env(safe-area-inset-bottom));
+    width: 100%;
+  }
+
+  .maison-hero__title {
+    font-size: clamp(42px, 14vw, 72px);
+    max-width: 10ch;
+  }
+
+  .maison-hero__lede {
+    font-size: 17px;
+    max-width: 28ch;
+    margin-top: 16px;
+  }
+
+  .maison-hero__actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .maison-hero__actions .maison-btn {
+    width: 100%;
+  }
+
+  .maison-btn {
+    padding: 14px 18px;
+    letter-spacing: 0.12em;
+    white-space: normal;
+    text-align: center;
   }
 
   .maison-hero__scroll {
     display: none;
+  }
+
+  .maison-pieces {
+    padding: 48px 0 16px;
+  }
+
+  .maison-pieces__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .maison-pieces__head .maison-btn {
+    width: 100%;
   }
 
   .maison-pieces__grid,
@@ -619,28 +693,98 @@
     grid-template-columns: 1fr;
   }
 
-  .maison-pieces__head {
-    flex-direction: column;
-    align-items: flex-start;
+  .maison-pieces__grid {
+    gap: 22px;
+  }
+
+  .maison-piece__frame {
+    aspect-ratio: 1 / 1;
+  }
+
+  .maison-univers {
+    padding: 40px 0 56px;
+  }
+
+  .maison-univers__head {
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .maison-univers__grid {
+    gap: 12px;
   }
 
   .maison-card {
-    min-height: 420px;
+    min-height: 280px;
+  }
+
+  .maison-card__copy {
+    padding: 20px 18px;
+  }
+
+  .maison-card__title {
+    font-size: 24px;
+  }
+
+  .maison-matiere {
+    padding: 0 0 64px;
   }
 
   .maison-matiere__copy {
-    padding: 56px 0 40px;
+    padding: 40px 0 28px;
+  }
+
+  .maison-matiere__body {
+    font-size: 13px;
+    margin-top: 18px;
+  }
+
+  .maison-matiere__founder {
+    margin-top: 24px;
+  }
+
+  .maison-matiere__tabs {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 28px;
+    letter-spacing: 0.14em;
   }
 
   .maison-matiere__quote {
-    min-height: 380px;
-    padding: 48px 24px;
+    min-height: 240px;
+    padding: 32px 20px;
+  }
+
+  .maison-matiere__quote-frame {
+    padding: 28px 20px;
   }
 }
 
-@media (min-width: 750px) and (max-width: 989px) {
+@media (min-width: 768px) and (max-width: 989px) {
   .maison-pieces__grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 14px;
+  }
+
+  .maison-piece__frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .maison-univers__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .maison-card {
+    min-height: 360px;
+  }
+
+  .maison-hero__actions {
+    flex-direction: row;
+  }
+
+  .maison-hero__actions .maison-btn,
+  .maison-pieces__head .maison-btn {
+    width: auto;
   }
 }
