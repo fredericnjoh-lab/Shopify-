@@ -1,0 +1,113 @@
+{% comment %}
+  Maison Matière — editorial split with founder mark and quote.
+{% endcomment %}
+
+{{ 'maison-home.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign heading = section.settings.title
+  if heading == blank
+    assign heading = 'home_page.maison.matiere_title' | t
+  endif
+  assign quote = section.settings.quote
+  if quote == blank
+    assign quote = 'home_page.maison.matiere_quote' | t
+  endif
+  assign tab_a = section.settings.tab_a
+  if tab_a == blank
+    assign tab_a = 'home_page.maison.matiere_tab_a' | t
+  endif
+  assign tab_b = section.settings.tab_b
+  if tab_b == blank
+    assign tab_b = 'home_page.maison.matiere_tab_b' | t
+  endif
+  assign founder = section.settings.founder_label
+  if founder == blank
+    assign founder = 'home_page.maison.matiere_founder' | t
+  endif
+-%}
+
+<section class="maison-matiere" data-section-id="{{ section.id }}">
+  <div class="maison-shell">
+    <div class="maison-matiere__grid">
+      <div class="maison-matiere__copy maison-reveal">
+        <h2 class="maison-heading">{{ heading | escape }}</h2>
+        {%- if section.settings.body != blank -%}
+          <div class="maison-matiere__body">{{ section.settings.body }}</div>
+        {%- else -%}
+          <div class="maison-matiere__body">
+            <p>{{ 'home_page.maison.matiere_body' | t }}</p>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.portrait != blank or founder != blank -%}
+          <div class="maison-matiere__founder">
+            {%- if section.settings.portrait != blank -%}
+              <div class="maison-matiere__avatar">
+                {{ section.settings.portrait | image_url: width: 200 | image_tag:
+                  loading: 'lazy',
+                  widths: '80, 128, 200',
+                  sizes: '64px',
+                  alt: section.settings.portrait.alt | default: founder,
+                  width: 64,
+                  height: 64
+                }}
+              </div>
+            {%- endif -%}
+            {%- if founder != blank -%}
+              <span class="maison-matiere__sign">{{ founder | escape }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        <div class="maison-matiere__tabs">
+          <span>{{ tab_a | escape }}</span>
+          <span>{{ tab_b | escape }}</span>
+        </div>
+      </div>
+
+      <div class="maison-matiere__quote maison-reveal">
+        {%- if section.settings.quote_image != blank -%}
+          {{ section.settings.quote_image | image_url: width: 1400 | image_tag:
+            loading: 'lazy',
+            widths: '700, 1000, 1400',
+            sizes: '(min-width: 990px) 50vw, 100vw',
+            alt: section.settings.quote_image.alt | default: quote,
+            class: 'maison-matiere__quote-img'
+          }}
+        {%- endif -%}
+        <blockquote class="maison-matiere__quote-frame">
+          <p class="maison-matiere__quote-text">{{ quote | escape }}</p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Maison Matiere",
+  "class": "index-section--flush",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "La matière avant tout" },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Chaque pièce part d’un coton à fibres longues, travaillé pour une tenue qui ne se déforme pas au lavage. Coupe oversized, épaule structurée, proportion pensée pour durer.</p>"
+    },
+    { "type": "image_picker", "id": "portrait", "label": "Founder portrait" },
+    { "type": "text", "id": "founder_label", "label": "Founder label", "default": "—Fred" },
+    { "type": "text", "id": "tab_a", "label": "Detail label 1", "default": "Grammage" },
+    { "type": "text", "id": "tab_b", "label": "Detail label 2", "default": "Étapes de contrôle" },
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "Un vêtement ne se justifie pas. Il tient." },
+    { "type": "image_picker", "id": "quote_image", "label": "Quote panel image" }
+  ],
+  "presets": [
+    { "name": "Maison Matiere" }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

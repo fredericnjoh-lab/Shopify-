@@ -1,0 +1,151 @@
+{% comment %}
+  Maison Featured Pieces — editorial product trio.
+{% endcomment %}
+
+{{ 'maison-home.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign kicker = section.settings.kicker
+  if kicker == blank
+    assign kicker = 'home_page.maison.pieces_kicker' | t
+  endif
+  assign heading = section.settings.title
+  if heading == blank
+    assign heading = 'home_page.maison.pieces_title' | t
+  endif
+  assign cta = section.settings.cta_label
+  if cta == blank
+    assign cta = 'home_page.maison.pieces_cta' | t
+  endif
+-%}
+
+<section class="maison-pieces" data-section-id="{{ section.id }}">
+  <div class="maison-shell">
+    <div class="maison-pieces__head maison-reveal">
+      <div>
+        {%- if kicker != blank -%}
+          <p class="maison-kicker">{{ kicker | escape }}</p>
+        {%- endif -%}
+        <h2 class="maison-heading">{{ heading | escape }}</h2>
+      </div>
+      {%- if cta != blank and section.settings.cta_link != blank -%}
+        <a class="maison-btn maison-btn--line" href="{{ section.settings.cta_link }}">{{ cta | escape }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="maison-pieces__grid">
+      {%- for block in section.blocks -%}
+        {%- assign product = block.settings.product -%}
+        {%- unless product.handle -%}
+          {%- assign product = all_products[block.settings.product] -%}
+        {%- endunless -%}
+        {%- if product != blank -%}
+          {%- assign piece_url = product.url -%}
+          {%- assign piece_title = block.settings.title | default: product.title -%}
+          {%- if block.settings.title != blank -%}
+            {%- assign piece_title = block.settings.title -%}
+          {%- endif -%}
+          {%- assign piece_caption = block.settings.caption -%}
+          {%- if piece_caption == blank -%}
+            {%- assign piece_caption = product.type -%}
+          {%- endif -%}
+          {%- if block.settings.image != blank -%}
+            {%- assign piece_image = block.settings.image -%}
+          {%- else -%}
+            {%- assign piece_image = product.featured_image -%}
+          {%- endif -%}
+          {%- assign piece_alt = piece_image.alt | default: piece_title -%}
+          <a class="maison-piece maison-reveal" href="{{ piece_url }}" {{ block.shopify_attributes }}>
+            <div class="maison-piece__frame">
+              {%- if piece_image != blank -%}
+                {{ piece_image | image_url: width: 1200 | image_tag:
+                  loading: 'lazy',
+                  widths: '400, 600, 800, 1000, 1200',
+                  sizes: '(min-width: 990px) 30vw, 90vw',
+                  alt: piece_alt,
+                  class: 'maison-piece__img',
+                  width: piece_image.width,
+                  height: piece_image.height
+                }}
+              {%- else -%}
+                <div class="maison-piece__ph" aria-hidden="true"></div>
+              {%- endif -%}
+            </div>
+            <div class="maison-piece__meta">
+              <h3 class="maison-piece__title">{{ piece_title | escape }}</h3>
+              {%- if piece_caption != blank -%}
+                <p class="maison-piece__caption">{{ piece_caption | escape }}</p>
+              {%- endif -%}
+              {%- if section.settings.show_price -%}
+                <p class="maison-piece__price">{{ product.price | money }}</p>
+              {%- endif -%}
+            </div>
+          </a>
+        {%- elsif block.settings.image != blank -%}
+          {%- assign piece_title = block.settings.title -%}
+          {%- if piece_title == blank -%}
+            {%- assign piece_title = 'home_page.maison.piece_fallback' | t -%}
+          {%- endif -%}
+          <a class="maison-piece maison-reveal" href="{{ block.settings.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
+            <div class="maison-piece__frame">
+              {{ block.settings.image | image_url: width: 1200 | image_tag:
+                loading: 'lazy',
+                widths: '400, 600, 800, 1000, 1200',
+                sizes: '(min-width: 990px) 30vw, 90vw',
+                alt: block.settings.image.alt | default: piece_title,
+                class: 'maison-piece__img'
+              }}
+            </div>
+            <div class="maison-piece__meta">
+              <h3 class="maison-piece__title">{{ piece_title | escape }}</h3>
+              {%- if block.settings.caption != blank -%}
+                <p class="maison-piece__caption">{{ block.settings.caption | escape }}</p>
+              {%- endif -%}
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Maison Featured Pieces",
+  "class": "index-section--flush",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Sélection" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Pièces phares" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Toute la boutique" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "checkbox", "id": "show_price", "label": "Show price", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "piece",
+      "name": "Piece",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "image_picker", "id": "image", "label": "Image override" },
+        { "type": "text", "id": "title", "label": "Title override" },
+        { "type": "text", "id": "caption", "label": "Caption" },
+        { "type": "url", "id": "link", "label": "Link (if no product)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maison Featured Pieces",
+      "blocks": [
+        { "type": "piece" },
+        { "type": "piece" },
+        { "type": "piece" }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

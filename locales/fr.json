@@ -296,6 +296,27 @@
       "product_description": "Cette partie est utilisée pour la fiche du produit. Parlez aux clients de l'allure, du ressenti et du style de votre produit. Ajoutez des détails sur la couleur, les matériaux utilisés, le dimensionnement, et où il a été fabriqué.",
       "collection_title": "Titre de la collection",
       "no_content": "Cette section ne contient actuellement aucun contenu. Ajoutez-en en utilisant la barre latérale."
+    },
+    "maison": {
+      "scroll": "Scroll",
+      "hero_kicker": "Refined in Paris",
+      "hero_title": "No Apologies",
+      "hero_lede": "Une coupe oversized. Une présence nette. Un standard sans compromis.",
+      "hero_cta_primary": "Découvrir la collection",
+      "hero_cta_secondary": "Voir la pièce",
+      "pieces_kicker": "Sélection",
+      "pieces_title": "Pièces phares",
+      "pieces_cta": "Toute la boutique",
+      "piece_fallback": "Pièce FredJo",
+      "univers_kicker": "Univers",
+      "univers_title": "Trois collections. Une même exigence.",
+      "collection_fallback": "Collection",
+      "matiere_title": "La matière avant tout",
+      "matiere_body": "Chaque pièce part d’un coton à fibres longues, travaillé pour une tenue qui ne se déforme pas au lavage. Coupe oversized, épaule structurée, proportion pensée pour durer.",
+      "matiere_quote": "Un vêtement ne se justifie pas. Il tient.",
+      "matiere_tab_a": "Grammage",
+      "matiere_tab_b": "Étapes de contrôle",
+      "matiere_founder": "—Fred"
     }
   },
   "layout": {
