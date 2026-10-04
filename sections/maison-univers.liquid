@@ -1,0 +1,120 @@
+{% comment %}
+  Maison Univers — three editorial collection chapters.
+{% endcomment %}
+
+{{ 'maison-home.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign kicker = section.settings.kicker
+  if kicker == blank
+    assign kicker = 'home_page.maison.univers_kicker' | t
+  endif
+  assign heading = section.settings.title
+  if heading == blank
+    assign heading = 'home_page.maison.univers_title' | t
+  endif
+-%}
+
+<section class="maison-univers" data-section-id="{{ section.id }}">
+  <div class="maison-shell">
+    <div class="maison-univers__head maison-reveal">
+      {%- if kicker != blank -%}
+        <p class="maison-kicker">{{ kicker | escape }}</p>
+      {%- endif -%}
+      <h2 class="maison-heading">{{ heading | escape }}</h2>
+    </div>
+
+    <div class="maison-univers__grid">
+      {%- for block in section.blocks -%}
+        {%- assign collection = block.settings.collection -%}
+        {%- unless collection.handle -%}
+          {%- assign collection = collections[block.settings.collection] -%}
+        {%- endunless -%}
+        {%- if block.settings.link != blank -%}
+          {%- assign card_url = block.settings.link -%}
+        {%- elsif collection != blank -%}
+          {%- assign card_url = collection.url -%}
+        {%- else -%}
+          {%- assign card_url = routes.all_products_collection_url -%}
+        {%- endif -%}
+
+        {%- if block.settings.title != blank -%}
+          {%- assign card_title = block.settings.title -%}
+        {%- elsif collection != blank -%}
+          {%- assign card_title = collection.title -%}
+        {%- else -%}
+          {%- assign card_title = 'home_page.maison.collection_fallback' | t -%}
+        {%- endif -%}
+
+        {%- if block.settings.image != blank -%}
+          {%- assign card_image = block.settings.image -%}
+        {%- elsif collection.image != blank -%}
+          {%- assign card_image = collection.image -%}
+        {%- elsif collection.featured_image != blank -%}
+          {%- assign card_image = collection.featured_image -%}
+        {%- else -%}
+          {%- assign card_image = nil -%}
+        {%- endif -%}
+
+        <a class="maison-card maison-reveal" href="{{ card_url }}" {{ block.shopify_attributes }}>
+          {%- if card_image != blank -%}
+            {{ card_image | image_url: width: 1400 | image_tag:
+              loading: 'lazy',
+              widths: '600, 800, 1000, 1200, 1400',
+              sizes: '(min-width: 990px) 32vw, 100vw',
+              alt: card_image.alt | default: card_title,
+              class: 'maison-card__img'
+            }}
+          {%- else -%}
+            <div class="maison-card__ph" aria-hidden="true"></div>
+          {%- endif -%}
+          <span class="maison-card__scrim" aria-hidden="true"></span>
+          <span class="maison-card__copy">
+            <span class="maison-card__title">{{ card_title | escape }}</span>
+            {%- if block.settings.subtitle != blank -%}
+              <span class="maison-card__sub">{{ block.settings.subtitle | escape }}</span>
+            {%- endif -%}
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Maison Univers",
+  "class": "index-section--flush",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Univers" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Trois collections. Une même exigence." }
+  ],
+  "blocks": [
+    {
+      "type": "chapter",
+      "name": "Collection",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "image_picker", "id": "image", "label": "Image override" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" },
+        { "type": "url", "id": "link", "label": "Link override" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maison Univers",
+      "blocks": [
+        { "type": "chapter" },
+        { "type": "chapter" },
+        { "type": "chapter" }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

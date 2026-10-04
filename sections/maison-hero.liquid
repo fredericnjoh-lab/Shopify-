@@ -1,0 +1,117 @@
+{% comment %}
+  Maison Hero — cinematic full-bleed homepage opener.
+{% endcomment %}
+
+{{ 'maison-home.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign kicker = section.settings.kicker
+  if kicker == blank
+    assign kicker = 'home_page.maison.hero_kicker' | t
+  endif
+  assign title = section.settings.title
+  if title == blank
+    assign title = 'home_page.maison.hero_title' | t
+  endif
+  assign lede = section.settings.lede
+  if lede == blank
+    assign lede = 'home_page.maison.hero_lede' | t
+  endif
+  assign cta1 = section.settings.cta1_label
+  if cta1 == blank
+    assign cta1 = 'home_page.maison.hero_cta_primary' | t
+  endif
+  assign cta2 = section.settings.cta2_label
+  if cta2 == blank
+    assign cta2 = 'home_page.maison.hero_cta_secondary' | t
+  endif
+  assign hero_alt = section.settings.image.alt | default: title
+-%}
+
+<section class="maison-hero" data-section-id="{{ section.id }}">
+  <div class="maison-hero__media">
+    {%- if section.settings.image != blank -%}
+      {%- if section.settings.image_mobile != blank -%}
+        {{ section.settings.image | image_url: width: 2400 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '800, 1200, 1600, 2000, 2400',
+          sizes: '100vw',
+          alt: hero_alt,
+          class: 'maison-hero__img maison-hero__img--desktop'
+        }}
+        {{ section.settings.image_mobile | image_url: width: 1200 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '600, 800, 1000, 1200',
+          sizes: '100vw',
+          alt: hero_alt,
+          class: 'maison-hero__img maison-hero__img--mobile'
+        }}
+      {%- else -%}
+        {{ section.settings.image | image_url: width: 2400 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '800, 1200, 1600, 2000, 2400',
+          sizes: '100vw',
+          alt: hero_alt,
+          class: 'maison-hero__img'
+        }}
+      {%- endif -%}
+    {%- else -%}
+      <div class="maison-hero__placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+  <div class="maison-hero__scrim" style="opacity: {{ section.settings.scrim_opacity | divided_by: 100.0 }};"></div>
+
+  <div class="maison-hero__inner">
+    {%- if kicker != blank -%}
+      <p class="maison-hero__kicker">{{ kicker | escape }}</p>
+    {%- endif -%}
+    <h1 class="maison-hero__title">{{ title | escape }}</h1>
+    {%- if lede != blank -%}
+      <p class="maison-hero__lede">{{ lede | escape }}</p>
+    {%- endif -%}
+    <div class="maison-hero__actions">
+      {%- if cta1 != blank and section.settings.cta1_link != blank -%}
+        <a class="maison-btn maison-btn--solid" href="{{ section.settings.cta1_link }}">{{ cta1 | escape }}</a>
+      {%- endif -%}
+      {%- if cta2 != blank and section.settings.cta2_link != blank -%}
+        <a class="maison-btn maison-btn--ghost" href="{{ section.settings.cta2_link }}">{{ cta2 | escape }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="maison-hero__scroll" aria-hidden="true">
+    <span>{{ 'home_page.maison.scroll' | t }}</span>
+    <span class="maison-hero__scroll-line"></span>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Maison Hero",
+  "class": "index-section--hero index-section--flush",
+  "settings": [
+    { "type": "header", "content": "Image" },
+    { "type": "image_picker", "id": "image", "label": "Desktop image" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" },
+    { "type": "range", "id": "scrim_opacity", "label": "Overlay opacity", "min": 20, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "header", "content": "Copy" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Refined in Paris" },
+    { "type": "text", "id": "title", "label": "Title", "default": "No Apologies" },
+    { "type": "textarea", "id": "lede", "label": "Lede", "default": "Une coupe oversized. Une présence nette. Un standard sans compromis." },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "cta1_label", "label": "Primary label", "default": "Découvrir la collection" },
+    { "type": "url", "id": "cta1_link", "label": "Primary link" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary label", "default": "Voir la pièce" },
+    { "type": "url", "id": "cta2_link", "label": "Secondary link" }
+  ],
+  "presets": [
+    { "name": "Maison Hero" }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

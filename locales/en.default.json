@@ -345,6 +345,27 @@
       "product_description": "This area is used to describe your product’s details. Tell customers about the look, feel, and style of your product. Add details on color,  materials used, sizing, and where it was made.",
       "collection_title": "Example collection",
       "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar."
+    },
+    "maison": {
+      "scroll": "Scroll",
+      "hero_kicker": "Refined in Paris",
+      "hero_title": "No Apologies",
+      "hero_lede": "An oversized cut. A quiet presence. A standard without compromise.",
+      "hero_cta_primary": "Discover the collection",
+      "hero_cta_secondary": "See the piece",
+      "pieces_kicker": "Selection",
+      "pieces_title": "Signature pieces",
+      "pieces_cta": "The full house",
+      "piece_fallback": "FredJo piece",
+      "univers_kicker": "Universe",
+      "univers_title": "Three collections. One standard.",
+      "collection_fallback": "Collection",
+      "matiere_title": "The cloth comes first",
+      "matiere_body": "Each piece starts with long-staple cotton, cut to hold its line after the wash. Oversized through the body. Structured at the shoulder. Proportioned to last.",
+      "matiere_quote": "A garment does not explain itself. It holds.",
+      "matiere_tab_a": "Weight",
+      "matiere_tab_b": "Control",
+      "matiere_founder": "—Fred"
     }
   },
   "layout": {
