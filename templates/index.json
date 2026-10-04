@@ -12,7 +12,7 @@
     "maison_hero": {
       "type": "maison-hero",
       "settings": {
-        "image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_18_41_34.png",
+        "image": "shopify://shop_images/04-hors-serie.png",
         "image_mobile": "shopify://shop_images/Image_ChatGPT_4_oct._2026_18_41_34.png",
         "scrim_opacity": 100,
         "translate": true,
@@ -78,7 +78,7 @@
           "type": "chapter",
           "settings": {
             "collection": "essentials",
-            "image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_18_55_03.png",
+            "image": "shopify://shop_images/02-essentials.png",
             "title": "Essentials",
             "subtitle": "The permanent line",
             "link": ""
