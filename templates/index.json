@@ -12,7 +12,7 @@
     "maison_hero": {
       "type": "maison-hero",
       "settings": {
-        "image": "shopify://shop_images/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
+        "image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_18_41_34.png",
         "image_mobile": "shopify://shop_images/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
         "scrim_opacity": 100,
         "kicker": "Refined in Paris",
@@ -32,7 +32,8 @@
           "settings": {
             "product": "unisex-short-sleeve-streetwear-t-shirt-paris",
             "title": "Tee No Apologies",
-            "caption": "Coton lourd. Coupe droite."
+            "caption": "Coton lourd. Coupe droite.",
+            "link": ""
           }
         },
         "piece_hoodie": {
@@ -40,7 +41,8 @@
           "settings": {
             "product": "fred-jo-black-unisex-hoodie",
             "title": "Hoodie Essential",
-            "caption": "Épaule tombante. Grammage dense."
+            "caption": "Épaule tombante. Grammage dense.",
+            "link": ""
           }
         },
         "piece_uniform": {
@@ -49,7 +51,8 @@
             "product": "the-uniform-1",
             "image": "shopify://shop_images/unisex-heavyweight-sweatpants-black-left-68fe8696e99f9.jpg",
             "title": "The Uniform",
-            "caption": "Hoodie et sweatpants. Une silhouette."
+            "caption": "Hoodie et sweatpants. Une silhouette.",
+            "link": ""
           }
         }
       },
@@ -75,7 +78,8 @@
             "collection": "sweatshirts",
             "image": "shopify://shop_images/unisex-organic-cotton-t-shirt-black-left-front-66d87199c0e4e.jpg",
             "title": "Essentiels",
-            "subtitle": "La ligne permanente"
+            "subtitle": "La ligne permanente",
+            "link": ""
           }
         },
         "chapter_editions": {
@@ -84,7 +88,8 @@
             "collection": "no-apologies-club",
             "image": "shopify://shop_images/ChatGPT-Image-Oct-24-2025-09_31_23-AM.png",
             "title": "Éditions limitées",
-            "subtitle": "No Apologies Club"
+            "subtitle": "No Apologies Club",
+            "link": ""
           }
         },
         "chapter_archive": {
@@ -93,7 +98,8 @@
             "collection": "summer-collection",
             "image": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
             "title": "Archive",
-            "subtitle": "Anciennes lignes"
+            "subtitle": "Anciennes lignes",
+            "link": ""
           }
         }
       },
@@ -118,127 +124,6 @@
         "tab_b": "Étapes de contrôle",
         "quote": "Un vêtement ne se justifie pas. Il tient.",
         "quote_image": "shopify://shop_images/image_No_Apologies.png"
-      }
-    },
-    "1761460688dc6051bb": {
-      "type": "_blocks",
-      "disabled": true,
-      "settings": {}
-    },
-    "slideshow": {
-      "type": "slideshow",
-      "disabled": true,
-      "blocks": {
-        "image-2": {
-          "type": "image",
-          "settings": {
-            "top_subheading": "",
-            "title": "NO APOLOGIES.",
-            "title_size": 69,
-            "subheading": "Premium streetwear for people who know who they are.",
-            "link": "shopify://collections/no-apologies-club",
-            "link_text": "Shop the Drop",
-            "link_2": "",
-            "link_text_2": "",
-            "color_accent": "#b8975a",
-            "text_align": "vertical-center horizontal-center",
-            "image": "shopify://shop_images/Untitled_design_12.png",
-            "image_mobile": "shopify://shop_images/2025-04-23-at-03.53.33_76f77952.jpg",
-            "parallax_direction": "top",
-            "overlay_opacity": 0
-          }
-        },
-        "image-1": {
-          "type": "image",
-          "settings": {
-            "top_subheading": "Made for those who already know.",
-            "title": "",
-            "title_size": 40,
-            "subheading": "",
-            "link": "shopify://collections/no-apologies-club",
-            "link_text": "Join the Club",
-            "link_2": "",
-            "link_text_2": "",
-            "color_accent": "#b8975a",
-            "text_align": "vertical-center horizontal-center",
-            "image": "shopify://shop_images/WhatsApp_Image_2025-09-27_at_12.35.15_PM_1.jpg",
-            "parallax_direction": "top",
-            "overlay_opacity": 30
-          }
-        },
-        "image-3": {
-          "type": "image",
-          "settings": {
-            "top_subheading": "",
-            "title": "NO APOLOGIES.",
-            "title_size": 46,
-            "subheading": "Premium streetwear for people who know who they are.",
-            "link": "shopify://collections/no-apologies-club",
-            "link_text": "Shop the Drop",
-            "link_2": "shopify://collections/no-apologies-club",
-            "link_text_2": "Discover No Apologies Club",
-            "color_accent": "#b8975a",
-            "text_align": "vertical-bottom horizontal-center",
-            "image": "shopify://shop_images/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
-            "image_mobile": "shopify://shop_images/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
-            "parallax_direction": "top",
-            "overlay_opacity": 0
-          }
-        },
-        "image_VkDQ3m": {
-          "type": "image",
-          "settings": {
-            "top_subheading": "",
-            "title": "",
-            "title_size": 46,
-            "subheading": "",
-            "link": "shopify://collections/no-apologies-club",
-            "link_text": "Discover No Apologies Club",
-            "link_2": "",
-            "link_text_2": "",
-            "color_accent": "#b8975a",
-            "text_align": "vertical-bottom horizontal-center",
-            "image": "shopify://shop_images/WhatsApp_Image_2025-10-25_at_7.20.33_PM_1.jpg",
-            "image_mobile": "shopify://shop_images/WhatsApp_Image_2025-10-25_at_7.20.33_PM_1.jpg",
-            "parallax_direction": "top",
-            "overlay_opacity": 0
-          }
-        },
-        "image_pGpFnk": {
-          "type": "image",
-          "settings": {
-            "top_subheading": "From a hoodie to a movement.",
-            "title": "",
-            "title_size": 46,
-            "subheading": "",
-            "link": "shopify://collections/no-apologies-club",
-            "link_text": "Shop the Drop",
-            "link_2": "",
-            "link_text_2": "",
-            "color_accent": "#b8975a",
-            "text_align": "vertical-bottom horizontal-center",
-            "image": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
-            "image_mobile": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
-            "parallax_direction": "top",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image-2",
-        "image-1",
-        "image-3",
-        "image_VkDQ3m",
-        "image_pGpFnk"
-      ],
-      "settings": {
-        "section_height": "100vh",
-        "mobile_height": "100vh",
-        "parallax": false,
-        "style": "bars",
-        "autoplay": true,
-        "autoplay_speed": 5,
-        "lazyload_images": true
       }
     },
     "featured-collection": {
@@ -443,6 +328,127 @@
         "bottom_padding": true
       }
     },
+    "1761460688dc6051bb": {
+      "type": "_blocks",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image-2": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "NO APOLOGIES.",
+            "title_size": 69,
+            "subheading": "Premium streetwear for people who know who they are.",
+            "link": "shopify://collections/no-apologies-club",
+            "link_text": "Shop the Drop",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#b8975a",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/Untitled_design_12.png",
+            "image_mobile": "shopify://shop_images/2025-04-23-at-03.53.33_76f77952.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "Made for those who already know.",
+            "title": "",
+            "title_size": 40,
+            "subheading": "",
+            "link": "shopify://collections/no-apologies-club",
+            "link_text": "Join the Club",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#b8975a",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-09-27_at_12.35.15_PM_1.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 30
+          }
+        },
+        "image-3": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "NO APOLOGIES.",
+            "title_size": 46,
+            "subheading": "Premium streetwear for people who know who they are.",
+            "link": "shopify://collections/no-apologies-club",
+            "link_text": "Shop the Drop",
+            "link_2": "shopify://collections/no-apologies-club",
+            "link_text_2": "Discover No Apologies Club",
+            "color_accent": "#b8975a",
+            "text_align": "vertical-bottom horizontal-center",
+            "image": "shopify://shop_images/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
+            "image_mobile": "shopify://shop_images/gempages_587236893280699242-dbe27adb-089d-4804-8ae1-b4880a9159f8.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_VkDQ3m": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 46,
+            "subheading": "",
+            "link": "shopify://collections/no-apologies-club",
+            "link_text": "Discover No Apologies Club",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#b8975a",
+            "text_align": "vertical-bottom horizontal-center",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-10-25_at_7.20.33_PM_1.jpg",
+            "image_mobile": "shopify://shop_images/WhatsApp_Image_2025-10-25_at_7.20.33_PM_1.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_pGpFnk": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "From a hoodie to a movement.",
+            "title": "",
+            "title_size": 46,
+            "subheading": "",
+            "link": "shopify://collections/no-apologies-club",
+            "link_text": "Shop the Drop",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#b8975a",
+            "text_align": "vertical-bottom horizontal-center",
+            "image": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
+            "image_mobile": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image-2",
+        "image-1",
+        "image-3",
+        "image_VkDQ3m",
+        "image_pGpFnk"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_height": "100vh",
+        "mobile_height": "100vh",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "lazyload_images": true
+      }
+    },
     "featured_collection_GiTLkY": {
       "type": "featured-collection",
       "disabled": true,
@@ -459,7 +465,6 @@
     },
     "countdown": {
       "type": "countdown",
-      "disabled": true,
       "blocks": {
         "content": {
           "type": "content",
@@ -474,6 +479,7 @@
       "block_order": [
         "content"
       ],
+      "disabled": true,
       "settings": {
         "layout": "hero",
         "full_width": false,
@@ -488,7 +494,6 @@
     },
     "promo-grid-1": {
       "type": "promo-grid",
-      "disabled": true,
       "blocks": {
         "advanced-1": {
           "type": "advanced",
@@ -537,6 +542,7 @@
         "advanced-1",
         "advanced-2"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "gutter_size": 20,
@@ -547,7 +553,6 @@
     },
     "promo-grid-2": {
       "type": "promo-grid",
-      "disabled": true,
       "blocks": {
         "advanced": {
           "type": "advanced",
@@ -604,6 +609,7 @@
         "sale_collection-1",
         "sale_collection-2"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "gutter_size": 15,
@@ -614,7 +620,6 @@
     },
     "featured-collections": {
       "type": "featured-collections",
-      "disabled": true,
       "blocks": {
         "collection-1": {
           "type": "collection",
@@ -655,6 +660,7 @@
         "collection-3",
         "collection-4"
       ],
+      "disabled": true,
       "settings": {
         "title": "Shop by category",
         "divider": false,
