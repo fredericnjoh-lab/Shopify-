@@ -116,15 +116,15 @@
           <div class="subheading appear-delay{% cycle '','-1','-2','-3','-4' %}">{{ section.settings.subtitle }}</div>
         {%- endif -%}
         {%- if section.settings.title != blank -%}
-          <h2 class="h1 appear-delay{% cycle '','-1','-2','-3','-4' %}">{{ section.settings.title | escape }}</h2>
+          <h2 class="h1 appear-delay{% cycle '','-1','-2','-3','-4' %}">{%- if template.name == 'index' -%}{{ 'home_page.maison.uniform_title' | t }}{%- else -%}{{ section.settings.title | escape }}{%- endif -%}</h2>
         {%- endif -%}
         {%- if section.settings.text != blank -%}
-          <div class="rte appear-delay{% cycle '','-1','-2','-3','-4' %}">{{ section.settings.text }}</div>
+          <div class="rte appear-delay{% cycle '','-1','-2','-3','-4' %}">{%- if template.name == 'index' -%}{{ 'home_page.maison.uniform_text_html' | t }}{%- else -%}{{ section.settings.text }}{%- endif -%}</div>
         {%- endif -%}
         {%- if section.settings.button_label != blank -%}
           <div class="appear-delay{% cycle '','-1','-2','-3','-4' %}">
             <a href="{{ section.settings.button_link }}" class="btn{% if section.settings.button_style == 'secondary' %} btn--tertiary{% endif %}">
-              {{ section.settings.button_label }}
+              {%- if template.name == 'index' -%}{{ 'home_page.maison.uniform_cta' | t }}{%- else -%}{{ section.settings.button_label }}{%- endif -%}
             </a>
           </div>
         {%- endif -%}

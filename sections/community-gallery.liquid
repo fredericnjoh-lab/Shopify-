@@ -64,11 +64,16 @@
 <div class="community community--{{ section.id }} page-width">
   {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
     <div class="section-header">
-      {%- if section.settings.title != blank -%}
-        <h2 class="section-header__title">{{ section.settings.title | escape }}</h2>
-      {%- endif -%}
-      {%- if section.settings.subtitle != blank -%}
-        <div class="section-header__subtext rte">{{ section.settings.subtitle }}</div>
+      {%- if template.name == 'index' -%}
+        <h2 class="section-header__title">{{ 'home_page.maison.worn_title' | t }}</h2>
+        <div class="section-header__subtext rte">{{ 'home_page.maison.worn_subtitle' | t }}</div>
+      {%- else -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="section-header__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <div class="section-header__subtext rte">{{ section.settings.subtitle }}</div>
+        {%- endif -%}
       {%- endif -%}
     </div>
   {%- endif -%}

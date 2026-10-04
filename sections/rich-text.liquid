@@ -16,7 +16,11 @@
           </div>
         {%- when 'text' -%}
           <div class="rte">
-            {%- if block.settings.text != blank -%}
+            {%- if template.name == 'index' -%}
+              {%- if block.settings.enlarge_text %}<div class="enlarge-text">{% endif -%}
+              {{ 'home_page.maison.manifesto_html' | t }}
+              {%- if block.settings.enlarge_text %}</div>{% endif -%}
+            {%- elsif block.settings.text != blank -%}
               {%- if block.settings.enlarge_text %}<div class="enlarge-text">{% endif -%}
               {{ block.settings.text }}
               {%- if block.settings.enlarge_text %}</div>{% endif -%}

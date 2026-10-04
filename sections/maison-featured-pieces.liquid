@@ -5,17 +5,24 @@
 {{ 'maison-home.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign kicker = section.settings.kicker
-  if kicker == blank
+  assign use_locale = section.settings.translate
+  if use_locale
     assign kicker = 'home_page.maison.pieces_kicker' | t
-  endif
-  assign heading = section.settings.title
-  if heading == blank
     assign heading = 'home_page.maison.pieces_title' | t
-  endif
-  assign cta = section.settings.cta_label
-  if cta == blank
     assign cta = 'home_page.maison.pieces_cta' | t
+  else
+    assign kicker = section.settings.kicker
+    if kicker == blank
+      assign kicker = 'home_page.maison.pieces_kicker' | t
+    endif
+    assign heading = section.settings.title
+    if heading == blank
+      assign heading = 'home_page.maison.pieces_title' | t
+    endif
+    assign cta = section.settings.cta_label
+    if cta == blank
+      assign cta = 'home_page.maison.pieces_cta' | t
+    endif
   endif
 -%}
 
@@ -41,13 +48,26 @@
         {%- endunless -%}
         {%- if product != blank -%}
           {%- assign piece_url = product.url -%}
-          {%- assign piece_title = block.settings.title | default: product.title -%}
-          {%- if block.settings.title != blank -%}
-            {%- assign piece_title = block.settings.title -%}
-          {%- endif -%}
-          {%- assign piece_caption = block.settings.caption -%}
-          {%- if piece_caption == blank -%}
-            {%- assign piece_caption = product.type -%}
+          {%- assign title_key = 'home_page.maison.piece_' | append: forloop.index | append: '_title' -%}
+          {%- assign caption_key = 'home_page.maison.piece_' | append: forloop.index | append: '_caption' -%}
+          {%- if use_locale -%}
+            {%- assign piece_title = title_key | t -%}
+            {%- assign piece_caption = caption_key | t -%}
+            {%- if piece_title == title_key -%}
+              {%- assign piece_title = product.title -%}
+            {%- endif -%}
+            {%- if piece_caption == caption_key -%}
+              {%- assign piece_caption = product.type -%}
+            {%- endif -%}
+          {%- else -%}
+            {%- assign piece_title = block.settings.title | default: product.title -%}
+            {%- if block.settings.title != blank -%}
+              {%- assign piece_title = block.settings.title -%}
+            {%- endif -%}
+            {%- assign piece_caption = block.settings.caption -%}
+            {%- if piece_caption == blank -%}
+              {%- assign piece_caption = product.type -%}
+            {%- endif -%}
           {%- endif -%}
           {%- if block.settings.image != blank -%}
             {%- assign piece_image = block.settings.image -%}
@@ -82,9 +102,18 @@
             </div>
           </a>
         {%- elsif block.settings.image != blank -%}
-          {%- assign piece_title = block.settings.title -%}
-          {%- if piece_title == blank -%}
-            {%- assign piece_title = 'home_page.maison.piece_fallback' | t -%}
+          {%- assign title_key = 'home_page.maison.piece_' | append: forloop.index | append: '_title' -%}
+          {%- assign caption_key = 'home_page.maison.piece_' | append: forloop.index | append: '_caption' -%}
+          {%- if use_locale -%}
+            {%- assign piece_title = title_key | t -%}
+            {%- if piece_title == title_key -%}
+              {%- assign piece_title = 'home_page.maison.piece_fallback' | t -%}
+            {%- endif -%}
+          {%- else -%}
+            {%- assign piece_title = block.settings.title -%}
+            {%- if piece_title == blank -%}
+              {%- assign piece_title = 'home_page.maison.piece_fallback' | t -%}
+            {%- endif -%}
           {%- endif -%}
           <a class="maison-piece maison-reveal" href="{{ block.settings.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
             <div class="maison-piece__frame">
@@ -98,8 +127,17 @@
             </div>
             <div class="maison-piece__meta">
               <h3 class="maison-piece__title">{{ piece_title | escape }}</h3>
-              {%- if block.settings.caption != blank -%}
-                <p class="maison-piece__caption">{{ block.settings.caption | escape }}</p>
+              {%- liquid
+                assign piece_caption = block.settings.caption
+                if use_locale
+                  assign piece_caption = caption_key | t
+                  if piece_caption == caption_key
+                    assign piece_caption = block.settings.caption
+                  endif
+                endif
+              -%}
+              {%- if piece_caption != blank -%}
+                <p class="maison-piece__caption">{{ piece_caption | escape }}</p>
               {%- endif -%}
             </div>
           </a>
@@ -115,6 +153,7 @@
   "class": "index-section--flush",
   "max_blocks": 3,
   "settings": [
+    { "type": "checkbox", "id": "translate", "label": "Use theme languages (FR/EN)", "default": true, "info": "Storefront copy follows the selected language." },
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Sélection" },
     { "type": "text", "id": "title", "label": "Title", "default": "Pièces phares" },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Toute la boutique" },

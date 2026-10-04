@@ -5,13 +5,19 @@
 {{ 'maison-home.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign kicker = section.settings.kicker
-  if kicker == blank
+  assign use_locale = section.settings.translate
+  if use_locale
     assign kicker = 'home_page.maison.univers_kicker' | t
-  endif
-  assign heading = section.settings.title
-  if heading == blank
     assign heading = 'home_page.maison.univers_title' | t
+  else
+    assign kicker = section.settings.kicker
+    if kicker == blank
+      assign kicker = 'home_page.maison.univers_kicker' | t
+    endif
+    assign heading = section.settings.title
+    if heading == blank
+      assign heading = 'home_page.maison.univers_title' | t
+    endif
   endif
 -%}
 
@@ -38,12 +44,32 @@
           {%- assign card_url = routes.all_products_collection_url -%}
         {%- endif -%}
 
-        {%- if block.settings.title != blank -%}
+        {%- assign title_key = 'home_page.maison.chapter_' | append: forloop.index | append: '_title' -%}
+        {%- assign subtitle_key = 'home_page.maison.chapter_' | append: forloop.index | append: '_subtitle' -%}
+        {%- if use_locale -%}
+          {%- assign card_title = title_key | t -%}
+          {%- assign card_subtitle = subtitle_key | t -%}
+          {%- if card_title == title_key -%}
+            {%- if block.settings.title != blank -%}
+              {%- assign card_title = block.settings.title -%}
+            {%- elsif collection != blank -%}
+              {%- assign card_title = collection.title -%}
+            {%- else -%}
+              {%- assign card_title = 'home_page.maison.collection_fallback' | t -%}
+            {%- endif -%}
+          {%- endif -%}
+          {%- if card_subtitle == subtitle_key -%}
+            {%- assign card_subtitle = block.settings.subtitle -%}
+          {%- endif -%}
+        {%- elsif block.settings.title != blank -%}
           {%- assign card_title = block.settings.title -%}
+          {%- assign card_subtitle = block.settings.subtitle -%}
         {%- elsif collection != blank -%}
           {%- assign card_title = collection.title -%}
+          {%- assign card_subtitle = block.settings.subtitle -%}
         {%- else -%}
           {%- assign card_title = 'home_page.maison.collection_fallback' | t -%}
+          {%- assign card_subtitle = block.settings.subtitle -%}
         {%- endif -%}
 
         {%- if block.settings.image != blank -%}
@@ -71,8 +97,8 @@
           <span class="maison-card__scrim" aria-hidden="true"></span>
           <span class="maison-card__copy">
             <span class="maison-card__title">{{ card_title | escape }}</span>
-            {%- if block.settings.subtitle != blank -%}
-              <span class="maison-card__sub">{{ block.settings.subtitle | escape }}</span>
+            {%- if card_subtitle != blank -%}
+              <span class="maison-card__sub">{{ card_subtitle | escape }}</span>
             {%- endif -%}
           </span>
         </a>
@@ -87,6 +113,7 @@
   "class": "index-section--flush",
   "max_blocks": 3,
   "settings": [
+    { "type": "checkbox", "id": "translate", "label": "Use theme languages (FR/EN)", "default": true, "info": "Storefront copy follows the selected language." },
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Univers" },
     { "type": "text", "id": "title", "label": "Title", "default": "Trois collections. Une même exigence." }
   ],

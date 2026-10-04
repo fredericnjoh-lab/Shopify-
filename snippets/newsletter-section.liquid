@@ -24,13 +24,13 @@
                 {% render block %}
               {%- when 'title' -%}
                 {%- if block.settings.title != blank -%}
-                  <p class="{% if block.settings.heading_size != blank %}{{ block.settings.heading_size }}{% else %}h2{% endif %}">{{ block.settings.title | escape }}</p>
+                  <p class="{% if block.settings.heading_size != blank %}{{ block.settings.heading_size }}{% else %}h2{% endif %}">{%- if template.name == 'index' -%}{{ 'home_page.maison.newsletter_title' | t }}{%- else -%}{{ block.settings.title | escape }}{%- endif -%}</p>
                 {%- endif -%}
               {%- when 'text' -%}
                 {%- if block.settings.text != blank -%}
                   <div class="rte">
                     <div class="enlarge-text">
-                      {{ block.settings.text }}
+                      {%- if template.name == 'index' -%}{{ 'home_page.maison.newsletter_text_html' | t }}{%- else -%}{{ block.settings.text }}{%- endif -%}
                     </div>
                   </div>
                 {%- endif -%}

@@ -5,25 +5,39 @@
 {{ 'maison-home.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign heading = section.settings.title
-  if heading == blank
+  assign use_locale = section.settings.translate
+  if use_locale
     assign heading = 'home_page.maison.matiere_title' | t
-  endif
-  assign quote = section.settings.quote
-  if quote == blank
     assign quote = 'home_page.maison.matiere_quote' | t
-  endif
-  assign tab_a = section.settings.tab_a
-  if tab_a == blank
     assign tab_a = 'home_page.maison.matiere_tab_a' | t
-  endif
-  assign tab_b = section.settings.tab_b
-  if tab_b == blank
     assign tab_b = 'home_page.maison.matiere_tab_b' | t
-  endif
-  assign founder = section.settings.founder_label
-  if founder == blank
     assign founder = 'home_page.maison.matiere_founder' | t
+    assign body_html = 'home_page.maison.matiere_body_html' | t
+  else
+    assign heading = section.settings.title
+    if heading == blank
+      assign heading = 'home_page.maison.matiere_title' | t
+    endif
+    assign quote = section.settings.quote
+    if quote == blank
+      assign quote = 'home_page.maison.matiere_quote' | t
+    endif
+    assign tab_a = section.settings.tab_a
+    if tab_a == blank
+      assign tab_a = 'home_page.maison.matiere_tab_a' | t
+    endif
+    assign tab_b = section.settings.tab_b
+    if tab_b == blank
+      assign tab_b = 'home_page.maison.matiere_tab_b' | t
+    endif
+    assign founder = section.settings.founder_label
+    if founder == blank
+      assign founder = 'home_page.maison.matiere_founder' | t
+    endif
+    assign body_html = section.settings.body
+    if body_html == blank
+      assign body_html = 'home_page.maison.matiere_body_html' | t
+    endif
   endif
 -%}
 
@@ -32,12 +46,8 @@
     <div class="maison-matiere__grid">
       <div class="maison-matiere__copy maison-reveal">
         <h2 class="maison-heading">{{ heading | escape }}</h2>
-        {%- if section.settings.body != blank -%}
-          <div class="maison-matiere__body">{{ section.settings.body }}</div>
-        {%- else -%}
-          <div class="maison-matiere__body">
-            <p>{{ 'home_page.maison.matiere_body' | t }}</p>
-          </div>
+        {%- if body_html != blank -%}
+          <div class="maison-matiere__body">{{ body_html }}</div>
         {%- endif -%}
 
         {%- if section.settings.portrait != blank or founder != blank -%}
@@ -89,6 +99,7 @@
   "name": "Maison Matiere",
   "class": "index-section--flush",
   "settings": [
+    { "type": "checkbox", "id": "translate", "label": "Use theme languages (FR/EN)", "default": true, "info": "Storefront copy follows the selected language." },
     { "type": "text", "id": "title", "label": "Title", "default": "La matière avant tout" },
     {
       "type": "richtext",

@@ -5,25 +5,34 @@
 {{ 'maison-home.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign kicker = section.settings.kicker
-  if kicker == blank
+  assign use_locale = section.settings.translate
+  if use_locale
     assign kicker = 'home_page.maison.hero_kicker' | t
-  endif
-  assign title = section.settings.title
-  if title == blank
     assign title = 'home_page.maison.hero_title' | t
-  endif
-  assign lede = section.settings.lede
-  if lede == blank
     assign lede = 'home_page.maison.hero_lede' | t
-  endif
-  assign cta1 = section.settings.cta1_label
-  if cta1 == blank
     assign cta1 = 'home_page.maison.hero_cta_primary' | t
-  endif
-  assign cta2 = section.settings.cta2_label
-  if cta2 == blank
     assign cta2 = 'home_page.maison.hero_cta_secondary' | t
+  else
+    assign kicker = section.settings.kicker
+    if kicker == blank
+      assign kicker = 'home_page.maison.hero_kicker' | t
+    endif
+    assign title = section.settings.title
+    if title == blank
+      assign title = 'home_page.maison.hero_title' | t
+    endif
+    assign lede = section.settings.lede
+    if lede == blank
+      assign lede = 'home_page.maison.hero_lede' | t
+    endif
+    assign cta1 = section.settings.cta1_label
+    if cta1 == blank
+      assign cta1 = 'home_page.maison.hero_cta_primary' | t
+    endif
+    assign cta2 = section.settings.cta2_label
+    if cta2 == blank
+      assign cta2 = 'home_page.maison.hero_cta_secondary' | t
+    endif
   endif
   assign hero_alt = section.settings.image.alt | default: title
 -%}
@@ -98,6 +107,7 @@
     { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" },
     { "type": "range", "id": "scrim_opacity", "label": "Overlay opacity", "min": 20, "max": 100, "step": 5, "unit": "%", "default": 100 },
     { "type": "header", "content": "Copy" },
+    { "type": "checkbox", "id": "translate", "label": "Use theme languages (FR/EN)", "default": true, "info": "Storefront copy follows the selected language." },
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Refined in Paris" },
     { "type": "text", "id": "title", "label": "Title", "default": "No Apologies" },
     { "type": "textarea", "id": "lede", "label": "Lede", "default": "Une coupe oversized. Une présence nette. Un standard sans compromis." },
