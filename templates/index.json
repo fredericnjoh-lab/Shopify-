@@ -97,10 +97,10 @@
         "chapter_archive": {
           "type": "chapter",
           "settings": {
-            "collection": "summer-collection",
-            "image": "shopify://shop_images/WhatsApp_Image_2025-10-28_at_10.19.14_PM.jpg",
+            "collection": "t-shirts",
+            "image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_18_40_39.png",
             "title": "Hors série",
-            "subtitle": "La ligne ouverte",
+            "subtitle": "The open line",
             "link": ""
           }
         }
