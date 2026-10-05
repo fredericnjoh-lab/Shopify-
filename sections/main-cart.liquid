@@ -12,6 +12,7 @@
     </div>
   </header>
 
+  {{ 'component-buy-trust.css' | asset_url | stylesheet_tag }}
   {%- if cart.item_count > 0 -%}
     <form action="{{ routes.cart_url }}" method="post" novalidate data-location="page" id="CartPageForm">
       <div class="cart__page">

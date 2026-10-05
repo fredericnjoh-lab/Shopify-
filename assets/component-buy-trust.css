@@ -1,0 +1,88 @@
+/* Product buy area + cart checkout — quiet premium hierarchy */
+
+.product-single__form .add-to-cart {
+  background: #0a0a0a;
+  border-color: #0a0a0a;
+  color: #f5f4f0;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.product-single__form .add-to-cart:hover:not([disabled]) {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #f5f4f0;
+}
+
+.product-single__form .payment-buttons {
+  margin-bottom: 0;
+}
+
+.buy-trust {
+  margin: 14px 0 0;
+  text-align: center;
+}
+
+.buy-trust__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6e6a63;
+}
+
+.buy-trust__lock {
+  display: inline-flex;
+  color: #0a0a0a;
+  opacity: 0.75;
+}
+
+.buy-trust__icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.buy-trust__icons li {
+  display: flex;
+  margin: 0;
+  line-height: 0;
+  opacity: 0.72;
+}
+
+.buy-trust__icons svg {
+  width: 38px;
+  height: 24px;
+}
+
+.drawer .cart__checkout,
+#CartPageForm .cart__checkout {
+  background: #0a0a0a;
+  border-color: #0a0a0a;
+  color: #f5f4f0;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.drawer .cart__checkout:hover,
+#CartPageForm .cart__checkout:hover {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #f5f4f0;
+}
+
+.drawer .additional-checkout-buttons,
+#CartPageForm .additional-checkout-buttons {
+  display: none;
+}
