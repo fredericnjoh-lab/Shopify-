@@ -84,5 +84,10 @@
 
 .drawer .additional-checkout-buttons,
 #CartPageForm .additional-checkout-buttons {
-  display: none;
+  margin-top: 10px;
+}
+
+.drawer .additional-checkout-buttons .shopify-payment-button__button,
+#CartPageForm .additional-checkout-buttons .shopify-payment-button__button {
+  border-radius: 0;
 }
