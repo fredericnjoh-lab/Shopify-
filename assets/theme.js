@@ -1962,8 +1962,11 @@ theme.recentlyViewed = {
         }
 
         if (itemCount === 0 || remaining > 0) {
+          // shop.money_format may wrap amounts in HTML (e.g. <span class=money>).
+          // Strip tags so textContent does not leak markup into the cart drawer.
           var amount = theme.Currency.formatMoney(remaining, theme.settings.moneyFormat);
-          messageEl.textContent = remainingTemplate.replace('[amount]', amount);
+          var amountText = String(amount).replace(/<[^>]*>/g, '');
+          messageEl.textContent = remainingTemplate.replace('[amount]', amountText);
         } else {
           messageEl.textContent = qualifiedText;
         }
