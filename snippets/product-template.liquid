@@ -55,7 +55,8 @@
   data-product-id="{{ product.id }}"
   data-section-type="product"
   data-product-handle="{{ product.handle }}"
-  data-product-title="{{ product.title | escape }}"
+  {%- capture fj_display_title -%}{%- render 'product-display-title', product: product -%}{%- endcapture -%}
+  data-product-title="{{ fj_display_title | strip | escape }}"
   data-product-url="{{ product.url | within: collection }}"
   data-aspect-ratio="{{ 100 | divided_by: product.featured_media.aspect_ratio }}"
   data-img-url="{{ product_img_structure }}"
@@ -121,12 +122,12 @@
 
               {%- if isModal -%}
                 <p class="h2 product-single__title">
-                  {{ product.title }}
+                  {%- render 'product-display-title', product: product -%}
                 </p>
               {%- else -%}
                 <h1 class="h2 product-single__title">
                   {%- unless product.empty? -%}
-                    {{ product.title }}
+                    {%- render 'product-display-title', product: product -%}
                   {%- else -%}
                     {{ 'home_page.onboarding.product_title' | t }}
                   {%- endunless -%}

@@ -16,7 +16,7 @@
   <div class="cart__item-details">
     <div class="cart__item-title">
       <a href="{{ product.url }}" class="cart__item-name">
-        {{ product.product.title }}
+        {%- render 'product-display-title', product: product.product -%}
       </a>
       {%- unless product.product.has_only_default_variant -%}
         <div class="cart__item--variants">

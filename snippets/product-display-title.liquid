@@ -1,0 +1,23 @@
+{%- comment -%}
+  Short storefront title for conversion clarity.
+  Priority: metafield custom.short_title → handle map → strip " | ..." SEO suffix.
+{%- endcomment -%}
+{%- liquid
+  assign display_title = product.title
+
+  if product.metafields.custom.short_title != blank
+    assign display_title = product.metafields.custom.short_title.value | default: product.metafields.custom.short_title
+  else
+    case product.handle
+      when 'fredjo-classic-hoodie'
+        assign display_title = 'No Apologies Heavyweight Hoodie'
+      when 'unisex-organic-oversized-high-neck-t-shirt'
+        assign display_title = 'No Apologies Oversized Tee'
+      when 'the-uniform-1'
+        assign display_title = 'The Uniform'
+      else
+        assign display_title = product.title | split: ' | ' | first | strip
+    endcase
+  endif
+-%}
+{{- display_title -}}

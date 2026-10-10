@@ -93,7 +93,7 @@
                       {% endif %}
                     </div>
                     <div class="results-products__info">
-                      <span>{{ product.title }}</span>
+                      <span>{%- render 'product-display-title', product: product -%}</span>
                       {% if settings.predictive_search_show_vendor %}
                       <span class="grid-product__vendor">{{ product.vendor }}</span>
                       {% endif %}
