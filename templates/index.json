@@ -22,7 +22,7 @@
         "cta1_label": "Discover the collection",
         "cta1_link": "shopify://collections/no-apologies-club",
         "cta2_label": "See the piece",
-        "cta2_link": "shopify://products/unisex-short-sleeve-streetwear-t-shirt-paris"
+        "cta2_link": "shopify://products/unisex-organic-oversized-high-neck-t-shirt"
       }
     },
     "maison_pieces": {
@@ -162,7 +162,7 @@
           "settings": {
             "image": "shopify://shop_images/fredjo-hoodie-peace.jpg",
             "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-black-unisex-hoodie",
+            "product": "fredjo-classic-hoodie",
             "link": ""
           }
         },
@@ -180,7 +180,7 @@
           "settings": {
             "image": "shopify://shop_images/fredjo-nac-tee-fred.jpg",
             "handle": "@fredjoclothing.paris",
-            "product": "unisex-short-sleeve-streetwear-t-shirt-paris",
+            "product": "unisex-organic-oversized-high-neck-t-shirt",
             "link": ""
           }
         },
@@ -189,7 +189,7 @@
           "settings": {
             "image": "shopify://shop_images/fredjo-hoodie-graffiti-her.jpg",
             "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-crop-hoodie",
+            "product": "fredjo-classic-hoodie",
             "link": ""
           }
         },
@@ -198,7 +198,7 @@
           "settings": {
             "image": "shopify://shop_images/fredjo-pink-hoodie.jpg",
             "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-unisex-sueded-fleece-hoodie",
+            "product": "pigment-dyed-unisex-hoodie-paris-edition",
             "link": ""
           }
         },
@@ -207,7 +207,7 @@
           "settings": {
             "image": "shopify://shop_images/fredjo-duo-paris.jpg",
             "handle": "@fredjoclothing.paris",
-            "product": "fred-jo-unisex-zip-hoodie",
+            "product": "the-uniform-1",
             "link": ""
           }
         },
