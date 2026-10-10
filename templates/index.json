@@ -79,30 +79,30 @@
         "chapter_essentials": {
           "type": "chapter",
           "settings": {
-            "collection": "essentials",
+            "collection": "hoodies",
             "image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_21_32_38.png",
-            "title": "Essentials",
-            "subtitle": "The permanent line",
-            "link": ""
+            "title": "Silhouette",
+            "subtitle": "Hoodies. Tees. Pants.",
+            "link": "shopify://collections/all"
           }
         },
         "chapter_editions": {
           "type": "chapter",
           "settings": {
-            "collection": "no-apologies-club",
+            "collection": "headwear",
             "image": "shopify://shop_images/03-limited-editions.png",
-            "title": "Limited editions",
-            "subtitle": "No Apologies Club",
+            "title": "Headwear",
+            "subtitle": "Caps. Beanies.",
             "link": ""
           }
         },
         "chapter_archive": {
           "type": "chapter",
           "settings": {
-            "collection": "t-shirts",
+            "collection": "jackets",
             "image": "shopify://shop_images/Image_ChatGPT_4_oct._2026_21_33_44.png",
-            "title": "Hors série",
-            "subtitle": "The open line",
+            "title": "Outerwear",
+            "subtitle": "Bomber. Packable.",
             "link": ""
           }
         }
@@ -115,7 +115,7 @@
       "settings": {
         "translate": true,
         "kicker": "Universe",
-        "title": "Three collections. One standard."
+        "title": "One house. One standard."
       }
     },
     "maison_matiere": {
