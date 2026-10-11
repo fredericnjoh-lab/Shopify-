@@ -1,0 +1,120 @@
+/* FredJo collection grid — aligned squares, asymmetric stagger, garment-first crop */
+
+.template-collection .collection-content .grid,
+.template-collection .collection-grid {
+  align-items: start;
+}
+
+.template-collection .grid-product {
+  overflow: hidden;
+}
+
+.template-collection .grid-product__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.template-collection .grid__item-image-wrapper,
+.template-collection .grid-product__image-mask {
+  overflow: hidden;
+}
+
+.template-collection .grid__image-ratio--square:before {
+  padding-bottom: 100%;
+}
+
+.template-collection .grid__image-ratio img,
+.template-collection .grid__image-ratio img.grid__image-contain,
+.template-collection .grid-product__img--garment,
+.template-collection .grid-product__image-mask img,
+.template-collection .grid-product__image-mask .image-element {
+  object-fit: cover;
+  object-position: 50% 12%;
+}
+
+.template-collection .grid-product__meta {
+  flex: 1 1 auto;
+  min-height: 7.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.template-collection .grid-product__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 2.4em;
+  line-height: 1.2;
+}
+
+.template-collection .grid-product__nac-badge,
+.template-collection .grid-product__nac-rarity,
+.template-collection .grid-product__permanent {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.template-collection .grid-product__colors {
+  flex-wrap: nowrap;
+  overflow: hidden;
+  max-height: 22px;
+  min-height: 22px;
+  margin-top: 6px;
+}
+
+.template-collection .grid-product__colors .color-swatch,
+.template-collection .grid-product__colors .color-swatch--small {
+  flex: 0 0 auto;
+}
+
+/* Asymmetric stagger: even tiles drop, odd stay high — intentional offset, aligned gutters */
+@media only screen and (max-width: 768px) {
+  .template-collection .collection-filter {
+    align-items: stretch;
+  }
+
+  .template-collection .collection-filter__item,
+  .template-collection .collection-filter .btn,
+  .template-collection .collection-filter select {
+    min-height: 44px;
+  }
+
+  .template-collection .grid--uniform .grid-product:nth-child(even),
+  .template-collection .grid .grid-product:nth-child(2n) {
+    margin-top: 28px;
+  }
+
+  .template-collection .grid--uniform .grid-product:nth-child(odd),
+  .template-collection .grid .grid-product:nth-child(2n + 1) {
+    margin-top: 0;
+  }
+
+  .template-collection .grid-product__meta {
+    min-height: 8.25em;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .template-collection .grid-product--nac .grid-product__meta {
+    padding: 12px 10px 14px;
+  }
+
+  .template-collection .grid__image-ratio img,
+  .template-collection .grid-product__img--garment,
+  .template-collection .grid-product__image-mask img,
+  .template-collection .grid-product__image-mask .image-element {
+    object-position: 50% 8%;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .template-collection .grid--uniform .grid-product:nth-child(4n + 2),
+  .template-collection .grid--uniform .grid-product:nth-child(4n + 3) {
+    margin-top: 36px;
+  }
+}
