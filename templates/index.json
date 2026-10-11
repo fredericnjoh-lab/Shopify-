@@ -230,10 +230,21 @@
             "product": "",
             "link": "shopify://collections/no-apologies-club"
           }
+        },
+        "photo_ig_cream_tee_back": {
+          "type": "photo",
+          "settings": {
+            "image": "",
+            "asset_image": "fredjo-nac-tee-cream-back-as-worn.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "",
+            "link": "shopify://collections/no-apologies-club"
+          }
         }
       },
       "block_order": [
         "photo_ig_cream_tee",
+        "photo_ig_cream_tee_back",
         "photo_6XV6NA",
         "photo_FQQKLJ",
         "photo_gFfyDR",
