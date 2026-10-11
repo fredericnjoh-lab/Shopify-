@@ -147,15 +147,15 @@
     "text-and-image": {
       "type": "text-and-image",
       "settings": {
-        "image": "shopify://shop_images/gempages_587236893280699242-6b5b70a0-13d7-40b1-8aaa-482c2c5654c4.jpg",
+        "image": "shopify://shop_images/fredjo-no-apologies-club-hoodie-black-face-porte.jpg",
         "image_mask": "none",
-        "image2": "shopify://shop_images/gempages_587236893280699242-30d64143-e4c7-4aea-adc0-0d853f48c750.jpg",
+        "image2": "",
         "image_url_override": "",
         "image2_url_override": "",
         "image2_mask": "none",
         "subtitle": "The Fit",
         "title": "Cut to last.",
-        "text": "<p>Heavyweight cotton, structured through the shoulder, true to size. If it doesn't fit, send it back — returns are on us.</p>",
+        "text": "<p>Heavyweight cotton, structured through the shoulder, true to size. Built to be worn, not stored.</p><p>If it doesn't fit, send it back — returns are on us.</p>",
         "button_label": "",
         "button_link": "shopify://collections/hoodies",
         "button_style": "primary",
@@ -234,10 +234,11 @@
     },
     "text-and-image-2": {
       "type": "text-and-image",
+      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/gempages_587236893280699242-8879674c-2ffe-4e08-ab3d-5a4f43de926d.jpg",
+        "image": "shopify://shop_images/fredjo-no-apologies-club-crewneck-black-face-porte.jpg",
         "image_mask": "none",
-        "image2": "shopify://shop_images/gempages_587236893280699242-eb5580b8-7314-4c0f-8077-9c4004c52c8c.jpg",
+        "image2": "",
         "image_url_override": "",
         "image2_url_override": "",
         "image2_mask": "none",
