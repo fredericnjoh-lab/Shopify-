@@ -332,7 +332,7 @@
       "matiere_founder": "—Fred",
       "essentials_title": "Les essentiels.",
       "worn_title": "Porté",
-      "worn_subtitle": "<p>Des pièces vraies. Tag @fredjoclothing.paris pour apparaître.</p>",
+      "worn_subtitle_html": "<p>Des pièces vraies. Tag @fredjoclothing.paris pour apparaître.</p>",
       "manifesto_html": "<p>Nous ne suivons pas les tendances.</p><p></p><p>Nous suivons une conviction.</p><p></p><p>FredJo Clothing existe pour ceux qui avancent avec présence, assurance et no apologies.</p><p></p><p>Ce n’est pas du streetwear pour tout le monde.</p><p></p><p>C’est du streetwear pour ceux qui savent déjà.</p>",
       "uniform_title": "The Uniform.",
       "uniform_text_html": "<p>Le hoodie. Le sweatpants. Une silhouette.</p><p></p><p>Pensés pour se porter ensemble. Structurés. Minimaux. Intentionnels.</p>",
