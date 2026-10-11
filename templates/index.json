@@ -240,11 +240,22 @@
             "product": "",
             "link": "shopify://collections/no-apologies-club"
           }
+        },
+        "photo_ig_uniform_duo": {
+          "type": "photo",
+          "settings": {
+            "image": "",
+            "asset_image": "fredjo-nac-uniform-duo-as-worn.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "the-uniform-1",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "photo_ig_cream_tee",
         "photo_ig_cream_tee_back",
+        "photo_ig_uniform_duo",
         "photo_6XV6NA",
         "photo_FQQKLJ",
         "photo_gFfyDR",
