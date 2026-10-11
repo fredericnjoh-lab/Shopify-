@@ -215,20 +215,32 @@
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/fredjo-tee-beach.jpg",
+            "asset_image": "",
             "handle": "@fredjoclothing.paris",
             "product": "",
             "link": ""
           }
+        },
+        "photo_ig_cream_tee": {
+          "type": "photo",
+          "settings": {
+            "image": "",
+            "asset_image": "fredjo-nac-tee-cream-as-worn.jpg",
+            "handle": "@fredjoclothing.paris",
+            "product": "",
+            "link": "shopify://collections/no-apologies-club"
+          }
         }
       },
       "block_order": [
+        "photo_ig_cream_tee",
         "photo_6XV6NA",
         "photo_FQQKLJ",
-        "photo_KBq9qT",
         "photo_gFfyDR",
-        "photo_PR4apn",
-        "photo_Afb7Mm",
         "photo_99H7LB",
+        "photo_Afb7Mm",
+        "photo_PR4apn",
+        "photo_KBq9qT",
         "photo_h9tka4"
       ],
       "name": "Community gallery",
