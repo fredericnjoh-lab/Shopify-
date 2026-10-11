@@ -96,6 +96,15 @@
               sizeVariable: '360px',
               fallback: '50vw'
             -%}
+          {%- elsif block.settings.asset_image != blank -%}
+            <img
+              class="community__image image-element"
+              src="{{ block.settings.asset_image | asset_url }}"
+              alt="{{ block.settings.handle | default: section.settings.title | escape }}"
+              width="1080"
+              height="1440"
+              loading="lazy"
+            >
           {%- else -%}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
@@ -222,6 +231,12 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "asset_image",
+          "label": "Theme asset filename",
+          "info": "Fallback when Image is empty. Example: fredjo-nac-tee-cream-as-worn.jpg"
         },
         {
           "type": "text",
