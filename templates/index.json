@@ -12,8 +12,8 @@
     "maison_hero": {
       "type": "maison-hero",
       "settings": {
-        "image": "shopify://shop_images/04-hors-serie.png",
-        "image_mobile": "shopify://shop_images/04-hors-serie.png",
+        "image": "shopify://shop_images/fredjo-no-apologies-club-hoodie-black-face-porte.jpg",
+        "image_mobile": "shopify://shop_images/fredjo-no-apologies-club-hoodie-black-face-porte.jpg",
         "scrim_opacity": 100,
         "translate": true,
         "kicker": "Refined in Paris",
@@ -22,7 +22,7 @@
         "cta1_label": "Discover the collection",
         "cta1_link": "shopify://collections/no-apologies-club",
         "cta2_label": "See the piece",
-        "cta2_link": "shopify://products/unisex-organic-oversized-high-neck-t-shirt"
+        "cta2_link": "shopify://products/oversized-heavyweight-hoodie-official-drop-paris"
       }
     },
     "maison_pieces": {
