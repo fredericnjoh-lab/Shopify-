@@ -816,13 +816,45 @@
     letter-spacing: 0.14em;
   }
 
+  /* Asymmetric square + quote: garment line fully visible, no side clip */
   .maison-matiere__quote {
-    min-height: 240px;
-    padding: 32px 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    justify-items: stretch;
+    min-height: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .maison-matiere__quote-img {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    opacity: 1;
   }
 
   .maison-matiere__quote-frame {
-    padding: 28px 20px;
+    position: relative;
+    z-index: 1;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 28px 4px 8px;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .maison-matiere__quote-text {
+    font-size: clamp(22px, 6.2vw, 28px);
+    line-height: 1.35;
+    text-align: left;
+    max-width: 22ch;
   }
 }
 

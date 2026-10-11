@@ -34,6 +34,9 @@
   {%- if template.name == 'index' -%}
     {{ 'maison-home.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
+  {%- if template.name == 'collection' -%}
+    {{ 'component-collection-grid.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
   {%- render 'css-variables' -%}
 
   <script>

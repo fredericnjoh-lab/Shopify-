@@ -88,6 +88,12 @@ Arguments
         assign imageRatio = 'square'
       endif
 
+      # Collection grids: lock square frames so rows align
+      if template.name == 'collection'
+        assign fixed_aspect_ratio = true
+        assign imageRatio = 'square'
+      endif
+
       assign preview_image = product.featured_media.preview_image
     -%}
 
@@ -98,9 +104,9 @@ Arguments
         {%- endif -%}
         {%- if fixed_aspect_ratio -%}
           <div
-            class="grid__image-ratio grid__image-ratio--{% if image_style == 'circle' %}square{% else %}{{ settings.product_grid_image_size }}{% endif %}">
+            class="grid__image-ratio grid__image-ratio--{% if image_style == 'circle' %}square{% else %}{{ imageRatio }}{% endif %}">
             {%- capture image_classes -%}
-              {% unless settings.product_grid_image_fill %} grid__image-contain{% endunless %} image-style--{{ image_style }}
+              {% unless settings.product_grid_image_fill %} grid__image-contain{% endunless %} image-style--{{ image_style }} grid-product__img--garment
             {%- endcapture -%}
             {%- if preview_image != blank -%}
               {%- render 'image-element',
@@ -125,7 +131,7 @@ Arguments
           >
             {%- if preview_image != blank -%}
               {%- capture image_classes -%}
-                grid-product__image image-style--{{ image_style }}
+                grid-product__image image-style--{{ image_style }} grid-product__img--garment
               {%- endcapture -%}
               {%- render 'image-element',
                 img: preview_image,
