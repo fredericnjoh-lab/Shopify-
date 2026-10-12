@@ -422,6 +422,7 @@
     },
     "bundle": {
       "included_title": "What's included",
+      "included_subtext": "Four pieces. $250.50 apart. $195 together.",
       "select_product": "Select a product"
     },
     "product": {
