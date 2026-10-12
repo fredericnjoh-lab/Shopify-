@@ -10,6 +10,9 @@
     assign heading = 'products.bundle.included_title' | t
   endif
   assign subtext = section.settings.subtext
+  if subtext == blank
+    assign subtext = 'products.bundle.included_subtext' | t
+  endif
 -%}
 
 {%- if section.blocks.size > 0 -%}
@@ -85,7 +88,7 @@
       "type": "text",
       "id": "subtext",
       "label": "Subtext",
-      "default": "Four pieces. One decision."
+      "default": "Four pieces. $250.50 apart. $195 together."
     },
     {
       "type": "range",

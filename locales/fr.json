@@ -373,6 +373,7 @@
     },
     "bundle": {
       "included_title": "Ce qui est inclus",
+      "included_subtext": "Quatre pièces. 250,50 $ séparément. 195 $ ensemble.",
       "select_product": "Choisir un produit"
     },
     "product": {
