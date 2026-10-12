@@ -1,0 +1,132 @@
+{%- comment -%}
+  Bundle included products — editorial grid of real SKUs on a bundle PDP.
+{%- endcomment -%}
+
+{{ 'component-bundle-included.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign heading = section.settings.title
+  if heading == blank
+    assign heading = 'products.bundle.included_title' | t
+  endif
+  assign subtext = section.settings.subtext
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <section class="bundle-included page-width" data-section-id="{{ section.id }}">
+    <div class="bundle-included__head">
+      <h2 class="bundle-included__title">{{ heading | escape }}</h2>
+      {%- if subtext != blank -%}
+        <p class="bundle-included__sub">{{ subtext | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="bundle-included__grid" style="--bundle-cols: {{ section.settings.columns }}">
+      {%- for block in section.blocks -%}
+        {%- assign item = block.settings.product -%}
+        <div class="bundle-included__item" {{ block.shopify_attributes }}>
+          {%- if item != blank -%}
+            <a href="{{ item.url }}" class="bundle-included__link">
+              <div class="bundle-included__media">
+                {%- if item.featured_media -%}
+                  {%- render 'image-element',
+                    img: item.featured_media.preview_image,
+                    alt: item.featured_media.alt | default: item.title,
+                    sizes: '(min-width: 990px) 25vw, 50vw',
+                    widths: '360, 540, 720, 900',
+                    classes: 'bundle-included__img'
+                  -%}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              <div class="bundle-included__meta">
+                {%- if block.settings.label != blank -%}
+                  <p class="bundle-included__label">{{ block.settings.label | escape }}</p>
+                {%- endif -%}
+                <h3 class="bundle-included__name">{%- render 'product-display-title', product: item -%}</h3>
+                <p class="bundle-included__price">
+                  {%- if item.price_varies -%}
+                    {%- assign price = item.price_min | money -%}
+                    {{ 'products.general.from_text_html' | t: price: price }}
+                  {%- else -%}
+                    {{ item.price | money }}
+                  {%- endif -%}
+                </p>
+              </div>
+            </a>
+          {%- else -%}
+            <div class="bundle-included__media bundle-included__media--empty">
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+            <div class="bundle-included__meta">
+              <h3 class="bundle-included__name">{{ 'products.bundle.select_product' | t }}</h3>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bundle included",
+  "class": "index-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What's included"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Four pieces. One decision."
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns on desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Role label",
+          "info": "Example: The anchor"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle included",
+      "blocks": [
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" }
+      ]
+    }
+  ],
+  "templates": ["product"]
+}
+{% endschema %}

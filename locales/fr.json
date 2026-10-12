@@ -371,6 +371,10 @@
       "recent_products": "Vu récemment",
       "reviews": "Commentaires"
     },
+    "bundle": {
+      "included_title": "Ce qui est inclus",
+      "select_product": "Choisir un produit"
+    },
     "product": {
       "description": "Description",
       "in_stock_label": "En stock",
