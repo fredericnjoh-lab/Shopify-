@@ -28,7 +28,7 @@
         "size_chart": {
           "type": "size_chart",
           "settings": {
-            "size_chart": "size-chart",
+            "size_chart": "size-chart-complete-identity",
             "size_chart_fallback": ""
           }
         },
@@ -107,7 +107,7 @@
         "share"
       ],
       "settings": {
-        "trust_line": "Made to order \u00b7 Ships in 2\u20135 days \u00b7 Free shipping over $100 \u00b7 30-day returns, free exchanges",
+        "trust_line": "Made to order · Ships in 2–5 days · Free shipping over $100 · 30-day returns, free exchanges",
         "sku_enable": false,
         "image_position": "left",
         "image_size": "medium",
@@ -118,6 +118,50 @@
         "mobile_layout": "partial",
         "enable_video_looping": true,
         "product_video_style": "muted"
+      }
+    },
+    "bundle_included": {
+      "type": "bundle-included",
+      "blocks": {
+        "inc_hoodie": {
+          "type": "product",
+          "settings": {
+            "product": "fredjo-classic-hoodie",
+            "label": "The anchor"
+          }
+        },
+        "inc_crew": {
+          "type": "product",
+          "settings": {
+            "product": "oversized-heavyweight-sweatshirt-streetwear-paris",
+            "label": "The layer"
+          }
+        },
+        "inc_tee": {
+          "type": "product",
+          "settings": {
+            "product": "unisex-organic-oversized-high-neck-t-shirt",
+            "label": "The foundation"
+          }
+        },
+        "inc_beanie": {
+          "type": "product",
+          "settings": {
+            "product": "no-apologies-club-embroidered-beanie-paris-edition",
+            "label": "The finish"
+          }
+        }
+      },
+      "block_order": [
+        "inc_hoodie",
+        "inc_crew",
+        "inc_tee",
+        "inc_beanie"
+      ],
+      "settings": {
+        "title": "What's included",
+        "subtext": "Four pieces. One decision.",
+        "columns": 4
       }
     },
     "sub": {
@@ -149,13 +193,12 @@
       "settings": {
         "image": "shopify://shop_images/fredjo-no-apologies-club-hoodie-black-face-porte.jpg",
         "image_mask": "none",
-        "image2": "",
         "image_url_override": "",
         "image2_url_override": "",
         "image2_mask": "none",
         "subtitle": "The Fit",
         "title": "Cut to last.",
-        "text": "<p>Heavyweight cotton, structured through the shoulder, true to size. Built to be worn, not stored.</p><p>If it doesn't fit, send it back \u2014 returns are on us.</p>",
+        "text": "<p>Heavyweight cotton, structured through the shoulder, true to size. Built to be worn, not stored.</p><p>If it doesn't fit, send it back — returns are on us.</p>",
         "button_label": "",
         "button_link": "shopify://collections/hoodies",
         "button_style": "primary",
@@ -238,7 +281,6 @@
       "settings": {
         "image": "shopify://shop_images/fredjo-no-apologies-club-crewneck-black-face-porte.jpg",
         "image_mask": "none",
-        "image2": "",
         "image_url_override": "",
         "image2_url_override": "",
         "image2_mask": "none",
@@ -331,50 +373,6 @@
       "settings": {
         "full_width": false,
         "space_around": true
-      }
-    },
-    "bundle_included": {
-      "type": "bundle-included",
-      "blocks": {
-        "inc_hoodie": {
-          "type": "product",
-          "settings": {
-            "product": "fredjo-classic-hoodie",
-            "label": "The anchor"
-          }
-        },
-        "inc_crew": {
-          "type": "product",
-          "settings": {
-            "product": "oversized-heavyweight-sweatshirt-streetwear-paris",
-            "label": "The layer"
-          }
-        },
-        "inc_tee": {
-          "type": "product",
-          "settings": {
-            "product": "unisex-organic-oversized-high-neck-t-shirt",
-            "label": "The foundation"
-          }
-        },
-        "inc_beanie": {
-          "type": "product",
-          "settings": {
-            "product": "no-apologies-club-embroidered-beanie-paris-edition",
-            "label": "The finish"
-          }
-        }
-      },
-      "block_order": [
-        "inc_hoodie",
-        "inc_crew",
-        "inc_tee",
-        "inc_beanie"
-      ],
-      "settings": {
-        "title": "What's included",
-        "subtext": "Four pieces. One decision.",
-        "columns": 4
       }
     }
   },
