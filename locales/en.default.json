@@ -420,6 +420,10 @@
       "recent_products": "Recently viewed",
       "reviews": "Reviews"
     },
+    "bundle": {
+      "included_title": "What's included",
+      "select_product": "Select a product"
+    },
     "product": {
       "description": "Description",
       "in_stock_label": "In stock, ready to ship",
