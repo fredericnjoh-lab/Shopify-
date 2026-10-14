@@ -58,7 +58,7 @@
           "type": "question",
           "settings": {
             "title": "What is your return policy?",
-            "text": "<p>You have 30 days from delivery to return or exchange an item. Exchanges are free. For a refund, return shipping is on you and the item price is credited back to your original payment method. Sale pieces are included. Items return unworn, unwashed, with original tags.</p>"
+            "text": "<p>You have 30 days from delivery to return or exchange an item. Exchanges are free. For a refund, return shipping is on you and the item price is credited back to your original payment method. Refunds are processed within 10 days of receiving the returned item. Sale pieces are included. Items return unworn, unwashed, with original tags.</p>"
           }
         },
         "product-intro": {
