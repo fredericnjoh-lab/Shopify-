@@ -99,7 +99,7 @@
   "url": {{ canonical_url | json }},
   "brand": {
     "@type": "Brand",
-    "name": {{ product.vendor | json }}
+    "name": {{ shop.name | json }}
   },
   {%- if schema_variant.sku != blank -%}
   "sku": {{ schema_variant.sku | json }},

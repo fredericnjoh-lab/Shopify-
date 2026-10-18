@@ -1,12 +1,18 @@
 {%- if template == 'index' -%}
+{%- liquid
+  assign org_logo = settings.logo
+  if org_logo == blank
+    assign org_logo = images['logo_e95315c8-5f4e-49c6-a5a3-0d160a5d0bf7.png']
+  endif
+-%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": {{ shop.name | json }},
   "url": {{ shop.url | json }},
-  {%- if settings.logo -%}
-  "logo": {{ settings.logo | image_url: width: 500 | prepend: 'https:' | json }},
+  {%- if org_logo != blank -%}
+  "logo": {{ org_logo | image_url: width: 500 | prepend: 'https:' | json }},
   {%- endif -%}
   "sameAs": [
     {%- assign social_links = '' -%}
