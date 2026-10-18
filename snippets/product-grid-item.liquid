@@ -100,7 +100,7 @@ Arguments
     <div class="grid__item-image-wrapper">
       <div class="grid-product__image-mask">
         {%- if is_nac == 'true' and product.available == false -%}
-          <div class="grid-product__nac-soldout">Sold out — next drop soon</div>
+          <div class="grid-product__nac-soldout">{{ 'products.product.sold_out_next_drop' | t }}</div>
         {%- endif -%}
         {%- if fixed_aspect_ratio -%}
           <div

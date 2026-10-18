@@ -381,6 +381,7 @@
       "in_stock_label": "En stock",
       "stock_label": "{{ count }} en stock",
       "sold_out": "Épuisé",
+      "sold_out_next_drop": "Épuisé. Prochain drop à venir.",
       "sold_out_hint": "Cette sélection est épuisée. Choisissez une autre taille ou couleur.",
       "unavailable": "Non disponible",
       "unavailable_hint": "Cette combinaison n'est pas disponible. Choisissez une autre taille ou couleur.",
