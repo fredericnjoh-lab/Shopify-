@@ -433,6 +433,7 @@
         "other": "Low stock - {{ count }} items left"
       },
       "sold_out": "Sold Out",
+      "sold_out_next_drop": "Sold out. Next drop soon.",
       "sold_out_hint": "This selection is sold out. Choose another size or color.",
       "unavailable": "Unavailable",
       "unavailable_hint": "This combination is unavailable. Choose another size or color.",

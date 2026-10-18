@@ -107,7 +107,7 @@
         "share"
       ],
       "settings": {
-        "trust_line": "Made to order · Ships in 2–5 days · Free shipping over $100 · 30-day returns, free exchanges",
+        "trust_line": "Made to order · Ships in 2–5 days · Free shipping over 100 USD · 30-day returns, free exchanges",
         "sku_enable": false,
         "image_position": "left",
         "image_size": "medium",
