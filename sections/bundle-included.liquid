@@ -32,13 +32,7 @@
             <a href="{{ item.url }}" class="bundle-included__link">
               <div class="bundle-included__media">
                 {%- if item.featured_media -%}
-                  {%- render 'image-element',
-                    img: item.featured_media.preview_image,
-                    alt: item.featured_media.alt | default: item.title,
-                    sizes: '(min-width: 990px) 25vw, 50vw',
-                    widths: '360, 540, 720, 900',
-                    classes: 'bundle-included__img'
-                  -%}
+                  {%- render 'image-element', img: item.featured_media.preview_image, alt: item.featured_media.alt, default: item.title, sizes: '(min-width: 990px) 25vw, 50vw', widths: '360, 540, 720, 900', classes: 'bundle-included__img' -%}
                 {%- else -%}
                   {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
                 {%- endif -%}
@@ -133,3 +127,22 @@
   "templates": ["product"]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%- render 'image-element',
+                        img: item.featured_media.preview_image,
+                        alt: item.featured_media.alt | default: item.title,
+                        sizes: '(min-width: 990px) 25vw, 50vw',
+                        widths: '360, 540, 720, 900',
+                        classes: 'bundle-included__img'
+                      -%}
+  to: "{%- render 'image-element', img: item.featured_media.preview_image, alt: item.featured_media.alt,
+    default: item.title, sizes: '(min-width: 990px) 25vw, 50vw', widths: '360, 540,
+    720, 900', classes: 'bundle-included__img' -%}"
+  position: 1300..1524
+{% endcomment %}

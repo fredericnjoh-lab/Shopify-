@@ -109,15 +109,7 @@ Arguments
               {% unless settings.product_grid_image_fill %} grid__image-contain{% endunless %} image-style--{{ image_style }} grid-product__img--garment
             {%- endcapture -%}
             {%- if preview_image != blank -%}
-              {%- render 'image-element',
-                img: preview_image,
-                alt: preview_image.alt | default: product.title,
-                classes: image_classes,
-                sizes: sizes,
-                sizeVariable: sizeVariable,
-                fallback: fallback,
-                widths: '360, 540, 720, 900, 1080',
-              -%}
+              {%- render 'image-element', img: preview_image, alt: preview_image.alt, default: product.title, classes: image_classes, sizes: sizes, sizeVariable: sizeVariable, fallback: fallback, widths: '360, 540, 720, 900, 1080' -%}
             {%- else -%}
               {%- capture placeholder -%}product-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
               <div class="product-image--placeholder">{{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}</div>
@@ -133,15 +125,7 @@ Arguments
               {%- capture image_classes -%}
                 grid-product__image image-style--{{ image_style }} grid-product__img--garment
               {%- endcapture -%}
-              {%- render 'image-element',
-                img: preview_image,
-                alt: preview_image.alt | default: product.title,
-                classes: image_classes,
-                sizes: sizes,
-                sizeVariable: sizeVariable,
-                fallback: fallback,
-                widths: '360, 540, 720, 900, 1080',
-              -%}
+              {%- render 'image-element', img: preview_image, alt: preview_image.alt, default: product.title, classes: image_classes, sizes: sizes, sizeVariable: sizeVariable, fallback: fallback, widths: '360, 540, 720, 900, 1080' -%}
             {%- else -%}
               {%- capture placeholder -%}product-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
               <div class="product-image--placeholder">{{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}</div>
@@ -157,15 +141,7 @@ Arguments
             {%- capture image_classes -%}
               image-style--{{ image_style }}
             {%- endcapture -%}
-            {%- render 'image-element',
-              img: second_image,
-              alt: second_image.alt | default: product.title,
-              classes: image_classes,
-              sizes: sizes,
-              sizeVariable: sizeVariable,
-              fallback: fallback,
-              widths: '360, 540, 720, 1000',
-            -%}
+            {%- render 'image-element', img: second_image, alt: second_image.alt, default: product.title, classes: image_classes, sizes: sizes, sizeVariable: sizeVariable, fallback: fallback, widths: '360, 540, 720, 1000' -%}
           </div>
         {%- endif -%}
 
@@ -418,3 +394,52 @@ Arguments
     {%- endstyle -%}
   {%- endif -%}
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%- render 'image-element',
+                    img: preview_image,
+                    alt: preview_image.alt | default: product.title,
+                    classes: image_classes,
+                    sizes: sizes,
+                    sizeVariable: sizeVariable,
+                    fallback: fallback,
+                    widths: '360, 540, 720, 900, 1080',
+                  -%}
+  to: "{%- render 'image-element', img: preview_image, alt: preview_image.alt, default:
+    product.title, classes: image_classes, sizes: sizes, sizeVariable: sizeVariable,
+    fallback: fallback, widths: '360, 540, 720, 900, 1080' -%}"
+  position: 3904..4124
+- from: |-
+    {%- render 'image-element',
+                    img: preview_image,
+                    alt: preview_image.alt | default: product.title,
+                    classes: image_classes,
+                    sizes: sizes,
+                    sizeVariable: sizeVariable,
+                    fallback: fallback,
+                    widths: '360, 540, 720, 900, 1080',
+                  -%}
+  to: "{%- render 'image-element', img: preview_image, alt: preview_image.alt, default:
+    product.title, classes: image_classes, sizes: sizes, sizeVariable: sizeVariable,
+    fallback: fallback, widths: '360, 540, 720, 900, 1080' -%}"
+  position: 4876..5096
+- from: |-
+    {%- render 'image-element',
+                  img: second_image,
+                  alt: second_image.alt | default: product.title,
+                  classes: image_classes,
+                  sizes: sizes,
+                  sizeVariable: sizeVariable,
+                  fallback: fallback,
+                  widths: '360, 540, 720, 1000',
+                -%}
+  to: "{%- render 'image-element', img: second_image, alt: second_image.alt, default:
+    product.title, classes: image_classes, sizes: sizes, sizeVariable: sizeVariable,
+    fallback: fallback, widths: '360, 540, 720, 1000' -%}"
+  position: 5825..6038
+{% endcomment %}
