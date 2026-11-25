@@ -1731,7 +1731,7 @@
             "text": {
               "label": "Erinnerungszettel",
               "info": "Erscheint, wenn das Newsletter-Pop-up geschlossen wird.",
-              "default": "10 % Rabatt sichern"
+              "default": "Join the Club"
             }
           }
         }

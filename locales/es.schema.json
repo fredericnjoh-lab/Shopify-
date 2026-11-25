@@ -1731,7 +1731,7 @@
             "text": {
               "label": "Etiqueta recordatoria",
               "info": "Aparece cuando se cierra la ventana emergente del boletín informativo.",
-              "default": "Consigue un 10 % de descuento"
+              "default": "Join the Club"
             }
           }
         }

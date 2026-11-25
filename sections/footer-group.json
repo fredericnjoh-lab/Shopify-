@@ -29,14 +29,15 @@
         },
         "promotion-3": {
           "type": "promotion",
+          "disabled": true,
           "settings": {
             "enable_image": true,
             "image": "shopify://shop_images/all-over-print-t-shirt-dress-white-front-68fe668513230.jpg",
             "image_mask": "portrait",
-            "title": "Save 20% on dresses",
+            "title": "No Apologies Club",
             "text": "",
-            "button_label": "Shop dresses",
-            "button_link": "shopify://collections/dresses"
+            "button_label": "Shop the Club",
+            "button_link": "shopify://collections/no-apologies-club"
           }
         }
       },
@@ -80,8 +81,8 @@
           "type": "newsletter",
           "settings": {
             "show_footer_title": true,
-            "title": "Sign up and save",
-            "text": "<p>Be the first to know about our biggest and best sales. We'll never send more than one email a month.</p>",
+            "title": "Join the Club",
+            "text": "<p>Early access to new pieces. Made for those who move first.</p>",
             "container_width": 59
           }
         }
