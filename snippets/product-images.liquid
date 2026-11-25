@@ -11,10 +11,9 @@
   assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media
   assign first_3d_model = product.media | where: 'media_type', 'model' | first
 
-  # Product images and thumbnails on the main product template should load early
-  if context == 'main-product'
-    assign loading = 'eager'
-  endif
+  # Only the LCP (featured) slide is eager; other slides + thumbs stay lazy.
+  # Explicit sizes so mobile prefers ~600w instead of always picking 1080w.
+  assign gallery_sizes = '(min-width: 769px) 50vw, min(100vw, 600px)'
 -%}
 
 {%- unless product.empty? -%}
@@ -32,6 +31,14 @@
           id="ProductPhotos-{{ section_id }}"
         >
           {%- for media in product.media -%}
+            {%- liquid
+              assign slide_loading = 'lazy'
+              assign slide_fetchpriority = ''
+              if media == featured_media
+                assign slide_loading = 'eager'
+                assign slide_fetchpriority = 'high'
+              endif
+            -%}
             {%- render 'media',
               section_id: section_id,
               media: media,
@@ -44,10 +51,11 @@
               isModal: isModal,
               video_looping: video_looping,
               video_style: video_style,
-              sizes: sizes,
+              sizes: gallery_sizes,
               sizeVariable: sizeVariable,
               fallback: fallback,
-              loading: loading,
+              loading: slide_loading,
+              fetchpriority: slide_fetchpriority,
               mobile_layout: mobile_layout
             -%}
           {%- endfor -%}
@@ -124,7 +132,7 @@
                       appear-delay-{{ forloop.index | times: 3 }}
                     {%- endcapture -%}
 
-                    {%- render 'image-element', img: media.preview_image, alt: media.alt, split: '#', widths: '120, 360, 540, 720', sizeVariable: '80px', loading: loading -%}
+                    {%- render 'image-element', img: media.preview_image, alt: media.alt, split: '#', widths: '120, 360, 540, 720', sizeVariable: '80px', loading: 'lazy' -%}
                   </div>
                 </a>
               </div>

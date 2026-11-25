@@ -52,6 +52,9 @@
   {%- if template.name == 'collection' -%}
     {{ 'component-collection-grid.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
+  {%- if template.name == 'product' -%}
+    {%- render 'product-lcp-preload', product: product -%}
+  {%- endif -%}
   {%- render 'css-variables' -%}
 
   <script>

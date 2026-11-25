@@ -157,13 +157,21 @@
       {{ media | image_url: width: width }} {{ width | append: 'w' }},
     {% endfor %}
   {%- endcapture -%}
+  {% comment %} Prefer 720 as src fallback (LCP-friendly); srcset still offers up to 1080 for desktop retina {% endcomment %}
   {% assign img_width = widthsArray | last | strip %}
+  {% for width in widthsArray %}
+    {% assign width_stripped = width | strip %}
+    {% if width_stripped == '720' %}
+      {% assign img_width = 720 %}
+    {% endif %}
+  {% endfor %}
   {% assign img_height = img_width | divided_by: img.aspect_ratio %}
   <img src="{{ img | image_url: width: img_width }}"
     width="{{ img_width }}"
     height="{{ img_height }}"
     class="{{ classes }}"
     loading="{{ loading }}"
+    {% if fetchpriority != blank %}fetchpriority="{{ fetchpriority }}"{% endif %}
     alt="{{ alt }}"
     srcset="{{ img_widths }}"
     data-photoswipe-src="{{ img | image_url: width: product_zoom_size, format: format }}"
