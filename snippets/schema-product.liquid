@@ -1,6 +1,7 @@
 {%- comment -%}
-  Product JSON-LD for PDPs. AggregateRating only when Judge.me / Shopify
-  review metafields report reviewCount > 0 and a non-zero rating.
+  Product JSON-LD for PDPs (offers, brand, image).
+  AggregateRating / Review are owned by Judge.me rich snippets to avoid
+  Google "multiple aggregate ratings" on the same @id.
 {%- endcomment -%}
 {%- liquid
   assign schema_variant = current_variant
@@ -18,69 +19,6 @@
     if gtin_string_length == 8 or gtin_string_length == 12 or gtin_string_length == 13 or gtin_string_length == 14
       assign is_valid_gtin_length = true
       assign gtin_option = gtin_option | append: gtin_string_length
-    endif
-  endif
-
-  assign rating_value = blank
-  assign review_count = 0
-  assign best_rating = 5
-  assign worst_rating = 1
-
-  # Shopify standard reviews metafields (populated by Judge.me)
-  if product.metafields.reviews.rating.value != blank
-    if product.metafields.reviews.rating.value.rating != blank
-      assign rating_value = product.metafields.reviews.rating.value.rating
-    else
-      assign rating_value = product.metafields.reviews.rating.value
-    endif
-    if product.metafields.reviews.rating.value.scale_max != blank
-      assign best_rating = product.metafields.reviews.rating.value.scale_max
-    endif
-    if product.metafields.reviews.rating.value.scale_min != blank
-      assign worst_rating = product.metafields.reviews.rating.value.scale_min
-    endif
-  endif
-
-  if product.metafields.reviews.rating_count.value != blank
-    assign review_count = product.metafields.reviews.rating_count.value | plus: 0
-  elsif product.metafields.reviews.rating_count != blank
-    assign review_count = product.metafields.reviews.rating_count | plus: 0
-  endif
-
-  # Judge.me badge fallback when standard metafields are empty
-  if review_count == 0 and product.metafields.judgeme.badge != blank
-    assign jm_badge = product.metafields.judgeme.badge | strip
-    assign jm_avg = 0
-    assign jm_count = 0
-    assign jm_avg_parts = jm_badge | split: 'data-average-rating="'
-    if jm_avg_parts.size > 1
-      assign jm_avg = jm_avg_parts[1] | split: '"' | first | plus: 0
-    else
-      assign jm_avg_parts = jm_badge | split: "data-average-rating='"
-      if jm_avg_parts.size > 1
-        assign jm_avg = jm_avg_parts[1] | split: "'" | first | plus: 0
-      endif
-    endif
-    assign jm_count_parts = jm_badge | split: 'data-number-of-reviews="'
-    if jm_count_parts.size > 1
-      assign jm_count = jm_count_parts[1] | split: '"' | first | plus: 0
-    else
-      assign jm_count_parts = jm_badge | split: "data-number-of-reviews='"
-      if jm_count_parts.size > 1
-        assign jm_count = jm_count_parts[1] | split: "'" | first | plus: 0
-      endif
-    endif
-    if jm_count > 0 and jm_avg > 0
-      assign review_count = jm_count
-      assign rating_value = jm_avg
-    endif
-  endif
-
-  assign show_aggregate_rating = false
-  if review_count > 0 and rating_value != blank
-    assign rating_as_number = rating_value | plus: 0
-    if rating_as_number > 0
-      assign show_aggregate_rating = true
     endif
   endif
 
@@ -119,15 +57,6 @@
     "name": {{ product.title | json }},
     "width": 1024,
     "height": 1024
-  },
-  {%- endif -%}
-  {%- if show_aggregate_rating -%}
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": {{ rating_value | json }},
-    "reviewCount": {{ review_count | json }},
-    "bestRating": {{ best_rating | json }},
-    "worstRating": {{ worst_rating | json }}
   },
   {%- endif -%}
   "offers": [
