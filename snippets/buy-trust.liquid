@@ -1,7 +1,13 @@
 {%- comment -%}
   Quiet trust row under Add to cart — Icon-style hierarchy, FredJo voice.
+  Stylesheet deferred (media=print → all) to cut render-blocking CSS on PDP.
 {%- endcomment -%}
-{{ 'component-buy-trust.css' | asset_url | stylesheet_tag }}
+<link
+  rel="stylesheet"
+  href="{{ 'component-buy-trust.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
+<noscript>{{ 'component-buy-trust.css' | asset_url | stylesheet_tag }}</noscript>
 
 <div class="buy-trust">
   <p class="buy-trust__label">
