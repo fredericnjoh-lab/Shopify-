@@ -1,8 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ settings.text_direction }}">
 <head>
-  <script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"Y1U2qi7dkoL4BW2GHVW8Ei",debug:true});</script>
-{%- if customer -%}<script>oaiq("init",{pixelId:"Y1U2qi7dkoL4BW2GHVW8Ei",user:{email_sha256:"{{ customer.email | strip | downcase | sha256 }}",external_id_sha256:"{{ customer.id | append: '' | strip | sha256 }}"}});</script>{%- endif -%}
   <meta name="google-site-verification" content="pcqehbG5an8axmEkqSmuDjp_WJp5Ef011FumrdpT_AM" />
   <meta name="p:domain_verify" content="e926ec06004b24d7a024187c452329c3" />
   <meta charset="utf-8">
@@ -31,7 +29,22 @@
   {%- render 'font-face' -%}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  {%- comment -%}
+    PDP/collection: Montserrat only (above-the-fold body). Home/club pages load display fonts.
+    Async stylesheet avoids ~750ms render-blocking Google Fonts on LCP.
+  {%- endcomment -%}
+  {%- liquid
+    if template.name == 'index'
+      assign google_fonts_href = 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;600&display=swap'
+    elsif template.name == 'page' and template.suffix contains 'club'
+      assign google_fonts_href = 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;600&display=swap'
+    else
+      assign google_fonts_href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap'
+    endif
+  -%}
+  <link rel="preload" as="style" href="{{ google_fonts_href }}">
+  <link rel="stylesheet" href="{{ google_fonts_href }}" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="{{ google_fonts_href }}"></noscript>
   {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
   {%- if template.name == 'index' -%}
     {{ 'maison-home.css' | asset_url | stylesheet_tag }}
@@ -94,7 +107,29 @@
   <script src="{{ 'vendor-scripts-v11.js' | asset_url | split: '?' | first }}" defer="defer"></script>
 
   {%- if shop.enabled_currencies.size > 1 -%}
-    <link rel="stylesheet" href="{{ 'country-flags.css' | asset_url | split: '?' | first }}">
+    {%- comment -%}
+      Country flags CSS+PNG (~100KB) only when the currency selector opens.
+    {%- endcomment -%}
+    <script>
+      (function () {
+        var loaded = false;
+        var href = {{ 'country-flags.css' | asset_url | split: '?' | first | json }};
+        function loadCountryFlags() {
+          if (loaded) return;
+          loaded = true;
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = href;
+          document.head.appendChild(link);
+        }
+        document.addEventListener('click', function (e) {
+          if (e.target.closest('[data-disclosure-currency]')) loadCountryFlags();
+        }, true);
+        document.addEventListener('focusin', function (e) {
+          if (e.target.closest('[data-disclosure-currency]')) loadCountryFlags();
+        }, true);
+      })();
+    </script>
   {%- endif -%}
 
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
@@ -156,5 +191,14 @@
       </image-element>
     </div>
   </template>
+
+  {%- comment -%} OpenAI pixel after paint — was render-blocking at top of head with debug:true {%- endcomment -%}
+  <script>
+    !function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+    oaiq("init",{pixelId:"Y1U2qi7dkoL4BW2GHVW8Ei",debug:false});
+    {%- if customer -%}
+    oaiq("init",{pixelId:"Y1U2qi7dkoL4BW2GHVW8Ei",user:{email_sha256:"{{ customer.email | strip | downcase | sha256 }}",external_id_sha256:"{{ customer.id | append: '' | strip | sha256 }}"}});
+    {%- endif -%}
+  </script>
  </body>
 </html>
