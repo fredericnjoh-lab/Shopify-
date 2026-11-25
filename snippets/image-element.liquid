@@ -93,11 +93,22 @@
     assign animation = animation
   endif
 
+  # LCP image: skip AOS. fade-in animation restarts opacity at 0 and delays paint (~500ms).
+  assign skip_aos = false
+  if fetchpriority == 'high' or animation == 'none'
+    assign skip_aos = true
+    assign animation = 'none'
+  endif
+
   # Add a class to the image so we can target theme images
   assign classes = classes | append: ' image-element'
 %}
 
+{%- if skip_aos -%}
+<image-element>
+{%- else -%}
 <image-element data-aos="{{ animation }}" data-aos-offset="150">
+{%- endif -%}
 
 {% if type == blank %}
   {% if widths != blank %}
