@@ -1731,7 +1731,7 @@
             "text": {
               "label": "Reminder label",
               "info": "Appears when newsletter popup is closed.",
-              "default": "Get 10% off"
+              "default": "Join the Club"
             }
           }
         }

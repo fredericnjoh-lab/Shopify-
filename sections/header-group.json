@@ -38,8 +38,8 @@
           "type": "announcement",
           "settings": {
             "text": "New here?",
-            "link_text": "10% off your first piece — join the Club below.",
-            "link": "shopify://collections/all"
+            "link_text": "Join the Club. Early access to new pieces.",
+            "link": "shopify://collections/no-apologies-club"
           }
         }
       },

@@ -1725,7 +1725,7 @@
             "text": {
               "label": "Étiquette de rappel",
               "info": "Apparaît lorsque la fenêtre popup de la newsletter est fermée.",
-              "default": "Obtenez 10 % de réduction"
+              "default": "Rejoindre le Club"
             }
           }
         }
