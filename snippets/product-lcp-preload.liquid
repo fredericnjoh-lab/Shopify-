@@ -1,0 +1,28 @@
+{%- comment -%}
+  Head preload for the PDP LCP image (selected variant / featured media).
+  sizes tuned so mobile prefers ~600–720w instead of always 1080w.
+{%- endcomment -%}
+{%- liquid
+  assign lcp_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media
+  if lcp_media == blank
+    assign lcp_image = product.featured_image
+  else
+    assign lcp_image = lcp_media.preview_image
+  endif
+-%}
+{%- if lcp_image != blank -%}
+  {%- capture lcp_srcset -%}
+    {{- lcp_image | image_url: width: 360 }} 360w,
+    {{- lcp_image | image_url: width: 540 }} 540w,
+    {{- lcp_image | image_url: width: 600 }} 600w,
+    {{- lcp_image | image_url: width: 720 }} 720w,
+    {{- lcp_image | image_url: width: 900 }} 900w,
+    {{- lcp_image | image_url: width: 1080 }} 1080w
+  {%- endcapture -%}
+  <link
+    rel="preload"
+    as="image"
+    href="{{ lcp_image | image_url: width: 720 }}"
+    imagesrcset="{{ lcp_srcset | strip_newlines | strip }}"
+    imagesizes="(min-width: 769px) 50vw, min(100vw, 600px)">
+{%- endif -%}
