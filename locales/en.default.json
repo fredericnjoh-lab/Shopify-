@@ -414,7 +414,7 @@
       "color_swatch_trigger": "Color",
       "size_trigger": "Size",
       "size_chart": "Size chart",
-      "size_chart_fallback_html": "<p>Oversized fit. Structured through the shoulder. True to size for the intended silhouette.</p><p>Between sizes: size down for a closer cut. Stay for the full drop.</p><p>30-day returns, postage paid.</p>",
+      "size_chart_fallback_html": "<p>Garment measured flat. Chest = underarm to underarm. Allow ±1–2 cm.</p>\n<table>\n<thead><tr><th>Size</th><th>Body length</th><th>Chest width</th><th>Sleeve length</th></tr></thead>\n<tbody>\n<tr><td>XS</td><td>67 cm (26.5&quot;)</td><td>53 cm (20.75&quot;)</td><td>60 cm (23.5&quot;)</td></tr>\n<tr><td>S</td><td>71 cm (28&quot;)</td><td>55 cm (21.5&quot;)</td><td>64 cm (25.1&quot;)</td></tr>\n<tr><td>M</td><td>72 cm (28.5&quot;)</td><td>60 cm (23.5&quot;)</td><td>65 cm (25.6&quot;)</td></tr>\n<tr><td>L</td><td>75 cm (29.5&quot;)</td><td>65 cm (25.5&quot;)</td><td>66 cm (26.1&quot;)</td></tr>\n<tr><td>XL</td><td>76 cm (30&quot;)</td><td>70 cm (27.5&quot;)</td><td>68 cm (26.6&quot;)</td></tr>\n<tr><td>2XL</td><td>77 cm (30.5&quot;)</td><td>75 cm (29.5&quot;)</td><td>69 cm (27.1&quot;)</td></tr>\n</tbody>\n</table>\n<p>Oversized fit. True to size for the intended drop. Between sizes: size down for a closer cut.</p>",
       "save_html": "Save {{ saved_amount }}",
       "collection_return": "Back to {{ collection }}",
       "next_product": "Next: {{ title }}",

@@ -365,7 +365,7 @@
       "color_swatch_trigger": "Couleur",
       "size_trigger": "Taille",
       "size_chart": "Tableau des tailles",
-      "size_chart_fallback_html": "<p>Coupe oversized. Structurée aux épaules. Taille fidèle à la silhouette prévue.</p><p>Entre deux tailles : prenez en dessous pour un rendu plus près du corps. Gardez votre taille pour le drop complet.</p><p>Retours sous 30 jours, port payé.</p>",
+      "size_chart_fallback_html": "<p>Mesures à plat. Poitrine = aisselle à aisselle. Tolérance ±1–2 cm.</p>\n<table>\n<thead><tr><th>Taille</th><th>Longueur</th><th>Poitrine</th><th>Manche</th></tr></thead>\n<tbody>\n<tr><td>XS</td><td>67 cm (26.5&quot;)</td><td>53 cm (20.75&quot;)</td><td>60 cm (23.5&quot;)</td></tr>\n<tr><td>S</td><td>71 cm (28&quot;)</td><td>55 cm (21.5&quot;)</td><td>64 cm (25.1&quot;)</td></tr>\n<tr><td>M</td><td>72 cm (28.5&quot;)</td><td>60 cm (23.5&quot;)</td><td>65 cm (25.6&quot;)</td></tr>\n<tr><td>L</td><td>75 cm (29.5&quot;)</td><td>65 cm (25.5&quot;)</td><td>66 cm (26.1&quot;)</td></tr>\n<tr><td>XL</td><td>76 cm (30&quot;)</td><td>70 cm (27.5&quot;)</td><td>68 cm (26.6&quot;)</td></tr>\n<tr><td>2XL</td><td>77 cm (30.5&quot;)</td><td>75 cm (29.5&quot;)</td><td>69 cm (27.1&quot;)</td></tr>\n</tbody>\n</table>\n<p>Coupe oversized. Taille fidèle à la silhouette prévue. Entre deux tailles : prenez en dessous pour un rendu plus près du corps.</p>",
       "save_html": "Épargnez {{ saved_amount }}",
       "collection_return": "Retour à {{ collection }}",
       "next_product": "Suivant: {{ title }}",
