@@ -387,7 +387,12 @@
       "uniform_text_html": "<p>The hoodie. The sweatpants. One silhouette.</p><p></p><p>Built to be worn together. Structured. Minimal. Intentional.</p>",
       "uniform_cta": "The Uniform",
       "newsletter_title": "No Apologies Club.",
-      "newsletter_text_html": "<p>Early access to new pieces. Made for those who move first.</p>"
+      "newsletter_text_html": "<p>Early access to new pieces. Made for those who move first.</p>",
+      "shop_path_kicker": "No Apologies Club",
+      "shop_path_title": "The capsule",
+      "shop_path_lede": "Four pieces. One path.",
+      "shop_path_cta": "Enter the Club",
+      "shop_path_empty": "Select a capsule collection in the theme editor."
     }
   },
   "layout": {
@@ -418,7 +423,8 @@
       "regular_price": "Regular price",
       "from_text_html": "from {{ price }}",
       "recent_products": "Recently viewed",
-      "reviews": "Reviews"
+      "reviews": "Reviews",
+      "size_guide_summary": "Size guide"
     },
     "bundle": {
       "included_title": "What's included",
@@ -448,7 +454,12 @@
       "will_be_in_stock_after": "Back in stock {{ date }}",
       "waiting_for_stock": "Backordered, shipping soon",
       "view_in_space": "View in your space",
-      "view_in_space_label": "View in your space, loads item in augmented reality window"
+      "view_in_space_label": "View in your space, loads item in augmented reality window",
+      "spec_weight": "Weight",
+      "spec_composition": "Composition",
+      "spec_fit": "Fit",
+      "spec_origin": "Origin",
+      "spec_care": "Care"
     }
   },
   "recipient": {

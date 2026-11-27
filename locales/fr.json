@@ -338,7 +338,12 @@
       "uniform_text_html": "<p>Le hoodie. Le sweatpants. Une silhouette.</p><p></p><p>Pensés pour se porter ensemble. Structurés. Minimaux. Intentionnels.</p>",
       "uniform_cta": "The Uniform",
       "newsletter_title": "No Apologies Club.",
-      "newsletter_text_html": "<p>L’accès en avance aux nouvelles pièces. Pour ceux qui avancent les premiers.</p>"
+      "newsletter_text_html": "<p>L’accès en avance aux nouvelles pièces. Pour ceux qui avancent les premiers.</p>",
+      "shop_path_kicker": "No Apologies Club",
+      "shop_path_title": "La capsule",
+      "shop_path_lede": "Quatre pièces. Un seul chemin.",
+      "shop_path_cta": "Entrer dans le Club",
+      "shop_path_empty": "Sélectionnez une collection capsule dans l'éditeur de thème."
     }
   },
   "layout": {
@@ -369,7 +374,8 @@
       "regular_price": "Prix régulier",
       "from_text_html": "À partir de {{ price }}",
       "recent_products": "Vu récemment",
-      "reviews": "Commentaires"
+      "reviews": "Commentaires",
+      "size_guide_summary": "Guide des tailles"
     },
     "bundle": {
       "included_title": "Ce qui est inclus",
@@ -391,22 +397,27 @@
       "returns_note": "Retours sous 30 jours · Échanges gratuits",
       "preorder": "Pré-commander",
       "include_taxes": "Taxes incluses.",
-      "shipping_policy_html": "<a href='{{ link }}'>Frais d'expédition<\/a> calculés lors du passage à la caisse.",
+      "shipping_policy_html": "<a href='{{ link }}'>Frais d'expédition</a> calculés lors du passage à la caisse.",
       "will_not_ship_until": "Sera expédié après {{ date }}",
       "will_be_in_stock_after": "Sera en stock à compter de {{ date }}",
       "waiting_for_stock": "En rupture de stock, expédition prochainement",
       "view_in_space": "Afficher dans votre espace",
-      "view_in_space_label": "Affichage dans votre espace, charge l'article dans une fenêtre de réalité augmentée"
+      "view_in_space_label": "Affichage dans votre espace, charge l'article dans une fenêtre de réalité augmentée",
+      "spec_weight": "Poids",
+      "spec_composition": "Composition",
+      "spec_fit": "Coupe",
+      "spec_origin": "Origine",
+      "spec_care": "Entretien"
     }
   },
-  "store_availability":{
-    "general":{
+  "store_availability": {
+    "general": {
       "view_store_info": "Afficher les informations de magasin",
       "check_other_stores": "Vérifier la disponibilité dans d'autres magasins",
       "pick_up_available": "Récupération disponible",
       "pick_up_currently_unavailable": "Récupération actuellement indisponible",
-      "pick_up_available_at_html": "Récupération disponible à <strong> {{location_name}} <\/strong>",
-      "pick_up_unavailable_at_html": "Récupération actuellement indisponible à <strong> {{location_name}} <\/strong>"
+      "pick_up_available_at_html": "Récupération disponible à <strong> {{location_name}} </strong>",
+      "pick_up_unavailable_at_html": "Récupération actuellement indisponible à <strong> {{location_name}} </strong>"
     }
   },
   "gift_cards": {
@@ -435,7 +446,7 @@
       "send_on_label": "Envoyer (facultatif)"
     }
   },
-  "date_formats":{
+  "date_formats": {
     "month_day_year": "%d %B, %Y"
   }
 }

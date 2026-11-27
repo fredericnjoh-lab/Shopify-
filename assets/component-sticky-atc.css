@@ -1,0 +1,85 @@
+/* Mobile sticky add-to-cart — WRN-style always-available CTA */
+
+.sticky-atc {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(245, 244, 240, 0.96);
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transform: translateY(110%);
+  transition: transform 0.28s ease;
+  pointer-events: none;
+}
+
+.sticky-atc.is-visible {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sticky-atc__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sticky-atc__meta {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sticky-atc__title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #0a0a0a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-atc__price {
+  margin: 2px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #6e6a63;
+}
+
+.sticky-atc__btn {
+  flex: 0 0 auto;
+  min-width: 132px;
+  padding: 14px 18px;
+  background: #0a0a0a;
+  border-color: #0a0a0a;
+  color: #f5f4f0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sticky-atc__btn:hover:not([disabled]) {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #f5f4f0;
+}
+
+.sticky-atc__btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (min-width: 769px) {
+  .sticky-atc {
+    display: none !important;
+  }
+}

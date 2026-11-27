@@ -1,0 +1,207 @@
+{% comment %}
+  Home shop path — one capsule, 3–4 products, one CTA.
+  Merchant picks the collection in Theme Editor. Do not wire via settings_data.json.
+{% endcomment %}
+
+{{ 'maison-home.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign path_collection = collections[section.settings.collection]
+  assign limit = section.settings.product_limit | default: 4
+  if limit < 2
+    assign limit = 2
+  endif
+  if limit > 4
+    assign limit = 4
+  endif
+
+  if section.settings.translate
+    assign kicker = 'home_page.maison.shop_path_kicker' | t
+    assign heading = 'home_page.maison.shop_path_title' | t
+    assign lede = 'home_page.maison.shop_path_lede' | t
+    assign cta = 'home_page.maison.shop_path_cta' | t
+  else
+    assign kicker = section.settings.kicker
+    if kicker == blank
+      assign kicker = 'home_page.maison.shop_path_kicker' | t
+    endif
+    assign heading = section.settings.title
+    if heading == blank
+      assign heading = 'home_page.maison.shop_path_title' | t
+    endif
+    assign lede = section.settings.lede
+    if lede == blank
+      assign lede = 'home_page.maison.shop_path_lede' | t
+    endif
+    assign cta = section.settings.cta_label
+    if cta == blank
+      assign cta = 'home_page.maison.shop_path_cta' | t
+    endif
+  endif
+
+  if section.settings.cta_link != blank
+    assign cta_url = section.settings.cta_link
+  elsif path_collection != blank
+    assign cta_url = path_collection.url
+  else
+    assign cta_url = routes.all_products_collection_url
+  endif
+-%}
+
+<section class="home-shop-path maison-pieces" data-section-id="{{ section.id }}">
+  <div class="maison-shell">
+    <div class="maison-pieces__head maison-reveal">
+      <div>
+        {%- if kicker != blank -%}
+          <p class="maison-kicker">{{ kicker | escape }}</p>
+        {%- endif -%}
+        <h2 class="maison-heading">{{ heading | escape }}</h2>
+        {%- if lede != blank -%}
+          <p class="home-shop-path__lede">{{ lede | escape }}</p>
+        {%- endif -%}
+      </div>
+      {%- if cta != blank and cta_url != blank -%}
+        <a class="maison-btn maison-btn--line" href="{{ cta_url }}">{{ cta | escape }}</a>
+      {%- endif -%}
+    </div>
+
+    {%- if path_collection != blank and path_collection.products_count > 0 -%}
+      <div class="home-shop-path__grid maison-pieces__grid" style="--shop-path-cols: {{ limit }};">
+        {%- for product in path_collection.products limit: limit -%}
+          {%- assign piece_image = product.featured_image -%}
+          {%- assign piece_title = product.title -%}
+          {%- assign piece_alt = piece_image.alt | default: piece_title -%}
+          <a class="maison-piece maison-reveal" href="{{ product.url }}">
+            <div class="maison-piece__frame">
+              {%- if piece_image != blank -%}
+                {{ piece_image | image_url: width: 1200 | image_tag:
+                  loading: 'lazy',
+                  widths: '400, 600, 800, 1000, 1200',
+                  sizes: '(min-width: 990px) 22vw, 45vw',
+                  alt: piece_alt,
+                  class: 'maison-piece__img',
+                  width: piece_image.width,
+                  height: piece_image.height
+                }}
+              {%- else -%}
+                <div class="maison-piece__ph" aria-hidden="true"></div>
+              {%- endif -%}
+            </div>
+            <div class="maison-piece__meta">
+              <h3 class="maison-piece__title">{{ piece_title | escape }}</h3>
+              {%- if product.type != blank -%}
+                <p class="maison-piece__caption">{{ product.type | escape }}</p>
+              {%- endif -%}
+              {%- if section.settings.show_price -%}
+                <p class="maison-piece__price">{{ product.price | money }}</p>
+              {%- endif -%}
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="home-shop-path__empty">{{ 'home_page.maison.shop_path_empty' | t }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .home-shop-path__lede {
+    margin: 10px 0 0;
+    max-width: 36em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.55;
+    letter-spacing: 0.04em;
+    color: #6e6a63;
+  }
+  #shopify-section-{{ section.id }} .home-shop-path__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 14px;
+  }
+  @media (min-width: 769px) {
+    #shopify-section-{{ section.id }} .home-shop-path__grid {
+      grid-template-columns: repeat(var(--shop-path-cols, 4), minmax(0, 1fr));
+      gap: 28px 20px;
+    }
+  }
+  #shopify-section-{{ section.id }} .home-shop-path__empty {
+    margin: 24px 0 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6e6a63;
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Home shop path",
+  "tag": "section",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "translate",
+      "label": "Use theme translations",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "No Apologies Club"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "The capsule"
+    },
+    {
+      "type": "text",
+      "id": "lede",
+      "label": "Supporting line",
+      "default": "Four pieces. One path."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Capsule collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Products shown",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show price",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Enter the Club"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home shop path"
+    }
+  ]
+}
+{% endschema %}

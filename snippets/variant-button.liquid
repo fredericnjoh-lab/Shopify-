@@ -18,7 +18,17 @@
   <label class="variant__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}{% unless variant_labels %} hidden-label{% endunless %}"
     for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ forloop.index0 }}">
     {{ option.name }}
-    {%- if connect_to_sizechart and is_size -%}
+    {%- if connect_to_sizechart and is_size and size_chart_content != blank -%}
+      <span class="variant__label-info">
+        &mdash;
+        {%- render
+          'tool-tip-trigger',
+          title: size_chart_title,
+          content: size_chart_content,
+          context: 'size-chart'
+        -%}
+      </span>
+    {%- elsif connect_to_sizechart and is_size and sizechart_index != blank -%}
       <span class="variant__label-info">
         &mdash;
         {%- render
