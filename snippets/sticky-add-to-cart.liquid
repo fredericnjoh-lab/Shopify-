@@ -1,0 +1,43 @@
+{%- comment -%}
+  Mobile sticky ATC — mirrors main product form submit when buy box leaves viewport.
+  Params: product, current_variant, form_id
+{%- endcomment -%}
+{%- unless product.empty? or isModal -%}
+  {%- liquid
+    assign sticky_text = 'products.product.add_to_cart' | t
+    unless current_variant.available
+      assign sticky_text = 'products.product.sold_out' | t
+    endunless
+    capture sticky_title
+      render 'product-display-title', product: product
+    endcapture
+    assign sticky_title = sticky_title | strip
+  -%}
+
+  {{ 'component-sticky-atc.css' | asset_url | stylesheet_tag }}
+
+  <div
+    class="sticky-atc"
+    data-sticky-atc
+    hidden
+    aria-hidden="true">
+    <div class="sticky-atc__inner">
+      <div class="sticky-atc__meta">
+        <p class="sticky-atc__title">{{ sticky_title | escape }}</p>
+        <p class="sticky-atc__price" data-sticky-atc-price>
+          {{ current_variant.price | money }}
+        </p>
+      </div>
+      <button
+        type="button"
+        class="btn sticky-atc__btn"
+        data-sticky-atc-submit
+        data-sticky-atc-form="{{ form_id }}"
+        {% unless current_variant.available %}disabled{% endunless %}>
+        <span data-sticky-atc-text>{{ sticky_text }}</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="{{ 'sticky-atc.js' | asset_url }}" defer></script>
+{%- endunless -%}

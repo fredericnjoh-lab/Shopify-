@@ -42,11 +42,26 @@
 -%}
 
 {%- liquid
-  comment
-    Always render size chart as its own row above variants.
-    Connecting into the Size label hid the CTA when the linked page was missing.
-  endcomment
+  # Size guide next to Size option when chart content exists (page → block fallback → locale).
   assign connect_to_sizechart = false
+  assign sizechart_index = blank
+  assign size_chart_content = blank
+  for block in blocks
+    if block.type == 'size_chart'
+      assign sizechart_index = forloop.index0
+      assign size_chart_content = block.settings.size_chart.content
+      if size_chart_content == blank
+        assign size_chart_content = block.settings.size_chart_fallback
+      endif
+      if size_chart_content == blank
+        assign size_chart_content = 'products.general.size_chart_fallback_html' | t
+      endif
+      if size_chart_content != blank
+        assign connect_to_sizechart = true
+      endif
+      break
+    endif
+  endfor
 -%}
 
 <div id="ProductSection-{{ section_id }}-{{ product.id }}"
@@ -271,9 +286,14 @@
                       </div>
                     </div>
                   {%- when 'size_chart' -%}
-                    <div class="size-chart__standalone" {{ block.shopify_attributes }}>
-                      {%- render 'size-chart-trigger', block: block -%}
-                    </div>
+                    {%- comment -%} Standalone row only when not linked next to Size {%- endcomment -%}
+                    {%- unless connect_to_sizechart -%}
+                      <div class="size-chart__standalone" {{ block.shopify_attributes }}>
+                        {%- render 'size-chart-trigger', block: block -%}
+                      </div>
+                    {%- else -%}
+                      <div class="size-chart__standalone size-chart__standalone--linked" {{ block.shopify_attributes }} hidden></div>
+                    {%- endunless -%}
                   {%- when 'variant_picker' -%}
                     <div class="product-block" {% if block.settings.product_dynamic_variants_enable %}data-dynamic-variants-enabled{% endif %} {{ block.shopify_attributes }}>
                       {%- unless product.has_only_default_variant -%}
@@ -305,7 +325,8 @@
                               is_color: is_color,
                               color_option_index: color_option_index,
                               connect_to_sizechart: connect_to_sizechart,
-                              sizechart_index: sizechart_index
+                              sizechart_index: sizechart_index,
+                              size_chart_content: size_chart_content
                             -%}
                           {%- else -%}
                             {%- render 'variant-dropdown',
@@ -340,38 +361,31 @@
                           </div>
                         {%- endif -%}
 
-                        {%- comment -%} Trust line — shown under the buy buttons on every product (section setting) {%- endcomment -%}
-                        {%- if trust_line != blank -%}
-                          <div class="product-block product-single__trust">{{ trust_line }}</div>
-                        {%- endif -%}
-
+                        {%- liquid
+                          assign spec_weight = product.metafields.custom.fabric_weight.value | default: ''
+                          assign spec_comp = product.metafields.custom.composition.value | default: ''
+                          assign spec_fit = product.metafields.custom.fit.value | default: ''
+                          assign spec_origin = product.metafields.custom.origin.value | default: ''
+                          assign spec_care = product.metafields.custom.care.value | default: ''
+                          assign size_chart_mf = product.metafields.custom.size_chart
+                        -%}
                         {%- if is_nac == 'true' -%}
-                          {%- liquid
-                            assign spec_weight = product.metafields.custom.fabric_weight.value | default: ''
-                            assign spec_comp = product.metafields.custom.composition.value | default: ''
-                            assign spec_fit = product.metafields.custom.fit.value | default: ''
-                            assign spec_origin = product.metafields.custom.origin.value | default: ''
-                            assign spec_care = product.metafields.custom.care.value | default: ''
-                            assign size_chart = product.metafields.custom.size_chart
-                          -%}
                           {%- if spec_weight != blank or spec_comp != blank or spec_fit != blank or spec_origin != blank or spec_care != blank -%}
                             <dl class="product-single__specs">
-                              {%- if spec_weight != blank -%}<div class="spec-row"><dt>Weight</dt><dd>{{ spec_weight }}</dd></div>{%- endif -%}
-                              {%- if spec_comp != blank -%}<div class="spec-row"><dt>Composition</dt><dd>{{ spec_comp }}</dd></div>{%- endif -%}
-                              {%- if spec_fit != blank -%}<div class="spec-row"><dt>Fit</dt><dd>{{ spec_fit }}</dd></div>{%- endif -%}
-                              {%- if spec_origin != blank -%}<div class="spec-row"><dt>Origin</dt><dd>{{ spec_origin }}</dd></div>{%- endif -%}
-                              {%- if spec_care != blank -%}<div class="spec-row"><dt>Care</dt><dd>{{ spec_care }}</dd></div>{%- endif -%}
+                              {%- if spec_weight != blank -%}<div class="spec-row"><dt>{{ 'products.product.spec_weight' | t }}</dt><dd>{{ spec_weight }}</dd></div>{%- endif -%}
+                              {%- if spec_comp != blank -%}<div class="spec-row"><dt>{{ 'products.product.spec_composition' | t }}</dt><dd>{{ spec_comp }}</dd></div>{%- endif -%}
+                              {%- if spec_fit != blank -%}<div class="spec-row"><dt>{{ 'products.product.spec_fit' | t }}</dt><dd>{{ spec_fit }}</dd></div>{%- endif -%}
+                              {%- if spec_origin != blank -%}<div class="spec-row"><dt>{{ 'products.product.spec_origin' | t }}</dt><dd>{{ spec_origin }}</dd></div>{%- endif -%}
+                              {%- if spec_care != blank -%}<div class="spec-row"><dt>{{ 'products.product.spec_care' | t }}</dt><dd>{{ spec_care }}</dd></div>{%- endif -%}
                             </dl>
                           {%- endif -%}
+                        {%- endif -%}
 
+                        {%- if size_chart_mf != blank -%}
                           <details class="product-single__sizeguide">
-                            <summary>Size guide (cm)</summary>
+                            <summary>{{ 'products.general.size_guide_summary' | t }}</summary>
                             <div class="product-single__sizeguide-body rte">
-                              {%- if size_chart != blank -%}
-                                {{ size_chart }}
-                              {%- else -%}
-                                <p>Oversized fit. Structured through the shoulder. True to size for the intended silhouette. Between sizes: size down for a closer cut, stay for the full drop.</p>
-                              {%- endif -%}
+                              {{ size_chart_mf }}
                             </div>
                           </details>
                         {%- endif -%}
@@ -486,51 +500,66 @@
   </div>
 </div>
 
-{%- if is_nac == 'true' or nac_line == 'fredjo' -%}
-  {%- style -%}
-    .product-single__nac-eyebrow {
-      font-family: 'Montserrat', sans-serif; font-size: 11px;
-      letter-spacing: 0.28em; text-transform: uppercase; color: #b8975a; margin-bottom: 8px;
-    }
-    .product-single__nac-rarity,
-    .product-single__permanent {
-      font-family: 'Montserrat', sans-serif; font-size: 11px;
-      letter-spacing: 0.18em; text-transform: uppercase; color: #6f6f6f; margin-top: 10px;
-    }
-    .product-single__trust {
-      font-family: 'Montserrat', sans-serif; font-size: 12px; line-height: 1.7;
-      letter-spacing: 0.04em; color: #6f6f6f; margin-top: 14px;
-    }
-    .product-single__specs { margin: 22px 0 0; padding: 0; }
-    .product-single__specs .spec-row {
-      display: flex; justify-content: space-between; gap: 16px; padding: 11px 0;
-      border-bottom: 1px solid rgba(10,10,10,0.1);
-      font-family: 'Montserrat', sans-serif; font-size: 12px;
-    }
-    .product-single__specs .spec-row:first-child { border-top: 1px solid rgba(10,10,10,0.1); }
-    .product-single__specs dt { margin: 0; text-transform: uppercase; letter-spacing: 0.18em; color: #6f6f6f; }
-    .product-single__specs dd { margin: 0; text-align: right; color: #1c1c1c; }
-    .product-single__sizeguide { margin-top: 8px; border-bottom: 1px solid rgba(10,10,10,0.1); }
-    .product-single__sizeguide summary {
-      cursor: pointer; list-style: none; padding: 14px 0;
-      font-family: 'Montserrat', sans-serif; font-size: 11px;
-      letter-spacing: 0.2em; text-transform: uppercase; color: #0a0a0a;
-    }
-    .product-single__sizeguide summary::-webkit-details-marker { display: none; }
-    .product-single__sizeguide summary:focus-visible { outline: 2px solid #b8975a; outline-offset: 2px; }
-    .product-single__sizeguide-body { padding: 0 0 18px; font-size: 14px; }
-    .product-single__nac-soldout { text-align: center; }
-    .product-single__soldout-btn {
-      width: 100%; background: #0a0a0a; color: #f5f4f0; border: none; border-radius: 2px;
-      padding: 17px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.55; cursor: not-allowed;
-    }
-    .product-single__notify-link {
-      display: inline-block; margin-top: 14px;
-      font-family: 'Montserrat', sans-serif; font-size: 11px;
-      letter-spacing: 0.18em; text-transform: uppercase; color: #0a0a0a;
-      border-bottom: 1px solid #0a0a0a; padding-bottom: 3px;
-    }
-    .product-single__notify-link:hover { color: #b8975a; border-bottom-color: #b8975a; }
-  {%- endstyle -%}
-{%- endif -%}
+{%- render 'sticky-add-to-cart',
+  product: product,
+  current_variant: current_variant,
+  form_id: form_id,
+  isModal: isModal
+-%}
+
+{%- style -%}
+  .product-single__nac-eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: #b8975a; margin-bottom: 8px;
+  }
+  .product-single__nac-rarity,
+  .product-single__permanent {
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: #6f6f6f; margin-top: 10px;
+  }
+  .product-single__trust {
+    font-family: 'Montserrat', sans-serif; font-size: 12px; line-height: 1.7;
+    letter-spacing: 0.04em; color: #6f6f6f; margin-top: 14px;
+  }
+  .product-single__specs { margin: 22px 0 0; padding: 0; }
+  .product-single__specs .spec-row {
+    display: flex; justify-content: space-between; gap: 16px; padding: 11px 0;
+    border-bottom: 1px solid rgba(10,10,10,0.1);
+    font-family: 'Montserrat', sans-serif; font-size: 12px;
+  }
+  .product-single__specs .spec-row:first-child { border-top: 1px solid rgba(10,10,10,0.1); }
+  .product-single__specs dt { margin: 0; text-transform: uppercase; letter-spacing: 0.18em; color: #6f6f6f; }
+  .product-single__specs dd { margin: 0; text-align: right; color: #1c1c1c; }
+  .product-single__sizeguide { margin-top: 8px; border-bottom: 1px solid rgba(10,10,10,0.1); }
+  .product-single__sizeguide summary {
+    cursor: pointer; list-style: none; padding: 14px 0;
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: #0a0a0a;
+  }
+  .product-single__sizeguide summary::-webkit-details-marker { display: none; }
+  .product-single__sizeguide summary:focus-visible { outline: 2px solid #b8975a; outline-offset: 2px; }
+  .product-single__sizeguide-body { padding: 0 0 18px; font-size: 14px; }
+  .product-single__sizeguide-body table {
+    width: 100%; border-collapse: collapse; font-size: 12px;
+    font-family: 'JetBrains Mono', 'Montserrat', monospace;
+  }
+  .product-single__sizeguide-body th,
+  .product-single__sizeguide-body td {
+    padding: 8px 6px; border-bottom: 1px solid rgba(10,10,10,0.1); text-align: center;
+  }
+  .product-single__sizeguide-body th:first-child,
+  .product-single__sizeguide-body td:first-child { text-align: left; }
+  .product-single__nac-soldout { text-align: center; }
+  .product-single__soldout-btn {
+    width: 100%; background: #0a0a0a; color: #f5f4f0; border: none; border-radius: 2px;
+    padding: 17px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.55; cursor: not-allowed;
+  }
+  .product-single__notify-link {
+    display: inline-block; margin-top: 14px;
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: #0a0a0a;
+    border-bottom: 1px solid #0a0a0a; padding-bottom: 3px;
+  }
+  .product-single__notify-link:hover { color: #b8975a; border-bottom-color: #b8975a; }
+{%- endstyle -%}

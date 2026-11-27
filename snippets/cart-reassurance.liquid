@@ -1,7 +1,8 @@
 {%- comment -%}
-  Shared cart trust signals. Used on cart page and cart drawer.
+  Shared trust signals — cart, drawer, and PDP under ATC.
+  Optional: context = 'product' for left-aligned buy-box layout.
 {%- endcomment -%}
-<ul class="cart__reassurance" role="list">
+<ul class="cart__reassurance{% if context == 'product' %} cart__reassurance--product{% endif %}" role="list">
   <li>{{ 'cart.general.reassurance_shipping' | t }}</li>
   <li>{{ 'cart.general.reassurance_returns' | t }}</li>
   <li>{{ 'cart.general.reassurance_secure' | t }}</li>
@@ -37,6 +38,14 @@
     margin-top: -3.5px;
     border-radius: 50%;
     background: #B8975A;
+  }
+  .cart__reassurance--product {
+    justify-content: flex-start;
+    gap: 8px 18px;
+    margin-top: 12px;
+    padding-top: 12px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
   }
   .drawer__footer .cart__reassurance {
     margin-top: 12px;
