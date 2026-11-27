@@ -19,103 +19,10 @@
         "kicker": "Refined in Paris",
         "title": "No Apologies",
         "lede": "An oversized cut. A quiet presence. A standard without compromise.",
-        "cta1_label": "Discover the collection",
+        "cta1_label": "Enter the Club",
         "cta1_link": "shopify://collections/no-apologies-club",
-        "cta2_label": "See the piece",
-        "cta2_link": "shopify://products/oversized-heavyweight-hoodie-official-drop-paris"
-      }
-    },
-    "maison_pieces": {
-      "type": "maison-featured-pieces",
-      "blocks": {
-        "piece_tee": {
-          "type": "piece",
-          "settings": {
-            "product": "unisex-organic-oversized-high-neck-t-shirt",
-            "image": "shopify://shop_images/01_tee_fullbody_64eb16ef-c9f2-4ef1-baad-0be998b0c2e4.png",
-            "title": "No Apologies Tee",
-            "caption": "Heavy cotton. Straight cut.",
-            "link": ""
-          }
-        },
-        "piece_hoodie": {
-          "type": "piece",
-          "settings": {
-            "product": "fredjo-classic-hoodie",
-            "image": "shopify://shop_images/02_hoodie_fullbody.png",
-            "title": "No Apologies  Hoodie",
-            "caption": "Dropped shoulder. Dense weight.",
-            "link": ""
-          }
-        },
-        "piece_uniform": {
-          "type": "piece",
-          "settings": {
-            "product": "the-uniform-1",
-            "image": "shopify://shop_images/03_sweatpants_crop.png",
-            "title": "The Uniform",
-            "caption": "Hoodie and sweatpants. One silhouette.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "piece_tee",
-        "piece_hoodie",
-        "piece_uniform"
-      ],
-      "settings": {
-        "translate": true,
-        "kicker": "Selection",
-        "title": "Signature pieces",
-        "cta_label": "The full house",
-        "cta_link": "shopify://collections/all",
-        "show_price": false
-      }
-    },
-    "maison_univers": {
-      "type": "maison-univers",
-      "blocks": {
-        "chapter_essentials": {
-          "type": "chapter",
-          "settings": {
-            "collection": "hoodies",
-            "image": "shopify://shop_images/fredjo-no-apologies-club-crewneck-black-face-porte.jpg",
-            "title": "Silhouette",
-            "subtitle": "Hoodies. Tees. Pants.",
-            "link": "shopify://collections/all"
-          }
-        },
-        "chapter_editions": {
-          "type": "chapter",
-          "settings": {
-            "collection": "headwear",
-            "image": "shopify://shop_images/fredjo-no-apologies-club-beanie-black-porte-homme.jpg",
-            "title": "Headwear",
-            "subtitle": "Caps. Beanies.",
-            "link": ""
-          }
-        },
-        "chapter_archive": {
-          "type": "chapter",
-          "settings": {
-            "collection": "jackets",
-            "image": "shopify://shop_images/fredjo-bomber-porte-homme.jpg",
-            "title": "Outerwear",
-            "subtitle": "Bomber. Packable.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "chapter_essentials",
-        "chapter_editions",
-        "chapter_archive"
-      ],
-      "settings": {
-        "translate": true,
-        "kicker": "Universe",
-        "title": "One house. One standard."
+        "cta2_label": "",
+        "cta2_link": ""
       }
     },
     "maison_matiere": {
@@ -302,12 +209,25 @@
         "top_padding": true,
         "bottom_padding": true
       }
+    },
+    "home_shop_path": {
+      "type": "home-shop-path",
+      "settings": {
+        "translate": true,
+        "kicker": "No Apologies Club",
+        "title": "The capsule",
+        "lede": "Four pieces. One path.",
+        "collection": "no-apologies-club",
+        "product_limit": 4,
+        "show_price": true,
+        "cta_label": "Enter the Club",
+        "cta_link": "shopify://collections/no-apologies-club"
+      }
     }
   },
   "order": [
     "maison_hero",
-    "maison_pieces",
-    "maison_univers",
+    "home_shop_path",
     "maison_matiere",
     "community_gallery_9Hp9VP",
     "newsletter_aR3r98"
