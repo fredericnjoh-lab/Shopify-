@@ -57,7 +57,6 @@
       "blocks": {
         "msg-1": {
           "type": "message",
-          "disabled": true,
           "settings": {
             "text": "United by Attitude. Divided by Nothing.",
             "link": "shopify://collections/no-apologies-club"
