@@ -77,6 +77,13 @@
             "link": "shopify://pages/about"
           }
         },
+        "message_t3LL9F": {
+          "type": "message",
+          "settings": {
+            "text": "United by Attitude. Divided by Nothing.",
+            "link": ""
+          }
+        },
         "msg-4": {
           "type": "message",
           "settings": {
@@ -89,6 +96,7 @@
         "msg-1",
         "msg-2",
         "msg-3",
+        "message_t3LL9F",
         "msg-4"
       ],
       "settings": {
